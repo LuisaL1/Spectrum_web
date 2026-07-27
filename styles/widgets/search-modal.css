@@ -30,6 +30,10 @@
   max-width: 560px;
 }
 
+.search-inline {
+  width: 100%;
+}
+
 .search-input-row {
   display: flex;
   align-items: center;

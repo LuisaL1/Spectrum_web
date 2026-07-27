@@ -5,7 +5,7 @@ import Link from "next/link";
 import { SearchIcon, CloseIcon, ArrowRightIcon } from "../icons";
 import { search } from "@/lib/search-index";
 
-export default function SearchModal() {
+export default function SearchModal({ inline = false }) {
   const [open, setOpen] = useState(false);
   const [query, setQuery] = useState("");
   const inputRef = useRef(null);
@@ -18,26 +18,68 @@ export default function SearchModal() {
   }
 
   useEffect(() => {
-    if (!open) return undefined;
+    if (inline || !open) return undefined;
     function handleKeydown(event) {
       if (event.key === "Escape") close();
     }
     document.addEventListener("keydown", handleKeydown);
     return () => document.removeEventListener("keydown", handleKeydown);
-  }, [open]);
+  }, [inline, open]);
 
   useEffect(() => {
-    if (open) inputRef.current?.focus();
-  }, [open]);
+    if (!inline && open) inputRef.current?.focus();
+  }, [inline, open]);
 
   useEffect(() => {
-    if (!open) return undefined;
+    if (inline || !open) return undefined;
     const previousOverflow = document.body.style.overflow;
     document.body.style.overflow = "hidden";
     return () => {
       document.body.style.overflow = previousOverflow;
     };
-  }, [open]);
+  }, [inline, open]);
+
+  if (inline) {
+    return (
+      <div className="search-inline">
+        <div className="search-input-row">
+          <SearchIcon size={17} />
+          <input
+            type="text"
+            value={query}
+            onChange={(event) => setQuery(event.target.value)}
+            placeholder="Buscar soluciones, equipo, blog..."
+            autoComplete="off"
+          />
+        </div>
+
+        {query.trim() && (
+          <div className="search-results">
+            {results.length === 0 ? (
+              <p className="search-empty">
+                No encontramos resultados para &quot;{query}&quot;.
+              </p>
+            ) : (
+              results.map((result) => (
+                <Link
+                  key={result.href}
+                  href={result.href}
+                  className="search-result"
+                  onClick={() => setQuery("")}
+                >
+                  <div>
+                    <strong>{result.title}</strong>
+                    <small>{result.description}</small>
+                  </div>
+                  <ArrowRightIcon size={14} />
+                </Link>
+              ))
+            )}
+          </div>
+        )}
+      </div>
+    );
+  }
 
   return (
     <>

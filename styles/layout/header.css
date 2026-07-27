@@ -25,8 +25,7 @@ header.main-nav {
   position: sticky;
   top: 0;
   z-index: 50;
-  background: rgba(2, 2, 2, 0.92);
-  backdrop-filter: blur(8px);
+  background: var(--color-black);
   border-bottom: 1px solid rgba(255, 255, 255, 0.08);
 }
 
@@ -84,6 +83,18 @@ nav.primary ul {
   display: flex;
   align-items: center;
   gap: 18px;
+}
+
+.nav-cta .btn-primary {
+  white-space: nowrap;
+}
+
+.nav-mobile-cta {
+  display: none;
+}
+
+.nav-mobile-utilities {
+  display: none;
 }
 
 .mobile-toggle {

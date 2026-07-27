@@ -53,6 +53,13 @@ export default function Header() {
   }, []);
 
   useEffect(() => {
+    document.body.style.overflow = menuOpen ? "hidden" : "";
+    return () => {
+      document.body.style.overflow = "";
+    };
+  }, [menuOpen]);
+
+  useEffect(() => {
     if (!("IntersectionObserver" in window)) return undefined;
 
     const sections = document.querySelectorAll("main section[id]");
@@ -91,6 +98,9 @@ export default function Header() {
             id="menu-principal"
             aria-label="Principal"
           >
+            <div className="nav-mobile-utilities">
+              <SearchModal inline />
+            </div>
             <ul>
               <li
                 className={`nav-item${openDropdown === "nosotros" ? " dropdown-open" : ""}`}
@@ -235,6 +245,15 @@ export default function Header() {
                 </li>
               ))}
             </ul>
+            <a
+              href="https://soporte.spectrumt.co"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="btn btn-primary nav-mobile-cta"
+              onClick={closeMenu}
+            >
+              Mesa de ayuda
+            </a>
           </nav>
 
           <div className="nav-cta">

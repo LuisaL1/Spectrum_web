@@ -127,7 +127,7 @@ export default function ChatWidget() {
           onClick={() => setOpen(true)}
         >
           <ChatIcon size={18} />
-          Preguntar a la IA
+          <span className="chat-toggle-label">Preguntar a la IA</span>
         </button>
       )}
     </div>

@@ -1,0 +1,42 @@
+{
+  "name": "spectrum-web",
+  "version": "0.1.0",
+  "description": "Sitio web corporativo de Spectrum (infraestructura tecnologica y ciberseguridad), construido con React y Next.js.",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint",
+    "format": "prettier --write \"**/*.{js,jsx,css,md}\"",
+    "test": "vitest run",
+    "test:watch": "vitest"
+  },
+  "engines": {
+    "node": ">=18.18.0"
+  },
+  "dependencies": {
+    "next": "^15.1.0",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0"
+  },
+  "devDependencies": {
+    "@testing-library/jest-dom": "^7.0.0",
+    "@testing-library/react": "^16.3.2",
+    "@vitejs/plugin-react": "^6.0.4",
+    "eslint": "^9.17.0",
+    "eslint-config-next": "^15.1.0",
+    "jsdom": "^30.0.0",
+    "prettier": "^3.4.2",
+    "vite": "^8.1.5",
+    "vitest": "^4.1.10"
+  },
+  "overrides": {
+    "postcss": "^8.5.23",
+    "sharp": "^0.35.3",
+    "brace-expansion": "^5.0.8"
+  },
+  "allowScripts": {
+    "unrs-resolver@1.12.2": true
+  }
+}

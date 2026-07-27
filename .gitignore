@@ -1,0 +1,14 @@
+node_modules/
+.DS_Store
+Thumbs.db
+dist/
+*.log
+.vscode/*
+!.vscode/extensions.json
+.next/
+out/
+.env*.local
+
+# Archivo pesado (>100MB), supera el limite de GitHub. Copiar manualmente
+# a public/recursos/portafolio/ al clonar el repo en otra maquina.
+public/recursos/portafolio/

@@ -9,6 +9,18 @@
     font-size: 38px;
   }
 
+  .hero-content {
+    padding-left: 48px;
+  }
+
+  .article-wrap {
+    padding-top: 110px;
+  }
+
+  .article-doc h1 {
+    font-size: 30px;
+  }
+
   .pillars {
     grid-template-columns: 1fr;
   }
@@ -54,18 +66,56 @@
     display: block;
   }
 
+  .nav-cta .btn-primary {
+    display: none;
+  }
+
+  .nav-cta .icon-btn {
+    display: none;
+  }
+
+  .nav-mobile-utilities {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    width: 100%;
+    padding-bottom: 16px;
+    margin-bottom: 4px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  }
+
+  .main-nav .logo,
+  .main-nav .nav-cta {
+    margin-left: 0;
+    margin-right: 0;
+  }
+
+  .nav-cta {
+    gap: 12px;
+  }
+
   nav.primary.is-open {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    position: absolute;
-    top: 100%;
+    position: fixed;
+    top: var(--nav-height);
     left: 0;
     right: 0;
+    bottom: 0;
+    height: calc(100vh - var(--nav-height));
+    overflow-y: auto;
+    z-index: 40;
     background: var(--color-black);
     border-bottom: 1px solid rgba(255, 255, 255, 0.08);
     padding: 20px 32px 28px;
     gap: 20px;
+  }
+
+  nav.primary.is-open .nav-mobile-cta {
+    display: flex;
+    justify-content: center;
+    width: 100%;
   }
 
   nav.primary.is-open ul {
@@ -90,15 +140,85 @@
     padding: 4px 0 8px 16px;
     margin: 0;
     min-width: 0;
+    width: 100%;
     display: none;
   }
 
   nav.primary.is-open .nav-item.dropdown-open .dropdown {
     display: flex;
+    flex-direction: column;
+    gap: 2px;
+  }
+
+  nav.primary.is-open .dropdown a {
+    width: 100%;
+    padding: 12px 8px;
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+  }
+
+  nav.primary.is-open .dropdown a:first-child {
+    border-top: none;
   }
 }
 
 @media (max-width: 560px) {
+  section {
+    padding: 64px 0;
+  }
+
+  .section-head h2 {
+    font-size: 26px;
+  }
+
+  .hero-content {
+    padding-left: 24px;
+    padding-right: 24px;
+  }
+
+  .hero h1 {
+    font-size: 30px;
+  }
+
+  .hero p.lead {
+    font-size: 15.5px;
+  }
+
+  .case-visual {
+    padding: 32px;
+  }
+
+  .case-visual h3 {
+    font-size: 21px;
+  }
+
+  .solution-hero h1 {
+    font-size: 28px;
+  }
+
+  .solution-tagline {
+    font-size: 17px;
+  }
+
+  .article-wrap {
+    padding-top: 100px;
+  }
+
+  .article-doc h1 {
+    font-size: 25px;
+  }
+
+  .article-lead {
+    font-size: 16px;
+  }
+
+  .legal-doc h1 {
+    font-size: 26px;
+  }
+
+  .culture-banner p {
+    font-size: 22px;
+  }
+
   .units-track .unit-card {
     flex-basis: 230px;
   }
@@ -133,6 +253,17 @@
   .chat-widget {
     right: 16px;
     bottom: 16px;
+  }
+
+  .chat-toggle {
+    width: 52px;
+    height: 52px;
+    padding: 0;
+    justify-content: center;
+  }
+
+  .chat-toggle-label {
+    display: none;
   }
 
   .chat-panel {

@@ -16,12 +16,27 @@
   height: 150px;
   background: linear-gradient(135deg, var(--color-graphite), var(--color-black));
   position: relative;
+  overflow: hidden;
+}
+
+.blog-thumb-bg {
+  z-index: 0;
+  object-fit: cover;
+}
+
+.blog-thumb::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background: linear-gradient(180deg, rgba(2, 2, 2, 0.05) 0%, rgba(2, 2, 2, 0.55) 100%);
 }
 
 .blog-thumb span {
   position: absolute;
   bottom: 12px;
   left: 16px;
+  z-index: 2;
   font-size: 10.5px;
   text-transform: uppercase;
   letter-spacing: 0.06em;

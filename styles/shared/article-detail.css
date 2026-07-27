@@ -1,0 +1,90 @@
+/*
+  shared/article-detail.css
+  Layout de contenido largo (titulo + cuerpo por bloques), usado por
+  app/blog/[slug]/page.js (articulos tecnicos) y
+  app/novedades/[slug]/page.js (noticias de la empresa).
+*/
+
+.article-wrap {
+  max-width: 760px;
+  padding-top: 130px;
+  padding-bottom: 40px;
+}
+
+.article-back {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 13px;
+  font-weight: var(--fw-semibold);
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+  color: var(--color-gray-500);
+  margin-bottom: 28px;
+}
+
+.article-back:hover {
+  color: var(--color-black);
+}
+
+.article-back-icon {
+  transform: rotate(180deg);
+}
+
+.article-doc h1 {
+  font-size: 36px;
+  line-height: 1.18;
+  text-transform: none;
+  margin: 4px 0 14px;
+  max-width: 680px;
+}
+
+.article-meta {
+  font-size: 13px;
+  color: var(--color-gray-500);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  font-weight: var(--fw-semibold);
+  padding-bottom: 20px;
+  margin-bottom: 20px;
+  border-bottom: 1px solid var(--color-gray-light);
+}
+
+.article-lead {
+  font-size: 19px;
+  line-height: 1.65;
+  color: var(--color-gray-700);
+  text-transform: none;
+  font-weight: var(--fw-medium);
+  margin-bottom: 32px;
+}
+
+.article-image {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  margin-bottom: 36px;
+  box-shadow: 0 18px 40px rgba(2, 2, 2, 0.14);
+}
+
+.article-image img {
+  object-fit: cover;
+}
+
+.article-doc h2 {
+  font-size: 21px;
+  text-transform: none;
+  letter-spacing: 0;
+  margin: 40px 0 14px;
+}
+
+.article-doc p {
+  font-size: 16px;
+  line-height: 1.8;
+  color: var(--color-gray-700);
+  text-transform: none;
+  font-weight: var(--fw-regular);
+  margin-bottom: 18px;
+}

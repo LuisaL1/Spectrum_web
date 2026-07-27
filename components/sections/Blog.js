@@ -1,30 +1,7 @@
 import Link from "next/link";
+import Image from "next/image";
 import { ArrowRightIcon } from "../icons";
-
-export const posts = [
-  {
-    category: "Ciberseguridad",
-    date: "Julio 2026",
-    title:
-      "5 señales de que su red necesita una auditoría de vulnerabilidades",
-    excerpt:
-      "Del acceso lento a alertas que nadie revisa: estas son las señales que indican que su infraestructura necesita una evaluación de vulnerabilidades antes de que se convierta en un incidente.",
-  },
-  {
-    category: "Infraestructura",
-    date: "Junio 2026",
-    title: "Hiperconvergencia: qué es y por qué su empresa la necesita",
-    excerpt:
-      "Consolidar cómputo, almacenamiento y virtualización en una sola plataforma reduce costos y puntos de falla. Así funciona la hiperconvergencia en la práctica.",
-  },
-  {
-    category: "Conectividad",
-    date: "Junio 2026",
-    title: "SD-WAN: cómo conectar sus sedes sin perder seguridad",
-    excerpt:
-      "Conectar múltiples sedes no debería significar sacrificar seguridad ni desempeño. Explicamos cómo SD-WAN resuelve ambos frentes a la vez.",
-  },
-]; 
+import { articles } from "@/data/articles";
 
 export default function Blog() {
   return (
@@ -39,17 +16,26 @@ export default function Blog() {
           </p>
         </div>
         <div className="blog-grid">
-          {posts.map((post) => (
-            <article className="blog-card" key={post.title}>
+          {articles.map((article) => (
+            <article className="blog-card" key={article.slug}>
               <div className="blog-thumb">
-                <span>{post.category}</span>
+                {article.bg && (
+                  <Image
+                    src={article.bg}
+                    alt=""
+                    fill
+                    sizes="(max-width: 900px) 100vw, 33vw"
+                    className="blog-thumb-bg"
+                  />
+                )}
+                <span>{article.category}</span>
               </div>
               <div className="blog-body">
-                <p className="date">{post.date}</p>
-                <h3>{post.title}</h3>
-                <a className="more" href="#">
+                <p className="date">{article.date}</p>
+                <h3>{article.title}</h3>
+                <Link className="more" href={`/blog/${article.slug}`}>
                   Leer artículo <ArrowRightIcon size={13} />
-                </a>
+                </Link>
               </div>
             </article>
           ))}

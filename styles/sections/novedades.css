@@ -1,7 +1,8 @@
 /*
   sections/novedades.css
-  Estilos exclusivos de components/sections/Novedades
-  (pagina de Novedades: destacado + lista editorial).
+  Layout "destacado + lista editorial", usado por
+  components/sections/Novedades (noticias de la empresa) y
+  components/sections/BlogArchive (indice de articulos tecnicos en /blog).
 */
 
 .news-featured {

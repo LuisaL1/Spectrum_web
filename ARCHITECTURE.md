@@ -25,10 +25,10 @@ CAPA DE DATOS                data/
 | --- | --- | --- |
 | Presentación | `app/` | Rutas del App Router y *route handlers* (`app/api/*/route.js`), que actúan como controladores: reciben la petición HTTP y orquestan las capas inferiores. |
 | Presentación | `components/layout/` | Chrome de la aplicación compartido entre páginas: `Header`, `Footer`. |
-| Presentación | `components/sections/` | Bloques de contenido de una página (`Hero`, `Ecosystem`, `Solutions`, `Cases`, `Partners`, `Blog`, `Team`, `Culture`, `Novedades`, `DataPolicy`, `CtaStrip`). |
+| Presentación | `components/sections/` | Bloques de contenido de una página (`Hero`, `Ecosystem`, `Solutions`, `Cases`, `Partners`, `Blog`, `BlogArchive`, `Team`, `Culture`, `Novedades`, `DataPolicy`, `CtaStrip`). |
 | Presentación | `components/widgets/` | Piezas interactivas autocontenidas (`ChatWidget`, `SearchModal`, `InfoRequestForm`). |
 | Negocio | `lib/` | Reglas y lógica de la aplicación: `assistant-prompt.js` (arma el prompt del asistente IA), `search-index.js` (lógica de búsqueda), `email-templates.js` (genera el HTML de los correos), `validation.js` (valida y normaliza las entradas del formulario de contacto). |
-| Datos | `data/` | Contenido y datos estáticos: `solutions-data.js`, `knowledge-base.json`. |
+| Datos | `data/` | Contenido y datos estáticos: `solutions-data.js`, `knowledge-base.json`, `articles.js` (artículos técnicos del blog, `/blog/[slug]`), `news.js` (noticias de la empresa, `/novedades/[slug]`). |
 
 `styles/` es transversal a la capa de presentación y refleja la misma subdivisión (`shared/`, `layout/`, `sections/`, `widgets/`), para que cada archivo CSS tenga un dueño claro.
 

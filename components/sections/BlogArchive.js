@@ -1,19 +1,21 @@
 import Link from "next/link";
 import Image from "next/image";
-import { news } from "@/data/news";
+import { articles } from "@/data/articles";
 import { ArrowRightIcon } from "../icons";
 
-export default function Novedades() {
-  const [featured, ...rest] = news;
+export default function BlogArchive() {
+  const [featured, ...rest] = articles;
 
   return (
-    <section className="on-light" id="novedades">
+    <section className="on-light" id="blog-archive">
       <div className="wrap">
         <div className="section-head">
           <p className="eyebrow">Spectrum</p>
-          <h2>Novedades</h2>
+          <h2>Blog</h2>
           <p className="gray-500">
-            Noticias, alianzas, certificaciones y eventos de Spectrum.
+            Artículos técnicos sobre infraestructura, ciberseguridad,
+            conectividad e inteligencia artificial escritos por nuestro
+            equipo.
           </p>
         </div>
 
@@ -35,8 +37,8 @@ export default function Novedades() {
               <p className="date">Destacado &middot; {featured.date}</p>
               <h3>{featured.title}</h3>
               <p className="news-excerpt">{featured.excerpt}</p>
-              <Link className="more" href={`/novedades/${featured.slug}`}>
-                Leer más <ArrowRightIcon size={13} />
+              <Link className="more" href={`/blog/${featured.slug}`}>
+                Leer artículo <ArrowRightIcon size={13} />
               </Link>
             </div>
           </article>
@@ -44,25 +46,25 @@ export default function Novedades() {
 
         {rest.length > 0 && (
           <div className="news-list">
-            {rest.map((item) => (
-              <article className="news-list-item" key={item.slug}>
+            {rest.map((article) => (
+              <article className="news-list-item" key={article.slug}>
                 <div className="blog-thumb news-list-thumb">
-                  {item.bg && (
+                  {article.bg && (
                     <Image
-                      src={item.bg}
+                      src={article.bg}
                       alt=""
                       fill
                       sizes="160px"
                       className="blog-thumb-bg"
                     />
                   )}
-                  <span>{item.category}</span>
+                  <span>{article.category}</span>
                 </div>
                 <div className="news-list-body blog-body">
-                  <p className="date">{item.date}</p>
-                  <h3>{item.title}</h3>
-                  <Link className="more" href={`/novedades/${item.slug}`}>
-                    Leer más <ArrowRightIcon size={13} />
+                  <p className="date">{article.date}</p>
+                  <h3>{article.title}</h3>
+                  <Link className="more" href={`/blog/${article.slug}`}>
+                    Leer artículo <ArrowRightIcon size={13} />
                   </Link>
                 </div>
               </article>

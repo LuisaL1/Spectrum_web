@@ -1,0 +1,74 @@
+/*
+  sections/blog.css
+  Estilos exclusivos de components/sections/Blog.
+  Nota: components/sections/Novedades reutiliza la clase .blog-thumb
+  definida aqui para sus miniaturas.
+*/
+
+.blog-card {
+  background: var(--color-white);
+  color: var(--color-black);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+}
+
+.blog-thumb {
+  height: 150px;
+  background: linear-gradient(135deg, var(--color-graphite), var(--color-black));
+  position: relative;
+}
+
+.blog-thumb span {
+  position: absolute;
+  bottom: 12px;
+  left: 16px;
+  font-size: 10.5px;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--color-white);
+  background: var(--color-red);
+  padding: 5px 10px;
+  border-radius: 20px;
+  font-weight: 700;
+}
+
+.blog-body {
+  padding: 22px;
+}
+
+.blog-body .date {
+  font-size: 11.5px;
+  color: var(--color-gray-500);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  margin-bottom: 10px;
+  font-weight: var(--fw-semibold);
+}
+
+.blog-body h3 {
+  font-size: 15.5px;
+  text-transform: none;
+  letter-spacing: 0;
+  margin-bottom: 10px;
+  line-height: 1.35;
+}
+
+.blog-body .more {
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--color-red);
+}
+
+.blog-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+
+.blog-footer-cta {
+  display: flex;
+  justify-content: center;
+  margin-top: 40px;
+}

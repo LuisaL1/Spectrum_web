@@ -1,0 +1,19 @@
+/*
+  shared/brand.css
+  Marca/logotipo: usado por components/layout/Header y
+  components/layout/Footer.
+*/
+
+.logo {
+  display: flex;
+  align-items: center;
+}
+
+.logo-img {
+  height: 50px;
+  width: auto;
+}
+
+.footer-brand .logo-img {
+  height: 60px;
+}

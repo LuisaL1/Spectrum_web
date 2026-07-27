@@ -1,0 +1,24 @@
+/*
+  sections/culture.css
+  Estilos exclusivos de components/sections/Culture.
+*/
+
+.culture-banner {
+  background: var(--color-graphite);
+  text-align: center;
+}
+
+.culture-banner p {
+  max-width: 780px;
+  margin: 0 auto;
+  font-size: 30px;
+  font-weight: var(--fw-bold);
+  text-transform: uppercase;
+  letter-spacing: -0.01em;
+  line-height: 1.3;
+  color: var(--color-white);
+}
+
+.culture-banner p span {
+  color: var(--color-red);
+}

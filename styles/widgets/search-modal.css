@@ -1,0 +1,104 @@
+/*
+  widgets/search-modal.css
+  Estilos exclusivos de components/widgets/SearchModal.
+  Usa la estructura de modal compartida en styles/shared/modal.css.
+*/
+
+.icon-btn {
+  appearance: none;
+  width: 34px;
+  height: 34px;
+  background: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 13px;
+  font-family: inherit;
+  color: var(--color-gray-300);
+  cursor: pointer;
+  transition: border-color var(--transition-base), color var(--transition-base);
+}
+
+.icon-btn:hover {
+  border-color: var(--color-red);
+  color: var(--color-white);
+}
+
+.search-card {
+  max-width: 560px;
+}
+
+.search-input-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.14);
+  padding-bottom: 18px;
+  margin-bottom: 6px;
+  color: var(--color-gray-500);
+}
+
+.search-input-row input {
+  flex: 1;
+  background: transparent;
+  border: none;
+  outline: none;
+  color: var(--color-white);
+  font-size: 17px;
+  font-family: inherit;
+}
+
+.search-input-row input::placeholder {
+  color: var(--color-gray-500);
+}
+
+.search-results {
+  padding-top: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.search-result {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 12px 8px;
+  border-radius: 8px;
+  color: var(--color-white);
+  transition: background var(--transition-base);
+}
+
+.search-result:hover {
+  background: rgba(255, 255, 255, 0.06);
+}
+
+.search-result strong {
+  display: block;
+  font-size: 14.5px;
+  font-weight: var(--fw-semibold);
+}
+
+.search-result small {
+  display: block;
+  margin-top: 3px;
+  font-size: 12.5px;
+  color: var(--color-gray-500);
+  font-weight: var(--fw-regular);
+}
+
+.search-result svg {
+  flex-shrink: 0;
+  color: var(--color-gray-500);
+}
+
+.search-empty {
+  font-size: 13.5px;
+  color: var(--color-gray-500);
+  text-transform: none;
+  font-weight: var(--fw-regular);
+  padding: 10px 8px;
+}

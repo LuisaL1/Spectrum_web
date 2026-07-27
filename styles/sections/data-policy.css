@@ -1,0 +1,58 @@
+/*
+  sections/data-policy.css
+  Estilos exclusivos de components/sections/DataPolicy
+  (documento legal: politica de tratamiento de datos, etc.).
+*/
+
+.legal-doc .legal-wrap {
+  max-width: 760px;
+}
+
+.legal-doc h1 {
+  font-size: 32px;
+  line-height: 1.2;
+  text-transform: none;
+  margin: 4px 0 10px;
+}
+
+.legal-doc .legal-meta {
+  font-size: 13px;
+  color: var(--color-gray-500);
+  text-transform: none;
+  font-weight: var(--fw-regular);
+  margin-bottom: 32px;
+}
+
+.legal-doc h2 {
+  font-size: 20px;
+  text-transform: none;
+  letter-spacing: 0;
+  margin: 40px 0 14px;
+}
+
+.legal-doc p {
+  font-size: 15px;
+  line-height: 1.7;
+  color: var(--color-gray-700);
+  text-transform: none;
+  font-weight: var(--fw-regular);
+  margin-bottom: 16px;
+}
+
+.legal-doc ul {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin: 0 0 16px 22px;
+}
+
+.legal-doc li {
+  font-size: 15px;
+  line-height: 1.6;
+  color: var(--color-gray-700);
+}
+
+.legal-doc strong {
+  color: var(--color-black);
+  font-weight: var(--fw-semibold);
+}

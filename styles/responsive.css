@@ -1,0 +1,141 @@
+/*
+  responsive.css
+  Breakpoints y adaptaciones para tablet y mobile.
+  Se carga al final para que sus reglas tengan prioridad en cascada.
+*/
+
+@media (max-width: 980px) {
+  .hero h1 {
+    font-size: 38px;
+  }
+
+  .pillars {
+    grid-template-columns: 1fr;
+  }
+
+  .cases {
+    grid-template-columns: 1fr;
+  }
+
+  .capability-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .value-list {
+    grid-template-columns: 1fr;
+  }
+
+  .solution-hero h1 {
+    font-size: 34px;
+  }
+
+  .blog-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .news-featured {
+    grid-template-columns: 1fr;
+  }
+
+  .news-featured-thumb {
+    height: 220px;
+  }
+
+  .footer-top {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  /* Navegacion: el menu principal pasa a panel desplegable */
+  nav.primary {
+    display: none;
+  }
+
+  .mobile-toggle {
+    display: block;
+  }
+
+  nav.primary.is-open {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background: var(--color-black);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    padding: 20px 32px 28px;
+    gap: 20px;
+  }
+
+  nav.primary.is-open ul {
+    flex-direction: column;
+    gap: 4px;
+    width: 100%;
+  }
+
+  nav.primary.is-open .nav-item {
+    flex-direction: column;
+    align-items: flex-start;
+    width: 100%;
+  }
+
+  nav.primary.is-open .dropdown {
+    position: static;
+    transform: none;
+    opacity: 1;
+    visibility: visible;
+    background: transparent;
+    border: none;
+    padding: 4px 0 8px 16px;
+    margin: 0;
+    min-width: 0;
+    display: none;
+  }
+
+  nav.primary.is-open .nav-item.dropdown-open .dropdown {
+    display: flex;
+  }
+}
+
+@media (max-width: 560px) {
+  .units-track .unit-card {
+    flex-basis: 230px;
+  }
+
+  .footer-top {
+    grid-template-columns: 1fr;
+  }
+
+  .cta-strip .wrap {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .news-list-item {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .news-list-thumb {
+    width: 100%;
+    height: 160px;
+  }
+
+  .info-form .form-row {
+    grid-template-columns: 1fr;
+  }
+
+  .modal-card {
+    padding: 30px 24px;
+  }
+
+  .chat-widget {
+    right: 16px;
+    bottom: 16px;
+  }
+
+  .chat-panel {
+    width: 100vw;
+  }
+}

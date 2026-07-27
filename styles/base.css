@@ -1,0 +1,131 @@
+/*
+  base.css
+  Reset minimo, tipografia base y utilidades genericas.
+  No contiene estilos de componentes ni de layout de seccion.
+*/
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  * {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+body {
+  font-family: var(--font-family-base);
+  background: var(--color-black);
+  color: var(--color-white);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+img,
+svg {
+  display: block;
+  max-width: 100%;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+ul {
+  list-style: none;
+}
+
+h1,
+h2,
+h3 {
+  font-weight: var(--fw-bold);
+  letter-spacing: -0.01em;
+  text-transform: uppercase;
+}
+
+.wrap {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0 32px;
+}
+
+/* Enlace de salto para usuarios de teclado / lectores de pantalla */
+.skip-link {
+  position: absolute;
+  left: -9999px;
+  top: 0;
+  z-index: 100;
+  background: var(--color-red);
+  color: var(--color-white);
+  padding: 12px 20px;
+  font-size: 13px;
+  font-weight: var(--fw-semibold);
+  text-transform: uppercase;
+}
+
+.skip-link:focus {
+  left: 16px;
+  top: 16px;
+}
+
+section {
+  padding: 96px 0;
+}
+
+section[id] {
+  scroll-margin-top: 96px;
+}
+
+.section-head {
+  max-width: 640px;
+  margin: 0 auto 56px;
+  text-align: center;
+}
+
+.section-head .eyebrow {
+  justify-content: center;
+}
+
+.section-head .eyebrow::before {
+  display: none;
+}
+
+.section-head h2 {
+  font-size: 34px;
+  line-height: 1.15;
+  margin-bottom: 14px;
+}
+
+.section-head p {
+  font-size: 16px;
+  color: var(--color-gray-500);
+  text-transform: none;
+  font-weight: var(--fw-regular);
+}
+
+.on-light {
+  background: var(--color-white);
+  color: var(--color-black);
+}
+
+.on-light .gray-500 {
+  color: var(--color-gray-700);
+}
+
+.on-graphite {
+  background: var(--color-graphite);
+}

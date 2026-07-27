@@ -1,0 +1,43 @@
+/*
+  sections/cta-strip.css
+  Estilos exclusivos de components/sections/CtaStrip.
+*/
+
+.cta-strip {
+  background: var(--color-red);
+  padding: 70px 0;
+}
+
+.cta-strip .wrap {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 40px;
+  flex-wrap: wrap;
+}
+
+.cta-strip h2 {
+  font-size: 30px;
+  max-width: 480px;
+  line-height: 1.2;
+}
+
+.cta-strip-actions {
+  display: flex;
+  gap: 14px;
+  flex-wrap: wrap;
+}
+
+.cta-strip .btn-outline {
+  border-color: rgba(2, 2, 2, 0.4);
+  color: var(--color-black);
+}
+
+.cta-strip .btn-outline:hover {
+  background: rgba(2, 2, 2, 0.08);
+}
+
+.cta-strip .btn-solid {
+  background: var(--color-black);
+  color: var(--color-white);
+}

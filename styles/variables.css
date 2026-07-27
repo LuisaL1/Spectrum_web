@@ -1,0 +1,46 @@
+/*
+  variables.css
+  Design tokens de la marca Spectrum, extraidos del Brand Book 2026.
+  Unica fuente de verdad para color, tipografia y layout: no se deben
+  usar valores hex/px sueltos en el resto de los archivos CSS.
+*/
+
+:root {
+  /* Color - paleta principal */
+  --color-black: #020202;
+  --color-graphite: #1f1f1f;
+  --color-red: #fa0001;
+  --color-red-hover: #d10000;
+  --color-white: #ffffff;
+
+  /* Color - paleta secundaria (grises) */
+  --color-gray-100: #f4f4f4;
+  --color-gray-light: #eaeaea;
+  --color-gray-300: #d6d8dd;
+  --color-gray-500: #959ba5;
+  --color-gray-700: #444a54;
+
+  /* Tipografia */
+  --font-family-base: var(--font-montserrat), sans-serif;
+  --fw-regular: 400;
+  --fw-medium: 500;
+  --fw-semibold: 600;
+  --fw-bold: 800;
+
+  /* Layout */
+  --max-width: 1200px;
+  --nav-height: 76px;
+  --radius-sm: 10px;
+  --radius-md: 4px;
+
+  /* Espaciado */
+  --space-xs: 8px;
+  --space-sm: 16px;
+  --space-md: 24px;
+  --space-lg: 40px;
+  --space-xl: 64px;
+
+  /* Transiciones */
+  --transition-fast: 0.18s ease;
+  --transition-base: 0.2s ease;
+}

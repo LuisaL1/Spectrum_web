@@ -1,0 +1,129 @@
+/*
+  sections/solutions.css
+  Estilos exclusivos de components/sections/Solutions
+  (tarjetas de unidad de negocio + carrusel).
+*/
+
+.unit-card {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  background-color: var(--color-black);
+  background-size: cover;
+  background-position: center;
+  color: var(--color-white);
+  border-radius: var(--radius-md);
+  padding: 30px 26px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  border-top: 3px solid var(--color-red);
+}
+
+.unit-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  background: linear-gradient(
+    180deg,
+    rgba(2, 2, 2, 0.55) 0%,
+    rgba(2, 2, 2, 0.8) 55%,
+    rgba(2, 2, 2, 0.94) 100%
+  );
+}
+
+.unit-card > * {
+  position: relative;
+  z-index: 1;
+}
+
+.unit-icon {
+  width: 46px;
+  height: 46px;
+  border-radius: 50%;
+  background: var(--color-gray-100);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+  color: var(--color-red);
+  font-weight: var(--fw-bold);
+}
+
+.unit-card h3 {
+  font-size: 16px;
+  text-transform: none;
+  letter-spacing: 0;
+  color: var(--color-white);
+}
+
+.unit-card p {
+  font-size: 13.5px;
+  color: var(--color-gray-300);
+  text-transform: none;
+  font-weight: var(--fw-regular);
+  flex: 1;
+}
+
+.unit-card .more {
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--color-red);
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+/* Carrusel de unidades de negocio */
+.units-carousel-controls {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.units-track {
+  display: flex;
+  gap: 20px;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.units-track::-webkit-scrollbar {
+  display: none;
+}
+
+.units-track .unit-card {
+  flex: 0 0 260px;
+  scroll-snap-align: start;
+}
+
+.carousel-btn {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  background: transparent;
+  color: var(--color-white);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: border-color var(--transition-base), background var(--transition-base);
+}
+
+.carousel-btn:hover:not(:disabled) {
+  border-color: var(--color-red);
+  background: var(--color-red);
+}
+
+.carousel-btn:disabled {
+  opacity: 0.35;
+  cursor: default;
+}

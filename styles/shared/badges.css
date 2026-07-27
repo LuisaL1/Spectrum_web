@@ -1,0 +1,42 @@
+/*
+  shared/badges.css
+  Etiquetas reutilizadas por multiples secciones: el "eyebrow"
+  (texto pequeno destacado) y los tags de solucion.
+*/
+
+.eyebrow {
+  font-size: 13px;
+  font-weight: var(--fw-semibold);
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--color-red);
+  margin-bottom: 14px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.eyebrow::before {
+  content: "";
+  width: 24px;
+  height: 2px;
+  background: var(--color-red);
+  display: inline-block;
+}
+
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin: 2px 0 6px;
+}
+
+.tags span {
+  font-size: 10.5px;
+  background: rgba(255, 255, 255, 0.14);
+  color: var(--color-gray-100);
+  padding: 4px 8px;
+  border-radius: 20px;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+}

@@ -1,0 +1,105 @@
+/*
+  sections/cases.css
+  Estilos exclusivos de components/sections/Cases.
+*/
+
+.cases {
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: 0;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+}
+
+.case-visual {
+  background: linear-gradient(155deg, var(--color-graphite), var(--color-black));
+  padding: 56px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  min-height: 380px;
+  position: relative;
+}
+
+.case-visual .case-logo {
+  position: absolute;
+  top: 40px;
+  right: 40px;
+  width: 100px;
+  height: 100px;
+  object-fit: contain;
+}
+
+.case-tag {
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--color-red);
+  font-weight: 700;
+  margin-bottom: 14px;
+}
+
+.case-visual h3 {
+  font-size: 26px;
+  text-transform: none;
+  letter-spacing: 0;
+  margin-bottom: 10px;
+  max-width: 420px;
+}
+
+.case-visual p {
+  font-size: 14px;
+  color: var(--color-gray-300);
+  text-transform: none;
+  font-weight: var(--fw-regular);
+  max-width: 420px;
+}
+
+.case-side {
+  background: var(--color-graphite);
+  padding: 36px;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.case-item {
+  padding: 16px 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  cursor: pointer;
+  background: none;
+  border-left: none;
+  border-right: none;
+  border-top: none;
+  text-align: left;
+  color: inherit;
+  font-family: inherit;
+  width: 100%;
+}
+
+.case-item:last-child {
+  border-bottom: none;
+}
+
+.case-item b {
+  display: block;
+  font-size: 14px;
+  margin-bottom: 4px;
+}
+
+.case-item span {
+  font-size: 12.5px;
+  color: var(--color-gray-500);
+  text-transform: none;
+  font-weight: var(--fw-regular);
+}
+
+.case-item.active b {
+  color: var(--color-red);
+}
+
+.case-item:focus-visible {
+  outline: 2px solid var(--color-red);
+  outline-offset: 2px;
+}

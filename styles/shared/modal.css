@@ -1,0 +1,73 @@
+/*
+  shared/modal.css
+  Estructura base de modal, usada por
+  components/widgets/InfoRequestForm y components/widgets/SearchModal.
+*/
+
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(2, 2, 2, 0.75);
+  backdrop-filter: blur(4px);
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  z-index: 200;
+  padding: 110px 20px 40px;
+  overflow-y: auto;
+}
+
+.search-overlay {
+  align-items: flex-start;
+  padding: 110px 20px 20px;
+  overflow-y: visible;
+}
+
+.modal-card {
+  position: relative;
+  background: var(--color-graphite);
+  border-radius: 20px;
+  border-top: 3px solid var(--color-red);
+  width: 100%;
+  max-width: 620px;
+  margin-bottom: 40px;
+  padding: 34px 36px;
+}
+
+.modal-close {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  background: transparent;
+  color: var(--color-white);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: border-color var(--transition-base), background var(--transition-base);
+}
+
+.modal-close:hover {
+  border-color: var(--color-red);
+  background: var(--color-red);
+}
+
+.modal-card h3 {
+  font-size: 22px;
+  text-transform: none;
+  letter-spacing: 0;
+  color: var(--color-white);
+  margin-bottom: 16px;
+}
+
+.modal-success p {
+  font-size: 14px;
+  color: var(--color-gray-300);
+  text-transform: none;
+  font-weight: var(--fw-regular);
+  margin-bottom: 22px;
+}

@@ -1,0 +1,125 @@
+/*
+  sections/solution-detail.css
+  Estilos exclusivos de la pagina app/soluciones/[slug]/page.js
+  (hero de solucion individual, capacidades, valores).
+*/
+
+.solution-hero {
+  position: relative;
+  overflow: hidden;
+  padding: 130px 0 110px;
+}
+
+.solution-hero-bg {
+  z-index: 0;
+  object-fit: cover;
+}
+
+.solution-hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background: linear-gradient(
+      180deg,
+      transparent 45%,
+      var(--color-black) 100%
+    ),
+    linear-gradient(
+      90deg,
+      rgba(2, 2, 2, 0.92) 0%,
+      rgba(2, 2, 2, 0.82) 55%,
+      rgba(2, 2, 2, 0.65) 100%
+    );
+}
+
+.solution-hero > .wrap {
+  position: relative;
+  z-index: 2;
+}
+
+.solution-hero h1 {
+  font-size: 44px;
+  line-height: 1.1;
+  max-width: 680px;
+  margin-bottom: 18px;
+}
+
+.solution-tagline {
+  font-size: 20px;
+  font-weight: var(--fw-semibold);
+  color: var(--color-white);
+  text-transform: none;
+  max-width: 640px;
+  margin-bottom: 18px;
+}
+
+.solution-intro {
+  font-size: 15.5px;
+  color: var(--color-gray-300);
+  text-transform: none;
+  font-weight: var(--fw-regular);
+  max-width: 600px;
+  margin-bottom: 24px;
+}
+
+.solution-hero .tags {
+  margin-bottom: 32px;
+}
+
+.solution-hero-actions {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+/* Alcance de la solucion (capacidades) */
+.capability-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+}
+
+.capability-item {
+  background: var(--color-graphite);
+  border-left: 3px solid var(--color-red);
+  border-radius: var(--radius-md);
+  padding: 26px 28px;
+}
+
+.capability-item h3 {
+  font-size: 16px;
+  text-transform: none;
+  letter-spacing: 0;
+  color: var(--color-white);
+  margin-bottom: 10px;
+}
+
+.capability-item p {
+  font-size: 14px;
+  color: var(--color-gray-300);
+  text-transform: none;
+  font-weight: var(--fw-regular);
+}
+
+/* Lista de valores/beneficios */
+.value-list {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+
+.value-list li {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  font-size: 15px;
+  font-weight: var(--fw-medium);
+  color: var(--color-white);
+}
+
+.value-list li svg {
+  flex-shrink: 0;
+  margin-top: 2px;
+  color: var(--color-red);
+}

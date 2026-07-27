@@ -20,6 +20,20 @@
   justify-content: flex-end;
   min-height: 380px;
   position: relative;
+  overflow: hidden;
+}
+
+.case-visual-bg {
+  z-index: 0;
+  object-fit: cover;
+}
+
+.case-visual::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background: linear-gradient(180deg, rgba(2, 2, 2, 0.15) 0%, rgba(2, 2, 2, 0.88) 100%);
 }
 
 .case-visual .case-logo {
@@ -29,6 +43,12 @@
   width: 100px;
   height: 100px;
   object-fit: contain;
+  z-index: 2;
+}
+
+.case-content {
+  position: relative;
+  z-index: 2;
 }
 
 .case-tag {

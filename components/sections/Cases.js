@@ -10,6 +10,7 @@ const cases = [
     tag: "Sector gobierno",
     title: "Alcaldia de Yumbo fortalece su continuidad operativa",
     desc: "Implementacion de infraestructura de respaldo y monitoreo continuo para garantizar disponibilidad de servicios criticos a la ciudadania.",
+    bg: "/assets/images/alcaldiayumbo.webp",
   },
   {
     name: "Universidad Militar Nueva Granada",
@@ -18,6 +19,7 @@ const cases = [
     title:
       "Redes empresariales de alto rendimiento para un campus mas seguro",
     desc: "Rediseno de la arquitectura de red y despliegue de controles de ciberseguridad perimetral en todas las sedes.",
+    bg: "/assets/images/universidad-militar.jpg",
   },
   {
     name: "Redeban",
@@ -25,6 +27,7 @@ const cases = [
     tag: "Sector financiero",
     title: "Infraestructura critica con disponibilidad garantizada",
     desc: "Monitoreo NOC y SOC 24/7 sobre la infraestructura que soporta transacciones a nivel nacional.",
+    bg: "/assets/images/redeban.webp",
   },
   {
     name: "Armada de Colombia",
@@ -32,6 +35,7 @@ const cases = [
     tag: "Sector defensa",
     title: "Proteccion perimetral de infraestructura estrategica",
     desc: "Implementacion de sistemas de deteccion y prevencion de intrusos para blindar el perimetro digital.",
+    bg: "/assets/images/armada-colombia.jpeg",
   },
 ];
 
@@ -52,6 +56,16 @@ export default function Cases() {
         </div>
         <div className="cases">
           <div className="case-visual">
+            {active.bg && (
+              <Image
+                key={active.bg}
+                src={active.bg}
+                alt=""
+                fill
+                sizes="(max-width: 900px) 100vw, 55vw"
+                className="case-visual-bg"
+              />
+            )}
             <Image
               className="case-logo"
               src="/logos/logo-spectrum-favicon.png"
@@ -60,9 +74,11 @@ export default function Cases() {
               width={512}
               height={512}
             />
-            <p className="case-tag">{active.tag}</p>
-            <h3>{active.title}</h3>
-            <p>{active.desc}</p>
+            <div className="case-content">
+              <p className="case-tag">{active.tag}</p>
+              <h3>{active.title}</h3>
+              <p>{active.desc}</p>
+            </div>
           </div>
           <div
             className="case-side"

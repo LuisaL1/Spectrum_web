@@ -1,0 +1,153 @@
+{
+  "empresa": {
+    "nombre": "Spectrum Technology S.A.S",
+    "eslogan": "Future Powered",
+    "descripcion": "Spectrum es un ecosistema tecnológico de infraestructura, ciberseguridad, conectividad e inteligencia artificial para organizaciones públicas y privadas en Colombia.",
+    "pais": "Colombia",
+    "historia": "Spectrum nació con el propósito de resolver un problema recurrente en el mercado: las empresas contratan infraestructura, seguridad y conectividad como servicios aislados, de proveedores distintos, sin que nadie sea responsable del ecosistema completo. Spectrum integra estas capas en una sola arquitectura, con un equipo que diseña, implementa y opera la solución de principio a fin.",
+    "mision": "Conectar, proteger y potenciar la operación tecnológica de nuestros clientes mediante un ecosistema integrado de infraestructura, ciberseguridad, conectividad e inteligencia artificial, con un servicio cercano y responsable de principio a fin.",
+    "vision": "Ser el aliado tecnológico de referencia en Latinoamérica para organizaciones públicas y privadas que buscan modernizar su infraestructura sin sacrificar seguridad ni continuidad operativa."
+  },
+  "navegacion_sitio": [
+    {
+      "seccion": "Inicio",
+      "ruta": "/",
+      "descripcion": "Página principal: hero, ecosistema de soluciones, unidades de negocio, casos de éxito, aliados tecnológicos y blog."
+    },
+    {
+      "seccion": "Soluciones",
+      "ruta": "/soluciones/{slug}",
+      "descripcion": "Página de detalle de cada solución. Slugs disponibles: infraestructura-tecnologica, ciberseguridad, conectividad, servicios-de-ti, inteligencia-artificial."
+    },
+    {
+      "seccion": "Equipo",
+      "ruta": "/equipo",
+      "descripcion": "Presenta al equipo directivo de Spectrum y la sección de cultura organizacional."
+    },
+    {
+      "seccion": "Novedades",
+      "ruta": "/novedades",
+      "descripcion": "Blog y noticias de Spectrum: artículo destacado y listado de publicaciones técnicas."
+    },
+    {
+      "seccion": "Política de tratamiento de datos",
+      "ruta": "/politica-de-datos",
+      "descripcion": "Documento legal con la política de tratamiento de datos personales."
+    }
+  ],
+  "servicios": [
+    {
+      "nombre": "Infraestructura tecnológica",
+      "resumen": "Servidores, redes, almacenamiento, nube y virtualización para una base sólida y de alta disponibilidad.",
+      "capacidades": [
+        "Hiperconvergencia (HCI): consolidación de cómputo, almacenamiento y virtualización en una sola plataforma.",
+        "Centro de Operaciones de Red (NOC): monitoreo 24/7 con respuesta proactiva.",
+        "Nube híbrida y privada: migración y gestión de cargas de trabajo.",
+        "Continuidad y respaldo: backup y recuperación ante desastres (DRP)."
+      ],
+      "pagina": "/soluciones/infraestructura-tecnologica"
+    },
+    {
+      "nombre": "Ciberseguridad",
+      "resumen": "Protección de plataformas, aplicaciones y redes frente a amenazas digitales con monitoreo constante.",
+      "capacidades": [
+        "SOC 24/7: monitoreo y respuesta a incidentes en tiempo real.",
+        "Hacking ético / Pentesting: pruebas de intrusión controladas.",
+        "Seguridad de aplicaciones y APIs.",
+        "Gestión de vulnerabilidades."
+      ],
+      "pagina": "/soluciones/ciberseguridad"
+    },
+    {
+      "nombre": "Conectividad",
+      "resumen": "Redes cableadas, inalámbricas y SD-WAN diseñadas para una comunicación cifrada de extremo a extremo.",
+      "capacidades": [
+        "SD-WAN: enrutamiento inteligente del tráfico entre sedes.",
+        "Redes LAN/WAN empresariales.",
+        "Switching de Data Center.",
+        "Conectividad cifrada de extremo a extremo."
+      ],
+      "pagina": "/soluciones/conectividad"
+    },
+    {
+      "nombre": "Servicios de TI",
+      "resumen": "Consultoría, leasing, mesa de ayuda y mantenimiento para optimizar procesos y reducir costos operativos.",
+      "capacidades": [
+        "Leasing tecnológico.",
+        "Mesa de ayuda con soporte técnico especializado.",
+        "Consultoría estratégica.",
+        "Mantenimiento preventivo y correctivo."
+      ],
+      "pagina": "/soluciones/servicios-de-ti"
+    },
+    {
+      "nombre": "Inteligencia Artificial",
+      "resumen": "Soluciones de IA aplicada para automatizar procesos, anticipar riesgos y potenciar la toma de decisiones.",
+      "capacidades": [
+        "Automatización inteligente de procesos.",
+        "Analítica predictiva.",
+        "IA aplicada a ciberseguridad (detección de anomalías).",
+        "Integración con la infraestructura existente del cliente."
+      ],
+      "pagina": "/soluciones/inteligencia-artificial"
+    }
+  ],
+  "aliados_tecnologicos": [
+    "Adobe", "Aranda Software", "Aruba (HPE)", "Check Point", "Pentera", "AWS",
+    "CrowdStrike", "ExaGrid", "Extreme Networks", "KELA", "Fortinet",
+    "Google Cloud", "Hitachi", "HP", "IBM", "Lenovo", "Microsoft", "Nutanix",
+    "TrendAI (Trend Micro)", "Veeam", "SentinelOne", "Broadcom", "Zoho"
+  ],
+  "equipo_directivo": [
+    { "nombre": "Cristian Valencia", "cargo": "Chief Executive Officer" },
+    { "nombre": "Edison Hernandez", "cargo": "Chief Commercial Officer" },
+    { "nombre": "Sneyder Martinez", "cargo": "Project and Operations Engineering Manager" },
+    { "nombre": "Paola Molano", "cargo": "Legal Advisor and Procurement Specialist" }
+  ],
+  "casos_de_exito": [
+    {
+      "cliente": "Alcaldía de Yumbo",
+      "sector": "Sector gobierno",
+      "resumen": "Implementación de infraestructura de respaldo y monitoreo continuo (NOC) para garantizar disponibilidad de servicios críticos a la ciudadanía."
+    },
+    {
+      "cliente": "Universidad Militar Nueva Granada",
+      "sector": "Sector educación",
+      "resumen": "Rediseño de la arquitectura de red y despliegue de controles de ciberseguridad perimetral en todas las sedes."
+    },
+    {
+      "cliente": "Redeban",
+      "sector": "Sector financiero",
+      "resumen": "Monitoreo NOC y SOC 24/7 sobre la infraestructura que soporta transacciones a nivel nacional."
+    },
+    {
+      "cliente": "Armada de Colombia",
+      "sector": "Sector defensa",
+      "resumen": "Implementación de sistemas de detección y prevención de intrusos para blindar el perímetro digital."
+    }
+  ],
+  "preguntas_frecuentes": [
+    {
+      "pregunta": "¿Qué servicios ofrece Spectrum?",
+      "respuesta": "Spectrum ofrece cinco frentes complementarios: Infraestructura tecnológica, Ciberseguridad, Conectividad, Servicios de TI e Inteligencia Artificial, integrados como un solo ecosistema."
+    },
+    {
+      "pregunta": "¿Cómo solicito una cotización o asesoría?",
+      "respuesta": "Puedes escribir a contacto@spectrumt.co, usar la Mesa de Ayuda en soporte.spectrumt.co, o llenar el formulario de 'Solicitar información' en cualquiera de las páginas de soluciones del sitio."
+    },
+    {
+      "pregunta": "¿En qué país opera Spectrum?",
+      "respuesta": "Spectrum opera en Colombia, atendiendo organizaciones públicas y privadas."
+    },
+    {
+      "pregunta": "¿Spectrum tiene experiencia con entidades del sector público?",
+      "respuesta": "Sí. Entre nuestros casos de éxito están la Alcaldía de Yumbo, la Universidad Militar Nueva Granada y la Armada de Colombia."
+    }
+  ],
+  "contacto": {
+    "correo": "contacto@spectrumt.co",
+    "mesa_de_ayuda": "https://soporte.spectrumt.co",
+    "sitio_web": "https://spectrumt.co",
+    "pais": "Colombia"
+  }
+}

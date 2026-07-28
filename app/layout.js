@@ -1,5 +1,6 @@
 import { Montserrat } from "next/font/google";
 import ChatWidget from "@/components/widgets/ChatWidget";
+import { getSiteUrl } from "@/lib/site-url";
 
 import "@/styles/variables.css";
 import "@/styles/base.css";
@@ -40,14 +41,23 @@ const montserrat = Montserrat({
 });
 
 export const metadata = {
+  metadataBase: new URL(getSiteUrl()),
   title: "Spectrum | Future Powered",
   description:
-    "Spectrum es un ecosistema tecnologico de infraestructura, ciberseguridad y conectividad para organizaciones publicas y privadas.",
+    "Spectrum es un ecosistema tecnológico de infraestructura, ciberseguridad y conectividad para organizaciones públicas y privadas.",
   openGraph: {
     title: "Spectrum | Future Powered",
     description:
-      "Infraestructura tecnologica y ciberseguridad disenadas como un mismo ecosistema.",
+      "Infraestructura tecnológica y ciberseguridad diseñadas como un mismo ecosistema.",
     type: "website",
+    images: [
+      {
+        url: "/logos/logo-spectrum.png",
+        width: 2172,
+        height: 724,
+        alt: "Spectrum",
+      },
+    ],
   },
   icons: {
     icon: "/logos/logo-spectrum-favicon.png",

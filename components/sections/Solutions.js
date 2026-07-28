@@ -61,7 +61,7 @@ export default function Solutions() {
                 ))}
               </div>
               <Link className="more" href={`/soluciones/${unit.slug}`}>
-                Conocer mas <ArrowRightIcon size={13} />
+                Conocer más <ArrowRightIcon size={13} />
               </Link>
             </article>
           ))}

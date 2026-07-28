@@ -1,17 +1,17 @@
 const pillars = [
   {
     num: "01",
-    title: "Conexion inteligente",
+    title: "Conexión inteligente",
     desc: "Integramos infraestructura, redes y seguridad en una sola arquitectura, eliminando puntos ciegos entre sistemas.",
   },
   {
     num: "02",
     title: "Seguridad integral",
-    desc: "Monitoreo continuo, analisis de vulnerabilidades y respuesta a incidentes para una operacion siempre protegida.",
+    desc: "Monitoreo continuo, análisis de vulnerabilidades y respuesta a incidentes para una operación siempre protegida.",
   },
   {
     num: "03",
-    title: "Evolucion constante",
+    title: "Evolución constante",
     desc: "Arquitecturas modulares y escalables, listas para incorporar nuevos servicios sin perder coherencia ni control.",
   },
 ];

@@ -56,7 +56,7 @@ export async function POST(request) {
     );
   }
 
-  // 1. Notificacion interna para el equipo comercial.
+  // 1. Notificación interna para el equipo comercial.
   const notificationEmail = await sendEmail(apiKey, {
     sender: { email: senderEmail, name: senderName },
     to: [{ email: notifyTo }],
@@ -82,7 +82,7 @@ export async function POST(request) {
     );
   }
 
-  // 2. Correo de confirmacion al usuario, con contenido especifico del servicio.
+  // 2. Correo de confirmación al usuario, con contenido específico del servicio.
   const solution = servicioSlug ? getSolutionBySlug(servicioSlug) : null;
   if (solution) {
     const confirmationEmail = await sendEmail(apiKey, {
@@ -94,11 +94,11 @@ export async function POST(request) {
 
     if (!confirmationEmail.ok) {
       const detail = await confirmationEmail.text();
-      console.error("Error enviando confirmacion al usuario:", detail);
+      console.error("Error enviando confirmación al usuario:", detail);
     }
   }
 
-  // 3. Alta/actualizacion del contacto en las listas de Brevo.
+  // 3. Alta/actualización del contacto en las listas de Brevo.
   const listIds = [];
   if (infoListId) listIds.push(Number(infoListId));
   if (promos && boletinListId) listIds.push(Number(boletinListId));

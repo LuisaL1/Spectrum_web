@@ -5,36 +5,36 @@ import Image from "next/image";
 
 const cases = [
   {
-    name: "Alcaldia de Yumbo",
+    name: "Alcaldía de Yumbo",
     meta: "Continuidad de negocio & NOC",
     tag: "Sector gobierno",
-    title: "Alcaldia de Yumbo fortalece su continuidad operativa",
-    desc: "Implementacion de infraestructura de respaldo y monitoreo continuo para garantizar disponibilidad de servicios criticos a la ciudadania.",
+    title: "Alcaldía de Yumbo fortalece su continuidad operativa",
+    desc: "Implementación de infraestructura de respaldo y monitoreo continuo para garantizar disponibilidad de servicios críticos a la ciudadanía.",
     bg: "/assets/images/alcaldiayumbo.webp",
   },
   {
     name: "Universidad Militar Nueva Granada",
     meta: "Redes empresariales & ciberseguridad",
-    tag: "Sector educacion",
+    tag: "Sector educación",
     title:
-      "Redes empresariales de alto rendimiento para un campus mas seguro",
-    desc: "Rediseno de la arquitectura de red y despliegue de controles de ciberseguridad perimetral en todas las sedes.",
+      "Redes empresariales de alto rendimiento para un campus más seguro",
+    desc: "Rediseño de la arquitectura de red y despliegue de controles de ciberseguridad perimetral en todas las sedes.",
     bg: "/assets/images/universidad-militar.jpg",
   },
   {
     name: "Redeban",
-    meta: "Infraestructura critica & SOC",
+    meta: "Infraestructura crítica & SOC",
     tag: "Sector financiero",
-    title: "Infraestructura critica con disponibilidad garantizada",
+    title: "Infraestructura crítica con disponibilidad garantizada",
     desc: "Monitoreo NOC y SOC 24/7 sobre la infraestructura que soporta transacciones a nivel nacional.",
     bg: "/assets/images/redeban.webp",
   },
   {
     name: "Armada de Colombia",
-    meta: "Proteccion perimetral",
+    meta: "Protección perimetral",
     tag: "Sector defensa",
-    title: "Proteccion perimetral de infraestructura estrategica",
-    desc: "Implementacion de sistemas de deteccion y prevencion de intrusos para blindar el perimetro digital.",
+    title: "Protección perimetral de infraestructura estratégica",
+    desc: "Implementación de sistemas de detección y prevención de intrusos para blindar el perímetro digital.",
     bg: "/assets/images/armada-colombia.jpeg",
   },
 ];
@@ -48,10 +48,10 @@ export default function Cases() {
       <div className="wrap">
         <div className="section-head">
           <p className="eyebrow">Casos de éxito</p>
-          <h2>Organizaciones que confian en Spectrum</h2>
+          <h2>Organizaciones que confían en Spectrum</h2>
           <p>
-            Entidades publicas y privadas que fortalecieron su
-            infraestructura y seguridad con nuestro acompanamiento.
+            Entidades públicas y privadas que fortalecieron su
+            infraestructura y seguridad con nuestro acompañamiento.
           </p>
         </div>
         <div className="cases">
@@ -83,7 +83,7 @@ export default function Cases() {
           <div
             className="case-side"
             role="group"
-            aria-label="Selector de casos de exito"
+            aria-label="Selector de casos de éxito"
           >
             {cases.map((item, index) => (
               <button

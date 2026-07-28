@@ -16,14 +16,6 @@
   gap: 10px;
 }
 
-.eyebrow::before {
-  content: "";
-  width: 24px;
-  height: 2px;
-  background: var(--color-red);
-  display: inline-block;
-}
-
 .tags {
   display: flex;
   flex-wrap: wrap;

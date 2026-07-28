@@ -3,7 +3,7 @@ import { render, screen } from "@testing-library/react";
 import CtaStrip from "./CtaStrip";
 
 describe("CtaStrip", () => {
-  it("renderiza el titular y los dos enlaces de accion", () => {
+  it("renderiza el titular y los dos enlaces de acción", () => {
     render(<CtaStrip />);
 
     expect(

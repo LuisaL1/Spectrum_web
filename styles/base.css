@@ -100,10 +100,6 @@ section[id] {
   justify-content: center;
 }
 
-.section-head .eyebrow::before {
-  display: none;
-}
-
 .section-head h2 {
   font-size: 34px;
   line-height: 1.15;

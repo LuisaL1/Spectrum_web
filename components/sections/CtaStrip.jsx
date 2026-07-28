@@ -1,3 +1,8 @@
+import { WhatsAppIcon } from "@/components/icons";
+
+// TODO: reemplazar por el numero real de WhatsApp de Spectrum.
+const WHATSAPP_NUMBER = "573000000000";
+
 export default function CtaStrip() {
   return (
     <section className="cta-strip" id="contacto">
@@ -12,7 +17,13 @@ export default function CtaStrip() {
           >
             Mesa de ayuda
           </a>
-          <a href="#" className="btn btn-outline">
+          <a
+            href={`https://wa.me/${WHATSAPP_NUMBER}`}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="btn btn-whatsapp"
+          >
+            <WhatsAppIcon size={16} />
             Escribir por WhatsApp
           </a>
         </div>

@@ -93,6 +93,14 @@ export function SendIcon(props) {
   );
 }
 
+export function WhatsAppIcon(props) {
+  return (
+    <IconBase {...props}>
+      <path d="M6 18l-1.2 3.6L8.6 20.4A8.5 8.5 0 1 0 4.5 16.2z" />
+    </IconBase>
+  );
+}
+
 export function LinkedInIcon(props) {
   return (
     <IconBase {...props}>

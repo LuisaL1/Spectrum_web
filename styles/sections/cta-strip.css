@@ -28,15 +28,6 @@
   flex-wrap: wrap;
 }
 
-.cta-strip .btn-outline {
-  border-color: rgba(2, 2, 2, 0.4);
-  color: var(--color-black);
-}
-
-.cta-strip .btn-outline:hover {
-  background: rgba(2, 2, 2, 0.08);
-}
-
 .cta-strip .btn-solid {
   background: var(--color-black);
   color: var(--color-white);

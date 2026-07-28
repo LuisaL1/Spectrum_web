@@ -40,3 +40,14 @@
   border-color: var(--color-white);
   background: rgba(255, 255, 255, 0.06);
 }
+
+.btn-whatsapp {
+  background: transparent;
+  border-color: rgba(255, 255, 255, 0.6);
+  color: var(--color-white);
+}
+
+.btn-whatsapp:hover {
+  border-color: var(--color-white);
+  background: rgba(255, 255, 255, 0.1);
+}

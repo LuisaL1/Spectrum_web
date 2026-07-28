@@ -61,10 +61,20 @@ export default function Footer() {
               <a href="#" aria-label="LinkedIn">
                 <LinkedInIcon size={15} />
               </a>
-              <a href="#" aria-label="Instagram">
+              <a
+                href="https://www.instagram.com/spectrumt.co"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Instagram"
+              >
                 <InstagramIcon size={15} />
               </a>
-              <a href="#" aria-label="Facebook">
+              <a
+                href="https://www.facebook.com/people/Spectrum-Technology/61592216507649/"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Facebook"
+              >
                 <FacebookIcon size={15} />
               </a>
             </div>

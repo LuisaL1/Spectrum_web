@@ -3,7 +3,7 @@
 import { useEffect, useRef, useState } from "react";
 import { ChatIcon, CloseIcon, SendIcon } from "../icons";
 
-const GREETING = "Hola, soy Nexus. ¿En qué puedo ayudarte?";
+const GREETING = "Hola, soy SpectrIA. ¿En qué puedo ayudarte?";
 
 export default function ChatWidget() {
   const [open, setOpen] = useState(false);
@@ -69,10 +69,10 @@ export default function ChatWidget() {
   return (
     <div className="chat-widget">
       {open && (
-        <div className="chat-panel" role="dialog" aria-label="Nexus, asistente de Spectrum">
+        <div className="chat-panel" role="dialog" aria-label="SpectrIA, asistente de Spectrum">
           <div className="chat-panel-header">
             <div>
-              <strong>Nexus</strong>
+              <strong>SpectrIA</strong>
             </div>
             <button
               type="button"

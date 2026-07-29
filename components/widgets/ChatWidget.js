@@ -16,7 +16,9 @@ export default function ChatWidget() {
   const inputRef = useRef(null);
 
   useEffect(() => {
-    if (open) inputRef.current?.focus();
+    if (!open) return;
+    const isTouchDevice = window.matchMedia("(pointer: coarse)").matches;
+    if (!isTouchDevice) inputRef.current?.focus();
   }, [open]);
 
   useEffect(() => {

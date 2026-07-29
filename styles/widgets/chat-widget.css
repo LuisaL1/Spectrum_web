@@ -191,7 +191,7 @@
   border-radius: 20px;
   padding: 9px 16px;
   color: var(--color-white);
-  font-size: 13.5px;
+  font-size: 16px;
   font-family: inherit;
   transition: border-color var(--transition-base);
 }

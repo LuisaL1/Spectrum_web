@@ -26,6 +26,12 @@
 .case-visual-bg {
   z-index: 0;
   object-fit: cover;
+  opacity: 0;
+  transition: opacity var(--transition-base);
+}
+
+.case-visual-bg.is-active {
+  opacity: 1;
 }
 
 .case-visual::before {

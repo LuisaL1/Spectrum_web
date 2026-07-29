@@ -56,15 +56,21 @@ export default function Cases() {
         </div>
         <div className="cases">
           <div className="case-visual">
-            {active.bg && (
-              <Image
-                key={active.bg}
-                src={active.bg}
-                alt=""
-                fill
-                sizes="(max-width: 900px) 100vw, 55vw"
-                className="case-visual-bg"
-              />
+            {cases.map(
+              (item, index) =>
+                item.bg && (
+                  <Image
+                    key={item.bg}
+                    src={item.bg}
+                    alt=""
+                    fill
+                    sizes="(max-width: 900px) 100vw, 55vw"
+                    priority={index === 0}
+                    className={`case-visual-bg${
+                      index === activeIndex ? " is-active" : ""
+                    }`}
+                  />
+                )
             )}
             <Image
               className="case-logo"

@@ -5,36 +5,34 @@ import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { CaretIcon, CloseIcon, MenuIcon } from "../icons";
-import { solutions } from "@/data/solutions-data";
+import {
+  solutionsMenuColumns,
+  nosotrosMenuColumns,
+  blogMenuColumns,
+} from "@/data/nav-menu-data";
 import SearchModal from "../widgets/SearchModal";
 
-const nosotrosLinks = [
-  {
-    title: "Nosotros",
-    desc: "Quienes somos y que nos mueve",
-    href: "/#nosotros",
-  },
-  {
-    title: "Nuestro equipo",
-    desc: "Las personas detras de Spectrum",
-    href: "/equipo",
-  },
-];
-
-const blogLinks = [
-  {
-    title: "Blog",
-    desc: "Articulos tecnicos de nuestro equipo",
-    href: "/#blog",
-  },
-  {
-    title: "Novedades",
-    desc: "Noticias y lanzamientos de Spectrum",
-    href: "/novedades",
-  },
-];
-
 const navLinks = [{ href: "/#contacto", label: "Contacto", id: "contacto" }];
+
+function MegaMenu({ id, columns, onLinkClick }) {
+  return (
+    <div className="mega-menu" id={id}>
+      <div className="wrap mega-menu-inner">
+        {columns.map((column) => (
+          <div className="mega-menu-col" key={column.heading}>
+            <h4>{column.heading}</h4>
+            {column.items.map((item) => (
+              <Link key={`${item.href}-${item.title}`} href={item.href} onClick={onLinkClick}>
+                <strong>{item.title}</strong>
+                {item.desc && <small>{item.desc}</small>}
+              </Link>
+            ))}
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+}
 
 export default function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -42,15 +40,30 @@ export default function Header() {
   const [activeId, setActiveId] = useState(null);
   const pathname = usePathname();
 
-  const closeMenu = () => setMenuOpen(false);
+  const closeMenu = () => {
+    setMenuOpen(false);
+    setOpenDropdown(null);
+  };
 
   useEffect(() => {
     function handleKeydown(event) {
-      if (event.key === "Escape") setMenuOpen(false);
+      if (event.key === "Escape") {
+        setMenuOpen(false);
+        setOpenDropdown(null);
+      }
     }
     document.addEventListener("keydown", handleKeydown);
     return () => document.removeEventListener("keydown", handleKeydown);
   }, []);
+
+  useEffect(() => {
+    if (!openDropdown) return undefined;
+    function handleClickOutside(event) {
+      if (!event.target.closest(".nav-item")) setOpenDropdown(null);
+    }
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => document.removeEventListener("mousedown", handleClickOutside);
+  }, [openDropdown]);
 
   useEffect(() => {
     document.body.style.overflow = menuOpen ? "hidden" : "";
@@ -105,84 +118,54 @@ export default function Header() {
               <li
                 className={`nav-item${openDropdown === "nosotros" ? " dropdown-open" : ""}`}
               >
-                <div className="top-link-row">
-                  <Link
-                    className="top-link"
-                    href="/#nosotros"
-                    aria-current={
-                      activeId === "nosotros" || pathname === "/equipo"
-                        ? "true"
-                        : undefined
-                    }
-                    onClick={closeMenu}
-                  >
-                    Nosotros
-                  </Link>
-                  <button
-                    className="caret-btn"
-                    type="button"
-                    aria-expanded={openDropdown === "nosotros"}
-                    aria-controls="dropdown-nosotros"
-                    aria-label="Mostrar submenu de nosotros"
-                    onClick={() =>
-                      setOpenDropdown((open) =>
-                        open === "nosotros" ? null : "nosotros"
-                      )
-                    }
-                  >
-                    <CaretIcon className="caret" size={14} />
-                  </button>
-                </div>
-                <div className="dropdown" id="dropdown-nosotros">
-                  {nosotrosLinks.map((item) => (
-                    <Link key={item.title} href={item.href} onClick={closeMenu}>
-                      <strong>{item.title}</strong>
-                      <small>{item.desc}</small>
-                    </Link>
-                  ))}
-                </div>
+                <button
+                  className="top-link"
+                  type="button"
+                  aria-expanded={openDropdown === "nosotros"}
+                  aria-controls="dropdown-nosotros"
+                  aria-current={
+                    activeId === "nosotros" || pathname === "/equipo"
+                      ? "true"
+                      : undefined
+                  }
+                  onClick={() =>
+                    setOpenDropdown((open) =>
+                      open === "nosotros" ? null : "nosotros"
+                    )
+                  }
+                >
+                  <span className="top-link-label">Nosotros</span>
+                  <CaretIcon className="caret" size={14} />
+                </button>
+                <MegaMenu
+                  id="dropdown-nosotros"
+                  columns={nosotrosMenuColumns}
+                  onLinkClick={closeMenu}
+                />
               </li>
               <li
                 className={`nav-item${openDropdown === "soluciones" ? " dropdown-open" : ""}`}
               >
-                <div className="top-link-row">
-                  <Link
-                    className="top-link"
-                    href="/#soluciones"
-                    aria-current={
-                      activeId === "soluciones" ? "true" : undefined
-                    }
-                    onClick={closeMenu}
-                  >
-                    Soluciones
-                  </Link>
-                  <button
-                    className="caret-btn"
-                    type="button"
-                    aria-expanded={openDropdown === "soluciones"}
-                    aria-controls="dropdown-soluciones"
-                    aria-label="Mostrar submenu de soluciones"
-                    onClick={() =>
-                      setOpenDropdown((open) =>
-                        open === "soluciones" ? null : "soluciones"
-                      )
-                    }
-                  >
-                    <CaretIcon className="caret" size={14} />
-                  </button>
-                </div>
-                <div className="dropdown" id="dropdown-soluciones">
-                  {solutions.map((item) => (
-                    <Link
-                      key={item.slug}
-                      href={`/soluciones/${item.slug}`}
-                      onClick={closeMenu}
-                    >
-                      <strong>{item.title}</strong>
-                      <small>{item.desc}</small>
-                    </Link>
-                  ))}
-                </div>
+                <button
+                  className="top-link"
+                  type="button"
+                  aria-expanded={openDropdown === "soluciones"}
+                  aria-controls="dropdown-soluciones"
+                  aria-current={activeId === "soluciones" ? "true" : undefined}
+                  onClick={() =>
+                    setOpenDropdown((open) =>
+                      open === "soluciones" ? null : "soluciones"
+                    )
+                  }
+                >
+                  <span className="top-link-label">Soluciones</span>
+                  <CaretIcon className="caret" size={14} />
+                </button>
+                <MegaMenu
+                  id="dropdown-soluciones"
+                  columns={solutionsMenuColumns}
+                  onLinkClick={closeMenu}
+                />
               </li>
               <li className="nav-item" key="/#casos">
                 <Link
@@ -191,46 +174,34 @@ export default function Header() {
                   aria-current={activeId === "casos" ? "true" : undefined}
                   onClick={closeMenu}
                 >
-                  Casos de exito
+                  <span className="top-link-label">Casos de exito</span>
                 </Link>
               </li>
               <li
                 className={`nav-item${openDropdown === "blog" ? " dropdown-open" : ""}`}
               >
-                <div className="top-link-row">
-                  <Link
-                    className="top-link"
-                    href="/#blog"
-                    aria-current={
-                      activeId === "blog" || pathname === "/novedades"
-                        ? "true"
-                        : undefined
-                    }
-                    onClick={closeMenu}
-                  >
-                    Blog
-                  </Link>
-                  <button
-                    className="caret-btn"
-                    type="button"
-                    aria-expanded={openDropdown === "blog"}
-                    aria-controls="dropdown-blog"
-                    aria-label="Mostrar submenu de blog"
-                    onClick={() =>
-                      setOpenDropdown((open) => (open === "blog" ? null : "blog"))
-                    }
-                  >
-                    <CaretIcon className="caret" size={14} />
-                  </button>
-                </div>
-                <div className="dropdown" id="dropdown-blog">
-                  {blogLinks.map((item) => (
-                    <Link key={item.title} href={item.href} onClick={closeMenu}>
-                      <strong>{item.title}</strong>
-                      <small>{item.desc}</small>
-                    </Link>
-                  ))}
-                </div>
+                <button
+                  className="top-link"
+                  type="button"
+                  aria-expanded={openDropdown === "blog"}
+                  aria-controls="dropdown-blog"
+                  aria-current={
+                    activeId === "blog" || pathname === "/novedades"
+                      ? "true"
+                      : undefined
+                  }
+                  onClick={() =>
+                    setOpenDropdown((open) => (open === "blog" ? null : "blog"))
+                  }
+                >
+                  <span className="top-link-label">Blog</span>
+                  <CaretIcon className="caret" size={14} />
+                </button>
+                <MegaMenu
+                  id="dropdown-blog"
+                  columns={blogMenuColumns}
+                  onLinkClick={closeMenu}
+                />
               </li>
               {navLinks.map((link) => (
                 <li className="nav-item" key={link.href}>
@@ -240,7 +211,7 @@ export default function Header() {
                     aria-current={activeId === link.id ? "true" : undefined}
                     onClick={closeMenu}
                   >
-                    {link.label}
+                    <span className="top-link-label">{link.label}</span>
                   </Link>
                 </li>
               ))}

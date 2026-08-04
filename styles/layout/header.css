@@ -61,17 +61,22 @@ nav.primary ul {
 }
 
 .nav-item {
-  position: relative;
   display: flex;
   align-items: center;
 }
 
 .nav-item .top-link {
+  position: relative;
+  appearance: none;
+  background: none;
+  border: none;
+  font-family: inherit;
+  cursor: pointer;
   font-size: 13px;
   font-weight: var(--fw-semibold);
   letter-spacing: 0.03em;
   text-transform: uppercase;
-  padding: 8px 0;
+  padding: 8px 0 14px;
   display: flex;
   align-items: center;
   gap: 6px;
@@ -80,8 +85,32 @@ nav.primary ul {
 
 .nav-item:hover .top-link,
 .nav-item .top-link:focus-visible,
-.nav-item:has(.caret-btn:focus-visible) .top-link {
-  color: var(--color-white);
+.nav-item.dropdown-open .top-link {
+  color: var(--color-red);
+}
+
+.top-link-label {
+  position: relative;
+}
+
+.top-link-label::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -14px;
+  height: 4px;
+  background: var(--color-red);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform var(--transition-base);
+}
+
+.nav-item:hover .top-link-label::after,
+.nav-item .top-link:focus-visible .top-link-label::after,
+.nav-item.dropdown-open .top-link-label::after,
+.nav-item .top-link[aria-current="true"] .top-link-label::after {
+  transform: scaleX(1);
 }
 
 .nav-cta {
@@ -111,31 +140,51 @@ nav.primary ul {
   cursor: pointer;
 }
 
-/* Menu desplegable de navegacion */
-.dropdown {
-  position: absolute;
-  top: 100%;
-  left: 50%;
-  transform: translateX(-50%);
-  background: var(--color-graphite);
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  padding: 18px;
-  border-radius: var(--radius-md);
-  min-width: 260px;
+/* Menu desplegable de navegacion (mega-menu a lo ancho de la pagina) */
+.mega-menu {
+  position: fixed;
+  top: var(--nav-height);
+  left: 0;
+  width: 100%;
+  z-index: 45;
+  background: #eaeaea;
+  border-bottom: 1px solid rgba(2, 2, 2, 0.08);
   opacity: 0;
   visibility: hidden;
   translate: 0 8px;
   transition: all var(--transition-fast);
 }
 
-.nav-item:hover .dropdown,
-.nav-item:focus-within .dropdown {
+.nav-item.dropdown-open .mega-menu {
   opacity: 1;
   visibility: visible;
   translate: 0 0;
 }
 
-.dropdown a {
+.mega-menu-inner {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(160px, 220px));
+  gap: 48px;
+  padding-top: 40px;
+  padding-bottom: 40px;
+}
+
+.mega-menu-col {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.mega-menu-col h4 {
+  font-size: 11px;
+  font-weight: var(--fw-semibold);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--color-gray-500);
+  margin-bottom: 8px;
+}
+
+.mega-menu-col a {
   display: flex;
   flex-direction: column;
   gap: 2px;
@@ -144,19 +193,39 @@ nav.primary ul {
   font-size: 13px;
 }
 
-.dropdown a:hover,
-.dropdown a:focus-visible {
-  background: rgba(255, 255, 255, 0.05);
+.mega-menu-col a:hover,
+.mega-menu-col a:focus-visible {
+  background: rgba(2, 2, 2, 0.05);
 }
 
-.dropdown a strong {
+.mega-menu-col a strong {
+  position: relative;
+  align-self: flex-start;
   font-size: 13px;
   font-weight: var(--fw-semibold);
-  color: var(--color-white);
+  color: var(--color-black);
   text-transform: none;
 }
 
-.dropdown a small {
+.mega-menu-col a strong::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -2px;
+  height: 2px;
+  background: linear-gradient(90deg, #ff0d0d 0%, #202124 100%);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform var(--transition-base);
+}
+
+.mega-menu-col a:hover strong::after,
+.mega-menu-col a:focus-visible strong::after {
+  transform: scaleX(1);
+}
+
+.mega-menu-col a small {
   color: var(--color-gray-500);
   font-size: 12px;
   text-transform: none;
@@ -169,28 +238,10 @@ nav.primary ul {
   display: inline-block;
 }
 
-.nav-item:hover .caret,
-.nav-item:focus-within .caret {
+.nav-item.dropdown-open .caret {
   transform: rotate(180deg);
 }
 
-/* Fila enlace + boton de submenu (evita anidar <button> en <a>) */
-.top-link-row {
-  display: flex;
-  align-items: center;
-  gap: 6px;
-}
-
-.caret-btn {
-  background: none;
-  border: none;
-  color: inherit;
-  cursor: pointer;
-  padding: 2px;
-  display: flex;
-  align-items: center;
-}
-
 .nav-item .top-link[aria-current="true"] {
-  color: var(--color-white);
+  color: var(--color-red);
 }

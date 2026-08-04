@@ -58,7 +58,7 @@ export default function Team() {
             proyecto que asumimos.
           </p>
         </div>
-        <div className="team-group">
+        <div className="team-group" id="liderazgo">
           <p className="team-group-label">Liderazgo</p>
           <TeamGrid people={leaders} />
         </div>

@@ -3,6 +3,30 @@
   Estilos exclusivos de components/sections/Culture.
 */
 
+.culture-values {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 24px;
+}
+
+.culture-value {
+  background: var(--color-graphite);
+  padding: 28px 22px;
+  border-radius: var(--radius-md);
+}
+
+.culture-value h3 {
+  font-size: 16px;
+  margin-bottom: 10px;
+}
+
+.culture-value p {
+  font-size: 13.5px;
+  color: var(--color-gray-500);
+  text-transform: none;
+  font-weight: var(--fw-regular);
+}
+
 .culture-banner {
   background: var(--color-graphite);
   text-align: center;

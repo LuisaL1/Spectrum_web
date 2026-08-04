@@ -10,10 +10,11 @@
 }
 
 .logo-img {
-  height: 50px;
-  width: auto;
+  width: 260px;
+  height: auto;
 }
 
 .footer-brand .logo-img {
-  height: 60px;
+  width: 200px;
+  height: auto;
 }

@@ -48,8 +48,8 @@ export default function Footer() {
               <Image
                 src="/logos/logo-spectrum.png"
                 alt="Spectrum"
-                width={2172}
-                height={724}
+                width={837}
+                height={136}
                 className="logo-img"
               />
             </a>

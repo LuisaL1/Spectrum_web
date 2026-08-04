@@ -7,8 +7,12 @@ export default function Novedades() {
   const [featured, ...rest] = news;
 
   return (
-    <section className="on-light" id="novedades">
+    <section className="on-light pattern-bg" id="novedades">
       <div className="wrap">
+        <Link className="article-back" href="/#blog">
+          <ArrowRightIcon size={13} className="article-back-icon" />
+          Volver al home
+        </Link>
         <div className="section-head">
           <p className="eyebrow">Spectrum</p>
           <h2>Novedades</h2>

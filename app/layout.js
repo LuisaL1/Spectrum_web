@@ -10,6 +10,7 @@ import "@/styles/shared/badges.css";
 import "@/styles/shared/brand.css";
 import "@/styles/shared/modal.css";
 import "@/styles/shared/article-detail.css";
+import "@/styles/shared/pattern-bg.css";
 
 import "@/styles/layout/header.css";
 import "@/styles/layout/footer.css";

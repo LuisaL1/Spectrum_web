@@ -1,0 +1,28 @@
+/*
+  shared/pattern-bg.css
+  Fondo con el patron de marca (patron-tile.png) en baja opacidad, usado por
+  las secciones de blog, novedades y contenido tecnico (Blog, BlogArchive,
+  Novedades y las paginas de articulo individual).
+*/
+
+.pattern-bg {
+  position: relative;
+  overflow: hidden;
+}
+
+.pattern-bg::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  background-image: url("/fondos/patron-tile.png");
+  background-repeat: repeat;
+  background-size: 178px 320px;
+  opacity: 0.05;
+  pointer-events: none;
+}
+
+.pattern-bg > .wrap {
+  position: relative;
+  z-index: 1;
+}

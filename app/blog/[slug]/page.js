@@ -30,7 +30,7 @@ export default async function ArticlePage({ params }) {
     <>
       <Header />
       <main id="main-content">
-        <section className="on-light article-doc">
+        <section className="on-light pattern-bg article-doc">
           <div className="wrap article-wrap">
             <Link className="article-back" href="/blog">
               <ArrowRightIcon size={13} className="article-back-icon" />

@@ -7,7 +7,7 @@ export default function BlogArchive() {
   const [featured, ...rest] = articles;
 
   return (
-    <section className="on-light" id="blog-archive">
+    <section className="on-light pattern-bg" id="blog-archive">
       <div className="wrap">
         <div className="section-head">
           <p className="eyebrow">Spectrum</p>

@@ -5,7 +5,7 @@ import { articles } from "@/data/articles";
 
 export default function Blog() {
   return (
-    <section className="on-light" id="blog">
+    <section className="on-light pattern-bg" id="blog">
       <div className="wrap">
         <div className="section-head">
           <p className="eyebrow">Recursos</p>

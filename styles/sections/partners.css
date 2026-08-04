@@ -4,13 +4,11 @@
 */
 
 .logo-pill {
-  background: var(--color-white);
-  border-radius: 10px;
-  padding: 18px 30px;
   display: flex;
   align-items: center;
   justify-content: center;
   height: 92px;
+  padding: 0 24px;
   flex: 0 0 auto;
 }
 

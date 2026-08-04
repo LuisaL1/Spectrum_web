@@ -76,7 +76,7 @@ function LogoRow({ items, reverse }) {
 
 export default function Partners() {
   return (
-    <section id="aliados">
+    <section className="on-light" id="aliados">
       <div className="wrap">
         <div className="section-head">
           <p className="eyebrow">Aliados tecnológicos</p>

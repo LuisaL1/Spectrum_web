@@ -16,6 +16,7 @@ import "@/styles/layout/header.css";
 import "@/styles/layout/footer.css";
 
 import "@/styles/sections/hero.css";
+import "@/styles/sections/ai-spotlight.css";
 import "@/styles/sections/ecosystem.css";
 import "@/styles/sections/solutions.css";
 import "@/styles/sections/partners.css";

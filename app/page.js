@@ -1,7 +1,6 @@
 import Header from "@/components/layout/Header";
 import Hero from "@/components/sections/Hero";
 import AISpotlight from "@/components/sections/AISpotlight";
-import Ecosystem from "@/components/sections/Ecosystem";
 import Solutions from "@/components/sections/Solutions";
 import Cases from "@/components/sections/Cases";
 import Partners from "@/components/sections/Partners";
@@ -16,7 +15,6 @@ export default function Home() {
       <main id="main-content">
         <Hero />
         <AISpotlight />
-        <Ecosystem />
         <Solutions />
         <Cases />
         <Partners />

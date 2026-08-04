@@ -43,7 +43,11 @@ export const solutionsMenuColumns = [
 export const nosotrosMenuColumns = [
   {
     heading: "La empresa",
-    items: [{ title: "Quiénes somos", href: "/#nosotros" }],
+    items: [
+      { title: "Quiénes somos", href: "/nosotros" },
+      { title: "Nuestra historia", href: "/nosotros#historia" },
+      { title: "Misión y visión", href: "/nosotros#mision-vision" },
+    ],
   },
   {
     heading: "Equipo",

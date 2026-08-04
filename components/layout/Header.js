@@ -99,8 +99,8 @@ export default function Header() {
             <Image
               src="/logos/logo-spectrum.png"
               alt="Spectrum"
-              width={2172}
-              height={724}
+              width={837}
+              height={136}
               className="logo-img"
               priority
             />
@@ -124,7 +124,9 @@ export default function Header() {
                   aria-expanded={openDropdown === "nosotros"}
                   aria-controls="dropdown-nosotros"
                   aria-current={
-                    activeId === "nosotros" || pathname === "/equipo"
+                    activeId === "nosotros" ||
+                    pathname === "/equipo" ||
+                    pathname === "/nosotros"
                       ? "true"
                       : undefined
                   }

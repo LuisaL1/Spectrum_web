@@ -1,6 +1,7 @@
 "use client";
 
 import { useRef, useState } from "react";
+import Image from "next/image";
 import Link from "next/link";
 import { ArrowRightIcon } from "../icons";
 import { solutions } from "@/data/solutions-data";
@@ -39,6 +40,14 @@ export default function Solutions() {
 
   return (
     <section id="soluciones">
+      <Image
+        src="/logos/logo-spectrum-favicon.png"
+        alt=""
+        aria-hidden="true"
+        width={512}
+        height={512}
+        className="soluciones-mark"
+      />
       <div className="wrap">
         <div className="section-head">
           <p className="eyebrow">Unidades de negocio</p>

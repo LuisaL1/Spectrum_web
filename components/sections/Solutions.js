@@ -1,18 +1,41 @@
 "use client";
 
-import { useRef } from "react";
+import { useRef, useState } from "react";
 import Link from "next/link";
 import { ArrowRightIcon } from "../icons";
 import { solutions } from "@/data/solutions-data";
 
-export default function Solutions() {
-  const trackRef = useRef(null);
+const total = solutions.length;
 
-  const scroll = (direction) => {
-    const el = trackRef.current;
-    if (!el) return;
-    el.scrollBy({ left: direction * el.clientWidth * 0.8, behavior: "smooth" });
-  };
+function positionOf(index, active) {
+  const offset = (index - active + total) % total;
+  if (offset === 0) return "active";
+  if (offset === 1) return "next";
+  if (offset === total - 1) return "prev";
+  return "hidden";
+}
+
+const SWIPE_THRESHOLD = 40;
+
+export default function Solutions() {
+  const [active, setActive] = useState(0);
+  const touchStartX = useRef(null);
+
+  function go(direction) {
+    setActive((current) => (current + direction + total) % total);
+  }
+
+  function handleTouchStart(event) {
+    touchStartX.current = event.touches[0].clientX;
+  }
+
+  function handleTouchEnd(event) {
+    if (touchStartX.current === null) return;
+    const deltaX = event.changedTouches[0].clientX - touchStartX.current;
+    if (deltaX > SWIPE_THRESHOLD) go(-1);
+    else if (deltaX < -SWIPE_THRESHOLD) go(1);
+    touchStartX.current = null;
+  }
 
   return (
     <section id="soluciones">
@@ -25,46 +48,63 @@ export default function Solutions() {
             sistema de infraestructura y protección.
           </p>
         </div>
-        <div className="units-carousel-controls">
-          <button
-            type="button"
-            className="carousel-btn"
-            aria-label="Ver unidad anterior"
-            onClick={() => scroll(-1)}
+        <div className="units-carousel">
+          <div
+            className="units-track"
+            onTouchStart={handleTouchStart}
+            onTouchEnd={handleTouchEnd}
           >
-            <ArrowRightIcon size={16} style={{ transform: "rotate(180deg)" }} />
-          </button>
-          <button
-            type="button"
-            className="carousel-btn"
-            aria-label="Ver siguiente unidad"
-            onClick={() => scroll(1)}
-          >
-            <ArrowRightIcon size={16} />
-          </button>
-        </div>
-        <div className="units-track" ref={trackRef}>
-          {solutions.map((unit) => (
-            <article
-              className="unit-card"
-              key={unit.slug}
-              style={unit.bg ? { backgroundImage: `url(${unit.bg})` } : undefined}
+            {solutions.map((unit, index) => (
+              <article
+                className={`unit-card is-${positionOf(index, active)}`}
+                key={unit.slug}
+                style={unit.bg ? { backgroundImage: `url(${unit.bg})` } : undefined}
+              >
+                <div className="unit-icon" aria-hidden="true">
+                  {unit.icon}
+                </div>
+                <h3>{unit.title}</h3>
+                <p>{unit.desc}</p>
+                <div className="tags">
+                  {unit.tags.map((tag) => (
+                    <span key={tag}>{tag}</span>
+                  ))}
+                </div>
+                <Link className="more" href={`/soluciones/${unit.slug}`}>
+                  Conocer más <ArrowRightIcon size={13} />
+                </Link>
+              </article>
+            ))}
+          </div>
+          <div className="units-carousel-controls">
+            <button
+              type="button"
+              className="carousel-btn"
+              aria-label="Ver unidad anterior"
+              onClick={() => go(-1)}
             >
-              <div className="unit-icon" aria-hidden="true">
-                {unit.icon}
-              </div>
-              <h3>{unit.title}</h3>
-              <p>{unit.desc}</p>
-              <div className="tags">
-                {unit.tags.map((tag) => (
-                  <span key={tag}>{tag}</span>
-                ))}
-              </div>
-              <Link className="more" href={`/soluciones/${unit.slug}`}>
-                Conocer más <ArrowRightIcon size={13} />
-              </Link>
-            </article>
-          ))}
+              <ArrowRightIcon size={16} style={{ transform: "rotate(180deg)" }} />
+            </button>
+            <div className="units-carousel-dots">
+              {solutions.map((unit, index) => (
+                <button
+                  key={unit.slug}
+                  type="button"
+                  className={`units-carousel-dot${index === active ? " active" : ""}`}
+                  aria-label={`Ir a la unidad ${unit.title}`}
+                  onClick={() => setActive(index)}
+                />
+              ))}
+            </div>
+            <button
+              type="button"
+              className="carousel-btn"
+              aria-label="Ver siguiente unidad"
+              onClick={() => go(1)}
+            >
+              <ArrowRightIcon size={16} />
+            </button>
+          </div>
         </div>
       </div>
     </section>

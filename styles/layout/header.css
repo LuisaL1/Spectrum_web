@@ -41,6 +41,10 @@ header.main-nav {
   margin-left: calc(48px - max(0px, (100vw - var(--max-width)) / 2));
 }
 
+.main-nav .logo-img {
+  height: 36px;
+}
+
 .main-nav .nav-cta {
   margin-right: calc(48px - max(0px, (100vw - var(--max-width)) / 2));
 }

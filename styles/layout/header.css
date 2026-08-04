@@ -79,7 +79,8 @@ nav.primary ul {
 }
 
 .nav-item:hover .top-link,
-.nav-item:focus-within .top-link {
+.nav-item .top-link:focus-visible,
+.nav-item:has(.caret-btn:focus-visible) .top-link {
   color: var(--color-white);
 }
 
@@ -139,7 +140,7 @@ nav.primary ul {
   flex-direction: column;
   gap: 2px;
   padding: 10px 8px;
-  border-radius: 3px;
+  border-radius: 10px;
   font-size: 13px;
 }
 

@@ -12,7 +12,12 @@
     {
       "seccion": "Inicio",
       "ruta": "/",
-      "descripcion": "Página principal: hero, ecosistema de soluciones, unidades de negocio, casos de éxito, aliados tecnológicos y blog."
+      "descripcion": "Página principal: hero, unidades de negocio, casos de éxito, aliados tecnológicos y blog."
+    },
+    {
+      "seccion": "Nosotros",
+      "ruta": "/nosotros",
+      "descripcion": "Quiénes somos, nuestra historia, misión y visión de Spectrum."
     },
     {
       "seccion": "Soluciones",

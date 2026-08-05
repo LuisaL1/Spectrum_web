@@ -3,7 +3,6 @@
 import { useEffect, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { usePathname } from "next/navigation";
 import { CaretIcon, CloseIcon, MenuIcon } from "../icons";
 import {
   solutionsMenuColumns,
@@ -38,7 +37,6 @@ export default function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [openDropdown, setOpenDropdown] = useState(null);
   const [activeId, setActiveId] = useState(null);
-  const pathname = usePathname();
 
   const closeMenu = () => {
     setMenuOpen(false);
@@ -123,13 +121,6 @@ export default function Header() {
                   type="button"
                   aria-expanded={openDropdown === "nosotros"}
                   aria-controls="dropdown-nosotros"
-                  aria-current={
-                    activeId === "nosotros" ||
-                    pathname === "/equipo" ||
-                    pathname === "/nosotros"
-                      ? "true"
-                      : undefined
-                  }
                   onClick={() =>
                     setOpenDropdown((open) =>
                       open === "nosotros" ? null : "nosotros"
@@ -153,7 +144,6 @@ export default function Header() {
                   type="button"
                   aria-expanded={openDropdown === "soluciones"}
                   aria-controls="dropdown-soluciones"
-                  aria-current={activeId === "soluciones" ? "true" : undefined}
                   onClick={() =>
                     setOpenDropdown((open) =>
                       open === "soluciones" ? null : "soluciones"
@@ -187,11 +177,6 @@ export default function Header() {
                   type="button"
                   aria-expanded={openDropdown === "blog"}
                   aria-controls="dropdown-blog"
-                  aria-current={
-                    activeId === "blog" || pathname === "/novedades"
-                      ? "true"
-                      : undefined
-                  }
                   onClick={() =>
                     setOpenDropdown((open) => (open === "blog" ? null : "blog"))
                   }

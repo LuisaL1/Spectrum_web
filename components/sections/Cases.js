@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Image from "next/image";
 
 const cases = [
@@ -8,6 +8,7 @@ const cases = [
     name: "Alcaldía de Yumbo",
     meta: "Continuidad de negocio & NOC",
     tag: "Sector gobierno",
+    sector: "gobierno",
     title: "Alcaldía de Yumbo fortalece su continuidad operativa",
     desc: "Implementación de infraestructura de respaldo y monitoreo continuo para garantizar disponibilidad de servicios críticos a la ciudadanía.",
     bg: "/assets/images/alcaldiayumbo.webp",
@@ -16,6 +17,7 @@ const cases = [
     name: "Universidad Militar Nueva Granada",
     meta: "Redes empresariales & ciberseguridad",
     tag: "Sector educación",
+    sector: "educacion",
     title:
       "Redes empresariales de alto rendimiento para un campus más seguro",
     desc: "Rediseño de la arquitectura de red y despliegue de controles de ciberseguridad perimetral en todas las sedes.",
@@ -25,6 +27,7 @@ const cases = [
     name: "Redeban",
     meta: "Infraestructura crítica & SOC",
     tag: "Sector financiero",
+    sector: "financiero",
     title: "Infraestructura crítica con disponibilidad garantizada",
     desc: "Monitoreo NOC y SOC 24/7 sobre la infraestructura que soporta transacciones a nivel nacional.",
     bg: "/assets/images/redeban.webp",
@@ -33,21 +36,31 @@ const cases = [
     name: "Armada de Colombia",
     meta: "Protección perimetral",
     tag: "Sector defensa",
+    sector: "defensa",
     title: "Protección perimetral de infraestructura estratégica",
     desc: "Implementación de sistemas de detección y prevención de intrusos para blindar el perímetro digital.",
     bg: "/assets/images/armada-colombia.jpeg",
   },
 ];
 
-export default function Cases() {
-  const [activeIndex, setActiveIndex] = useState(0);
+export default function Cases({ initialSector = null }) {
+  const [activeIndex, setActiveIndex] = useState(() => {
+    const index = cases.findIndex((item) => item.sector === initialSector);
+    return index === -1 ? 0 : index;
+  });
   const active = cases[activeIndex];
+
+  useEffect(() => {
+    if (!initialSector) return;
+    const index = cases.findIndex((item) => item.sector === initialSector);
+    if (index !== -1) setActiveIndex(index);
+  }, [initialSector]);
 
   return (
     <section className="on-graphite" id="casos">
       <div className="wrap">
         <div className="section-head">
-          <p className="eyebrow">Casos de éxito</p>
+          <p className="eyebrow">Nuestros principales clientes</p>
           <h2>Organizaciones que confían en Spectrum</h2>
           <p>
             Entidades públicas y privadas que fortalecieron su
@@ -65,7 +78,7 @@ export default function Cases() {
                     alt=""
                     fill
                     sizes="(max-width: 900px) 100vw, 55vw"
-                    priority={index === 0}
+                    priority
                     className={`case-visual-bg${
                       index === activeIndex ? " is-active" : ""
                     }`}

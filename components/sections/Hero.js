@@ -10,7 +10,6 @@ export default function Hero() {
         playsInline
         aria-hidden="true"
       />
-      <div className="hero-bg-overlay" aria-hidden="true"></div>
       <div className="hero-content">
         <p className="eyebrow">Future Powered</p>
         <h1>

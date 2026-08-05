@@ -15,6 +15,13 @@ const CASOS_DE_USO = [
   { slug: "inteligencia-artificial", title: "IA aplicada a ciberseguridad" },
 ];
 
+const SECTORES = [
+  { title: "Sector gobierno", slug: "gobierno" },
+  { title: "Sector educación", slug: "educacion" },
+  { title: "Sector financiero", slug: "financiero" },
+  { title: "Sector defensa", slug: "defensa" },
+];
+
 export const solutionsMenuColumns = [
   {
     heading: "Soluciones",
@@ -35,8 +42,14 @@ export const solutionsMenuColumns = [
     })),
   },
   {
-    heading: "Clientes",
-    items: [{ title: "Ver todos nuestros clientes", href: "/#casos" }],
+    heading: "Sectores que atendemos",
+    items: [
+      ...SECTORES.map(({ title, slug }) => ({
+        title,
+        href: `/?sector=${slug}#casos`,
+      })),
+      { title: "Ver todos nuestros clientes", href: "/#casos" },
+    ],
   },
 ];
 
@@ -50,15 +63,18 @@ export const nosotrosMenuColumns = [
     ],
   },
   {
-    heading: "Equipo",
-    items: [{ title: "Nuestro equipo", href: "/equipo" }],
+    heading: "Equipo y cultura",
+    items: [
+      { title: "Nuestro equipo", href: "/equipo" },
+      { title: "Cultura organizacional", href: "/equipo#cultura" },
+    ],
   },
   {
     heading: "Resultados y alianzas",
     items: [
       { title: "Nuestros principales clientes", href: "/#casos" },
       { title: "Aliados tecnológicos", href: "/#aliados" },
-      { title: "Novedades", href: "/novedades" },
+      { title: "Certificados", href: "/novedades" },
     ],
   },
 ];

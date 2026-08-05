@@ -55,8 +55,8 @@ export const metadata = {
     images: [
       {
         url: "/logos/logo-spectrum.png",
-        width: 837,
-        height: 136,
+        width: 2172,
+        height: 724,
         alt: "Spectrum",
       },
     ],

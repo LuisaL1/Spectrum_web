@@ -50,14 +50,18 @@ export default function InfoRequestForm({ serviceName, serviceSlug }) {
         body: JSON.stringify(payload),
       });
 
+      const result = await response.json().catch(() => null);
+
       if (!response.ok) {
-        throw new Error("request-failed");
+        throw new Error(result?.error || "request-failed");
       }
 
       setSubmitted(true);
-    } catch {
+    } catch (err) {
       setError(
-        "No pudimos enviar su solicitud. Intente de nuevo o escríbanos a contacto@spectrumt.co."
+        err.message && err.message !== "request-failed"
+          ? err.message
+          : "No pudimos enviar su solicitud. Intente de nuevo o escríbanos a contacto@spectrumt.co."
       );
     } finally {
       setSending(false);

@@ -228,7 +228,7 @@ function DataPolicyEn() {
           provided by users, in compliance with Colombian Law 1581 of 2012,
           Decree 1377 of 2013, and any other rules that amend or supplement
           them, and observing, to the extent applicable, the principles and
-          standards of the European Union's General Data Protection
+          standards of the European Union&rsquo;s General Data Protection
           Regulation (GDPR).
         </p>
 
@@ -298,7 +298,7 @@ function DataPolicyEn() {
           <strong>Purpose A — Commercial management (mandatory)</strong>
         </p>
         <p>
-          To manage requests for information about Spectrum's cybersecurity
+          To manage requests for information about Spectrum&rsquo;s cybersecurity
           and technology infrastructure services, prepare and send quotes,
           respond to inquiries raised, and establish the commercial contact
           requested by the user. This purpose is essential to handle the
@@ -391,7 +391,7 @@ function DataPolicyEn() {
           purposes described in this Policy.
         </p>
         <p>
-          Data may be accessed by Spectrum's internal staff or by technology
+          Data may be accessed by Spectrum&rsquo;s internal staff or by technology
           vendors that provide website support services (for example,
           hosting or email tools), who act as data processors under
           contractual confidentiality and security obligations, and only to
@@ -405,7 +405,7 @@ function DataPolicyEn() {
           This Policy is effective as of July 2026. Spectrum reserves the
           right to modify or update this Policy at any time, in order to
           reflect regulatory, operational or technological changes. Any
-          changes will be published promptly on Spectrum's website,
+          changes will be published promptly on Spectrum&rsquo;s website,
           indicating the date of the last update, so users are advised to
           review this Policy periodically.
         </p>

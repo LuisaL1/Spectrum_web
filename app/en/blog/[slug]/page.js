@@ -5,28 +5,28 @@ import Header from "@/components/layout/Header";
 import CtaStrip from "@/components/sections/CtaStrip";
 import Footer from "@/components/layout/Footer";
 import { ArrowRightIcon } from "@/components/icons";
-import { news, getNewsItemBySlug } from "@/data/news";
+import { articles, getArticleBySlug } from "@/data/articles";
 
-const locale = "es";
+const locale = "en";
 
 export function generateStaticParams() {
-  return news.map((item) => ({ slug: item.slug }));
+  return articles.map((article) => ({ slug: article.slug }));
 }
 
 export async function generateMetadata({ params }) {
   const { slug } = await params;
-  const item = getNewsItemBySlug(slug, locale);
-  if (!item) return {};
+  const article = getArticleBySlug(slug, locale);
+  if (!article) return {};
   return {
-    title: `${item.title} | Spectrum`,
-    description: item.excerpt,
+    title: `${article.title} | Spectrum`,
+    description: article.excerpt,
   };
 }
 
-export default async function NewsItemPage({ params }) {
+export default async function ArticlePageEn({ params }) {
   const { slug } = await params;
-  const item = getNewsItemBySlug(slug, locale);
-  if (!item) notFound();
+  const article = getArticleBySlug(slug, locale);
+  if (!article) notFound();
 
   return (
     <>
@@ -34,19 +34,19 @@ export default async function NewsItemPage({ params }) {
       <main id="main-content">
         <section className="on-light pattern-bg article-doc">
           <div className="wrap article-wrap">
-            <Link className="article-back" href="/novedades">
+            <Link className="article-back" href="/en/blog">
               <ArrowRightIcon size={13} className="article-back-icon" />
-              Volver a Novedades
+              Back to blog
             </Link>
-            <p className="eyebrow">{item.category}</p>
-            <h1>{item.title}</h1>
-            <p className="article-meta">{item.date}</p>
-            <p className="article-lead">{item.excerpt}</p>
+            <p className="eyebrow">{article.category}</p>
+            <h1>{article.title}</h1>
+            <p className="article-meta">{article.date}</p>
+            <p className="article-lead">{article.excerpt}</p>
 
-            {item.bg && (
+            {article.bg && (
               <div className="article-image">
                 <Image
-                  src={item.bg}
+                  src={article.bg}
                   alt=""
                   fill
                   sizes="(max-width: 900px) 100vw, 760px"
@@ -55,7 +55,7 @@ export default async function NewsItemPage({ params }) {
               </div>
             )}
 
-            {item.content.map((block, index) => (
+            {article.content.map((block, index) => (
               <div key={index}>
                 {block.heading && <h2>{block.heading}</h2>}
                 <p>{block.body}</p>

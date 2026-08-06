@@ -4,20 +4,20 @@ import CtaStrip from "@/components/sections/CtaStrip";
 import Footer from "@/components/layout/Footer";
 
 export const metadata = {
-  title: "Novedades | Spectrum",
+  title: "News | Spectrum",
   description:
-    "Noticias, lanzamientos y contenido técnico de Spectrum sobre infraestructura, ciberseguridad y conectividad.",
+    "News, launches and technical content from Spectrum on infrastructure, cybersecurity and connectivity.",
 };
 
-export default function NovedadesPage() {
+export default function NovedadesPageEn() {
   return (
     <>
-      <Header locale="es" />
+      <Header locale="en" />
       <main id="main-content">
-        <Novedades locale="es" />
-        <CtaStrip locale="es" />
+        <Novedades locale="en" />
+        <CtaStrip locale="en" />
       </main>
-      <Footer locale="es" />
+      <Footer locale="en" />
     </>
   );
 }

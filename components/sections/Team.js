@@ -19,6 +19,23 @@ const team = [
   { name: "Johana Agudelo", role: "Sales Account Manager" },
 ];
 
+const content = {
+  es: {
+    eyebrow: "Quiénes somos",
+    heading: "Las personas detrás de cada solución",
+    lead: "En Spectrum no vendemos tecnología: la construyen personas. Este es el equipo que le pone nombre, rostro y compromiso a cada proyecto que asumimos.",
+    leadership: "Liderazgo",
+    team: "Equipo",
+  },
+  en: {
+    eyebrow: "Who we are",
+    heading: "The people behind every solution",
+    lead: "At Spectrum, we don't sell technology — people build it. This is the team that gives every project we take on a name, a face and a commitment.",
+    leadership: "Leadership",
+    team: "Team",
+  },
+};
+
 function initials(name) {
   return name
     .split(" ")
@@ -45,25 +62,23 @@ function TeamGrid({ people }) {
   );
 }
 
-export default function Team() {
+export default function Team({ locale = "es" }) {
+  const t = content[locale] || content.es;
+
   return (
     <section id="equipo">
       <div className="wrap">
         <div className="section-head">
-          <p className="eyebrow">Quiénes somos</p>
-          <h2>Las personas detrás de cada solución</h2>
-          <p>
-            En Spectrum no vendemos tecnología: la construyen personas. Este
-            es el equipo que le pone nombre, rostro y compromiso a cada
-            proyecto que asumimos.
-          </p>
+          <p className="eyebrow">{t.eyebrow}</p>
+          <h2>{t.heading}</h2>
+          <p>{t.lead}</p>
         </div>
         <div className="team-group" id="liderazgo">
-          <p className="team-group-label">Liderazgo</p>
+          <p className="team-group-label">{t.leadership}</p>
           <TeamGrid people={leaders} />
         </div>
         <div className="team-group">
-          <p className="team-group-label">Equipo</p>
+          <p className="team-group-label">{t.team}</p>
           <TeamGrid people={team} />
         </div>
       </div>

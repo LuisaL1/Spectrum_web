@@ -4,11 +4,31 @@ import { useRef, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { ArrowRightIcon } from "../icons";
-import { solutions } from "@/data/solutions-data";
+import { getSolutions } from "@/data/solutions-data";
+import { localizedHref } from "@/lib/i18n";
 
-const total = solutions.length;
+const content = {
+  es: {
+    eyebrow: "Unidades de negocio",
+    heading: "Soluciones para cada capa de su operación",
+    lead: "Cinco frentes complementarios que trabajan como un único sistema de infraestructura y protección.",
+    more: "Conocer más",
+    prev: "Ver unidad anterior",
+    next: "Ver siguiente unidad",
+    goTo: (title) => `Ir a la unidad ${title}`,
+  },
+  en: {
+    eyebrow: "Business units",
+    heading: "Solutions for every layer of your operation",
+    lead: "Five complementary fronts that work as a single infrastructure and protection system.",
+    more: "Learn more",
+    prev: "View previous unit",
+    next: "View next unit",
+    goTo: (title) => `Go to ${title} unit`,
+  },
+};
 
-function positionOf(index, active) {
+function positionOf(index, active, total) {
   const offset = (index - active + total) % total;
   if (offset === 0) return "active";
   if (offset === 1) return "next";
@@ -18,7 +38,10 @@ function positionOf(index, active) {
 
 const SWIPE_THRESHOLD = 40;
 
-export default function Solutions() {
+export default function Solutions({ locale = "es" }) {
+  const solutions = getSolutions(locale);
+  const total = solutions.length;
+  const t = content[locale] || content.es;
   const [active, setActive] = useState(0);
   const touchStartX = useRef(null);
 
@@ -50,12 +73,9 @@ export default function Solutions() {
       />
       <div className="wrap">
         <div className="section-head">
-          <p className="eyebrow">Unidades de negocio</p>
-          <h2>Soluciones para cada capa de su operación</h2>
-          <p>
-            Cinco frentes complementarios que trabajan como un único
-            sistema de infraestructura y protección.
-          </p>
+          <p className="eyebrow">{t.eyebrow}</p>
+          <h2>{t.heading}</h2>
+          <p>{t.lead}</p>
         </div>
         <div className="units-carousel">
           <div
@@ -65,7 +85,7 @@ export default function Solutions() {
           >
             {solutions.map((unit, index) => (
               <article
-                className={`unit-card is-${positionOf(index, active)}`}
+                className={`unit-card is-${positionOf(index, active, total)}`}
                 key={unit.slug}
                 style={unit.bg ? { backgroundImage: `url(${unit.bg})` } : undefined}
               >
@@ -79,8 +99,11 @@ export default function Solutions() {
                     <span key={tag}>{tag}</span>
                   ))}
                 </div>
-                <Link className="more" href={`/soluciones/${unit.slug}`}>
-                  Conocer más <ArrowRightIcon size={13} />
+                <Link
+                  className="more"
+                  href={localizedHref(locale, `/soluciones/${unit.slug}`)}
+                >
+                  {t.more} <ArrowRightIcon size={13} />
                 </Link>
               </article>
             ))}
@@ -89,7 +112,7 @@ export default function Solutions() {
             <button
               type="button"
               className="carousel-btn"
-              aria-label="Ver unidad anterior"
+              aria-label={t.prev}
               onClick={() => go(-1)}
             >
               <ArrowRightIcon size={16} style={{ transform: "rotate(180deg)" }} />
@@ -100,7 +123,7 @@ export default function Solutions() {
                   key={unit.slug}
                   type="button"
                   className={`units-carousel-dot${index === active ? " active" : ""}`}
-                  aria-label={`Ir a la unidad ${unit.title}`}
+                  aria-label={t.goTo(unit.title)}
                   onClick={() => setActive(index)}
                 />
               ))}
@@ -108,7 +131,7 @@ export default function Solutions() {
             <button
               type="button"
               className="carousel-btn"
-              aria-label="Ver siguiente unidad"
+              aria-label={t.next}
               onClick={() => go(1)}
             >
               <ArrowRightIcon size={16} />

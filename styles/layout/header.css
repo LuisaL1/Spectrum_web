@@ -10,12 +10,13 @@
   color: var(--color-gray-500);
 }
 
-.lang-switch span {
+.lang-switch a {
   padding: 0 6px;
   cursor: pointer;
+  color: inherit;
 }
 
-.lang-switch span.active {
+.lang-switch a.active {
   color: var(--color-white);
   font-weight: var(--fw-semibold);
 }

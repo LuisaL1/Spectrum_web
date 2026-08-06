@@ -46,6 +46,52 @@ export const news = [
   },
 ];
 
-export function getNewsItemBySlug(slug) {
-  return news.find((item) => item.slug === slug);
+export const newsEn = [
+  {
+    slug: "alianza-crowdstrike-respuesta-incidentes",
+    category: "Partnerships",
+    date: "July 2026",
+    title: "Spectrum becomes a certified CrowdStrike incident response partner",
+    excerpt:
+      "The certification strengthens our containment and cybersecurity incident response capabilities for clients in Colombia.",
+    content: [
+      {
+        body: "(Sample content) Spectrum announces its certification as a specialized incident response partner alongside CrowdStrike, strengthening our 24/7 SOC's ability to contain active threats in real time.",
+      },
+    ],
+  },
+  {
+    slug: "certificacion-iso-27001-soc",
+    category: "Certifications",
+    date: "June 2026",
+    title: "Our Security Operations Center earns ISO 27001 certification",
+    excerpt:
+      "Spectrum's SOC certifies its information security management processes under the international ISO 27001 standard.",
+    content: [
+      {
+        body: "(Sample content) This certification validates the information security controls and processes we apply internally and in service to our clients, aligned with the ISO/IEC 27001 standard.",
+      },
+    ],
+  },
+  {
+    slug: "participacion-congreso-ciberseguridad-2026",
+    category: "Events",
+    date: "May 2026",
+    title: "Spectrum takes part in the 2026 Colombian Cybersecurity Congress",
+    excerpt:
+      "Our team shared case studies on operational continuity and incident response in the public sector.",
+    content: [
+      {
+        body: "(Sample content) Spectrum representatives presented real implementation cases of backup infrastructure and NOC/SOC monitoring in Colombian public sector entities.",
+      },
+    ],
+  },
+];
+
+export function getNews(locale = "es") {
+  return locale === "en" ? newsEn : news;
+}
+
+export function getNewsItemBySlug(slug, locale = "es") {
+  return getNews(locale).find((item) => item.slug === slug);
 }

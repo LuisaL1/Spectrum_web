@@ -1,24 +1,44 @@
 import Link from "next/link";
 import Image from "next/image";
-import { news } from "@/data/news";
+import { getNews } from "@/data/news";
 import { ArrowRightIcon } from "../icons";
+import { localizedHref } from "@/lib/i18n";
 
-export default function Novedades() {
+const content = {
+  es: {
+    backHome: "Volver al home",
+    eyebrow: "Spectrum",
+    heading: "Novedades",
+    lead: "Noticias, alianzas, certificaciones y eventos de Spectrum.",
+    featured: "Destacado",
+    readMore: "Leer más",
+  },
+  en: {
+    backHome: "Back to home",
+    eyebrow: "Spectrum",
+    heading: "News",
+    lead: "News, partnerships, certifications and events from Spectrum.",
+    featured: "Featured",
+    readMore: "Read more",
+  },
+};
+
+export default function Novedades({ locale = "es" }) {
+  const news = getNews(locale);
+  const t = content[locale] || content.es;
   const [featured, ...rest] = news;
 
   return (
     <section className="on-light pattern-bg" id="novedades">
       <div className="wrap">
-        <Link className="article-back" href="/#blog">
+        <Link className="article-back" href={localizedHref(locale, "/#blog")}>
           <ArrowRightIcon size={13} className="article-back-icon" />
-          Volver al home
+          {t.backHome}
         </Link>
         <div className="section-head">
-          <p className="eyebrow">Spectrum</p>
-          <h2>Novedades</h2>
-          <p className="gray-500">
-            Noticias, alianzas, certificaciones y eventos de Spectrum.
-          </p>
+          <p className="eyebrow">{t.eyebrow}</p>
+          <h2>{t.heading}</h2>
+          <p className="gray-500">{t.lead}</p>
         </div>
 
         {featured && (
@@ -36,11 +56,16 @@ export default function Novedades() {
               <span>{featured.category}</span>
             </div>
             <div className="news-featured-body blog-body">
-              <p className="date">Destacado &middot; {featured.date}</p>
+              <p className="date">
+                {t.featured} &middot; {featured.date}
+              </p>
               <h3>{featured.title}</h3>
               <p className="news-excerpt">{featured.excerpt}</p>
-              <Link className="more" href={`/novedades/${featured.slug}`}>
-                Leer más <ArrowRightIcon size={13} />
+              <Link
+                className="more"
+                href={localizedHref(locale, `/novedades/${featured.slug}`)}
+              >
+                {t.readMore} <ArrowRightIcon size={13} />
               </Link>
             </div>
           </article>
@@ -65,8 +90,11 @@ export default function Novedades() {
                 <div className="news-list-body blog-body">
                   <p className="date">{item.date}</p>
                   <h3>{item.title}</h3>
-                  <Link className="more" href={`/novedades/${item.slug}`}>
-                    Leer más <ArrowRightIcon size={13} />
+                  <Link
+                    className="more"
+                    href={localizedHref(locale, `/novedades/${item.slug}`)}
+                  >
+                    {t.readMore} <ArrowRightIcon size={13} />
                   </Link>
                 </div>
               </article>

@@ -7,13 +7,15 @@ import Footer from "@/components/layout/Footer";
 import { ArrowRightIcon } from "@/components/icons";
 import { articles, getArticleBySlug } from "@/data/articles";
 
+const locale = "es";
+
 export function generateStaticParams() {
   return articles.map((article) => ({ slug: article.slug }));
 }
 
 export async function generateMetadata({ params }) {
   const { slug } = await params;
-  const article = getArticleBySlug(slug);
+  const article = getArticleBySlug(slug, locale);
   if (!article) return {};
   return {
     title: `${article.title} | Spectrum`,
@@ -23,12 +25,12 @@ export async function generateMetadata({ params }) {
 
 export default async function ArticlePage({ params }) {
   const { slug } = await params;
-  const article = getArticleBySlug(slug);
+  const article = getArticleBySlug(slug, locale);
   if (!article) notFound();
 
   return (
     <>
-      <Header />
+      <Header locale={locale} />
       <main id="main-content">
         <section className="on-light pattern-bg article-doc">
           <div className="wrap article-wrap">
@@ -62,9 +64,9 @@ export default async function ArticlePage({ params }) {
           </div>
         </section>
 
-        <CtaStrip />
+        <CtaStrip locale={locale} />
       </main>
-      <Footer />
+      <Footer locale={locale} />
     </>
   );
 }

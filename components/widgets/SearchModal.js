@@ -5,12 +5,30 @@ import Link from "next/link";
 import { SearchIcon, CloseIcon, ArrowRightIcon } from "../icons";
 import { search } from "@/lib/search-index";
 
-export default function SearchModal({ inline = false }) {
+const content = {
+  es: {
+    placeholder: "Buscar soluciones, equipo, blog...",
+    noResults: (query) => `No encontramos resultados para "${query}".`,
+    searchLabel: "Buscar",
+    close: "Cerrar",
+    dialogLabel: "Buscar en el sitio",
+  },
+  en: {
+    placeholder: "Search solutions, team, blog...",
+    noResults: (query) => `We couldn't find any results for "${query}".`,
+    searchLabel: "Search",
+    close: "Close",
+    dialogLabel: "Search the site",
+  },
+};
+
+export default function SearchModal({ inline = false, locale = "es" }) {
+  const t = content[locale] || content.es;
   const [open, setOpen] = useState(false);
   const [query, setQuery] = useState("");
   const inputRef = useRef(null);
 
-  const results = search(query);
+  const results = search(query, locale);
 
   function close() {
     setOpen(false);
@@ -48,7 +66,7 @@ export default function SearchModal({ inline = false }) {
             type="text"
             value={query}
             onChange={(event) => setQuery(event.target.value)}
-            placeholder="Buscar soluciones, equipo, blog..."
+            placeholder={t.placeholder}
             autoComplete="off"
           />
         </div>
@@ -56,9 +74,7 @@ export default function SearchModal({ inline = false }) {
         {query.trim() && (
           <div className="search-results">
             {results.length === 0 ? (
-              <p className="search-empty">
-                No encontramos resultados para &quot;{query}&quot;.
-              </p>
+              <p className="search-empty">{t.noResults(query)}</p>
             ) : (
               results.map((result) => (
                 <Link
@@ -86,7 +102,7 @@ export default function SearchModal({ inline = false }) {
       <button
         type="button"
         className="icon-btn"
-        aria-label="Buscar"
+        aria-label={t.searchLabel}
         onClick={() => setOpen(true)}
       >
         <SearchIcon size={15} />
@@ -98,13 +114,13 @@ export default function SearchModal({ inline = false }) {
             className="modal-card search-card"
             role="dialog"
             aria-modal="true"
-            aria-label="Buscar en el sitio"
+            aria-label={t.dialogLabel}
             onClick={(event) => event.stopPropagation()}
           >
             <button
               type="button"
               className="modal-close"
-              aria-label="Cerrar"
+              aria-label={t.close}
               onClick={close}
             >
               <CloseIcon size={16} />
@@ -117,7 +133,7 @@ export default function SearchModal({ inline = false }) {
                 type="text"
                 value={query}
                 onChange={(event) => setQuery(event.target.value)}
-                placeholder="Buscar soluciones, equipo, blog..."
+                placeholder={t.placeholder}
                 autoComplete="off"
               />
             </div>
@@ -125,9 +141,7 @@ export default function SearchModal({ inline = false }) {
             {query.trim() && (
               <div className="search-results">
                 {results.length === 0 ? (
-                  <p className="search-empty">
-                    No encontramos resultados para &quot;{query}&quot;.
-                  </p>
+                  <p className="search-empty">{t.noResults(query)}</p>
                 ) : (
                   results.map((result) => (
                     <Link

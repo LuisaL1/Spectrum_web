@@ -104,6 +104,116 @@ export const articles = [
   },
 ];
 
-export function getArticleBySlug(slug) {
-  return articles.find((article) => article.slug === slug);
+export const articlesEn = [
+  {
+    slug: "auditoria-vulnerabilidades-5-senales",
+    category: "Cybersecurity",
+    date: "July 2026",
+    title: "5 signs your network needs a vulnerability audit",
+    excerpt:
+      "From slow access to alerts nobody reviews: these are the signs that your infrastructure needs a vulnerability assessment before it becomes an incident.",
+    bg: "/fondos/blogs/5señales.jpg",
+    content: [
+      {
+        body: "Most of the security incidents we handle don't start with a sophisticated attack. They start with a known, unpatched vulnerability that had been exposed for weeks or months. A vulnerability audit isn't a luxury reserved for large companies: it's the most cost-effective way to find those gaps before someone else does.",
+      },
+      {
+        heading: "1. IT teams no longer know what assets they have exposed",
+        body: "As an organization grows, so do its servers, applications, devices and remote access points. If no one can say with certainty how many assets are exposed to the internet right now, that lack of visibility is itself a risk: you can't protect what you don't know exists.",
+      },
+      {
+        heading: "2. Outdated systems and software persist",
+        body: "Unpatched servers, unsupported operating systems, or third-party software left un-updated are the most common entry point for malware and ransomware. An audit identifies exactly which versions are vulnerable and which specific CVEs affect them.",
+      },
+      {
+        heading: "3. Security alerts go unreviewed in time",
+        body: "Many organizations do have monitoring tools in place, but they generate more alerts than the team can analyze. When alerts pile up without a response, the window between detection and containment of an incident grows dangerously wide.",
+      },
+      {
+        heading: "4. No controlled penetration testing has been done",
+        body: "An automated scan finds known vulnerabilities, but it doesn't reveal how a real attacker would chain together several minor flaws to compromise a critical system. Ethical hacking (pentesting) simulates that scenario in a controlled way, before it happens for real.",
+      },
+      {
+        heading: "5. Access and privileges haven't been reviewed in months",
+        body: "Former employees' accounts that are still active, shared passwords, or admin privileges granted 'temporarily' a year ago are frequent findings in any audit. Access management is usually the easiest gap to close, and the most ignored.",
+      },
+      {
+        body: "If any of these signs sound familiar, the next step isn't to panic, but to diagnose with real data. At Spectrum, we perform vulnerability audits and ethical hacking tests as part of our Cybersecurity service, with 24/7 SOC monitoring, so the alerts nobody reviews today get a response tomorrow.",
+      },
+    ],
+  },
+  {
+    slug: "hiperconvergencia-que-es",
+    category: "Infrastructure",
+    date: "June 2026",
+    title: "Hyperconvergence: what it is and why your company needs it",
+    excerpt:
+      "Consolidating compute, storage and virtualization on a single platform reduces costs and points of failure. Here's how hyperconvergence works in practice.",
+    bg: "/fondos/blogs/hiperconvergencia.jpeg",
+    content: [
+      {
+        body: "For years, building enterprise infrastructure meant buying servers, storage systems and network switches separately, from different vendors, and then integrating them manually. Hyperconverged infrastructure (HCI) changes that model: it consolidates compute, storage and virtualization on a single platform, managed as one system.",
+      },
+      {
+        heading: "What problem does it actually solve?",
+        body: "The traditional model forces you to size each layer separately, which usually ends in overspending (buying extra 'just in case') or bottlenecks (running short on storage while compute sits idle). HCI lets you scale by adding complete nodes, predictably, without redesigning the architecture every time.",
+      },
+      {
+        heading: "Fewer points of failure, not just fewer boxes",
+        body: "By reducing the number of independent components, you also reduce the number of pieces that can fail in isolation and take services down. Redundancy is managed at the platform level, with data replication between nodes, instead of relying on a single storage array as a single point of failure.",
+      },
+      {
+        heading: "Simpler operations for small IT teams",
+        body: "Managing three separate systems (servers, storage, virtualization) requires three different skill sets. HCI is managed from a single console, which is especially valuable for IT teams that don't have a dedicated specialist for every layer of the infrastructure.",
+      },
+      {
+        heading: "When does it make sense to migrate?",
+        body: "HCI isn't the universal answer for every workload, but it's usually justified when: your current infrastructure is reaching end of life, your IT team spends too much time on reactive maintenance, you have growth plans your current architecture can't easily support, or you're looking to simplify disaster recovery.",
+      },
+      {
+        body: "At Spectrum, we design and implement hyperconverged architectures as part of our Technology Infrastructure service, integrated with 24/7 NOC monitoring and continuity and backup schemes, so consolidation isn't just technical — it's operational too.",
+      },
+    ],
+  },
+  {
+    slug: "sd-wan-conectar-sedes-sin-perder-seguridad",
+    category: "Connectivity",
+    date: "June 2026",
+    title: "SD-WAN: how to connect your sites without losing security",
+    excerpt:
+      "Connecting multiple sites shouldn't mean sacrificing security or performance. We explain how SD-WAN solves both fronts at once.",
+    bg: "/fondos/blogs/SDWAN.jpeg",
+    content: [
+      {
+        body: "When an organization has multiple sites, how it connects them directly impacts both user experience and information security. For a long time, the answer was MPLS: reliable, but rigid and costly to scale. SD-WAN (Software-Defined Wide Area Network) offers an alternative that combines flexibility, cost and security in a different way.",
+      },
+      {
+        heading: "What makes SD-WAN different?",
+        body: "Instead of relying on a single dedicated link per site, SD-WAN intelligently routes traffic across multiple available connections (fiber, broadband, LTE), prioritizing critical applications in real time based on their performance and availability. This makes it possible to take advantage of cheaper links without sacrificing quality for the applications that need it most.",
+      },
+      {
+        heading: "Security isn't optional, it's part of the design",
+        body: "A common mistake is assuming that opening traffic to the internet through broadband links (instead of a private MPLS link) means giving up security. A well-designed SD-WAN deployment includes end-to-end encryption across all sites, traffic segmentation and, in many cases, integration with existing perimeter security platforms.",
+      },
+      {
+        heading: "Centralized visibility across the entire network",
+        body: "One of the less visible but more valuable benefits of SD-WAN is centralized management: IT teams can see the status of every site, apply network policies and respond to incidents from a single console, instead of managing each site in isolation.",
+      },
+      {
+        heading: "Who does it make the most sense for?",
+        body: "SD-WAN is especially valuable for organizations with multiple sites that depend on cloud applications, that need to roll out new branches quickly, or that are looking to reduce connectivity costs without giving up control or security over traffic between sites.",
+      },
+      {
+        body: "At Spectrum, we design and implement SD-WAN architectures as part of our Connectivity service, with end-to-end encrypted connectivity and integrated Data Center switching, so connecting more sites never means exposing more of your operation.",
+      },
+    ],
+  },
+];
+
+export function getArticles(locale = "es") {
+  return locale === "en" ? articlesEn : articles;
+}
+
+export function getArticleBySlug(slug, locale = "es") {
+  return getArticles(locale).find((article) => article.slug === slug);
 }

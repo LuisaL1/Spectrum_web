@@ -4,20 +4,19 @@ import Culture from "@/components/sections/Culture";
 import Footer from "@/components/layout/Footer";
 
 export const metadata = {
-  title: "Equipo | Spectrum",
-  description:
-    "Conoce al equipo directivo y de trabajo que hace posible a Spectrum.",
+  title: "Team | Spectrum",
+  description: "Meet the leadership and working team that makes Spectrum possible.",
 };
 
-export default function EquipoPage() {
+export default function EquipoPageEn() {
   return (
     <>
-      <Header locale="es" />
+      <Header locale="en" />
       <main id="main-content">
-        <Team locale="es" />
-        <Culture locale="es" />
+        <Team locale="en" />
+        <Culture locale="en" />
       </main>
-      <Footer locale="es" />
+      <Footer locale="en" />
     </>
   );
 }

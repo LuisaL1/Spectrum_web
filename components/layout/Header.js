@@ -3,15 +3,37 @@
 import { useEffect, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { CaretIcon, CloseIcon, MenuIcon } from "../icons";
 import {
-  solutionsMenuColumns,
-  nosotrosMenuColumns,
-  blogMenuColumns,
+  getSolutionsMenuColumns,
+  getNosotrosMenuColumns,
+  getBlogMenuColumns,
 } from "@/data/nav-menu-data";
 import SearchModal from "../widgets/SearchModal";
 
-const navLinks = [{ href: "/#contacto", label: "Contacto", id: "contacto" }];
+const content = {
+  es: {
+    nosotros: "Nosotros",
+    soluciones: "Soluciones",
+    casos: "Casos de exito",
+    blog: "Blog",
+    contacto: "Contacto",
+    helpDesk: "Mesa de ayuda",
+    openMenu: "Abrir menu",
+    langLabel: "Selector de idioma",
+  },
+  en: {
+    nosotros: "About us",
+    soluciones: "Solutions",
+    casos: "Success stories",
+    blog: "Blog",
+    contacto: "Contact",
+    helpDesk: "Help desk",
+    openMenu: "Open menu",
+    langLabel: "Language selector",
+  },
+};
 
 function MegaMenu({ id, columns, onLinkClick }) {
   return (
@@ -33,10 +55,23 @@ function MegaMenu({ id, columns, onLinkClick }) {
   );
 }
 
-export default function Header() {
+export default function Header({ locale = "es" }) {
   const [menuOpen, setMenuOpen] = useState(false);
   const [openDropdown, setOpenDropdown] = useState(null);
   const [activeId, setActiveId] = useState(null);
+  const pathname = usePathname();
+
+  const t = content[locale] || content.es;
+  const navLinks = [{ href: locale === "en" ? "/en/#contacto" : "/#contacto", label: t.contacto, id: "contacto" }];
+  const nosotrosMenuColumns = getNosotrosMenuColumns(locale);
+  const solutionsMenuColumns = getSolutionsMenuColumns(locale);
+  const blogMenuColumns = getBlogMenuColumns(locale);
+
+  const pathWithoutLocale = pathname.startsWith("/en")
+    ? pathname.slice(3) || "/"
+    : pathname;
+  const esHref = pathWithoutLocale;
+  const enHref = pathWithoutLocale === "/" ? "/en" : `/en${pathWithoutLocale}`;
 
   const closeMenu = () => {
     setMenuOpen(false);
@@ -93,7 +128,7 @@ export default function Header() {
     <>
       <header className="main-nav">
         <div className="wrap nav-row">
-          <Link href="/" className="logo">
+          <Link href={locale === "en" ? "/en" : "/"} className="logo">
             <Image
               src="/logos/logo-spectrum.png"
               alt="Spectrum"
@@ -110,7 +145,7 @@ export default function Header() {
             aria-label="Principal"
           >
             <div className="nav-mobile-utilities">
-              <SearchModal inline />
+              <SearchModal inline locale={locale} />
             </div>
             <ul>
               <li
@@ -127,7 +162,7 @@ export default function Header() {
                     )
                   }
                 >
-                  <span className="top-link-label">Nosotros</span>
+                  <span className="top-link-label">{t.nosotros}</span>
                   <CaretIcon className="caret" size={14} />
                 </button>
                 <MegaMenu
@@ -150,7 +185,7 @@ export default function Header() {
                     )
                   }
                 >
-                  <span className="top-link-label">Soluciones</span>
+                  <span className="top-link-label">{t.soluciones}</span>
                   <CaretIcon className="caret" size={14} />
                 </button>
                 <MegaMenu
@@ -159,14 +194,14 @@ export default function Header() {
                   onLinkClick={closeMenu}
                 />
               </li>
-              <li className="nav-item" key="/#casos">
+              <li className="nav-item" key="casos">
                 <Link
                   className="top-link"
-                  href="/#casos"
+                  href={locale === "en" ? "/en/#casos" : "/#casos"}
                   aria-current={activeId === "casos" ? "true" : undefined}
                   onClick={closeMenu}
                 >
-                  <span className="top-link-label">Casos de exito</span>
+                  <span className="top-link-label">{t.casos}</span>
                 </Link>
               </li>
               <li
@@ -181,7 +216,7 @@ export default function Header() {
                     setOpenDropdown((open) => (open === "blog" ? null : "blog"))
                   }
                 >
-                  <span className="top-link-label">Blog</span>
+                  <span className="top-link-label">{t.blog}</span>
                   <CaretIcon className="caret" size={14} />
                 </button>
                 <MegaMenu
@@ -210,29 +245,35 @@ export default function Header() {
               className="btn btn-primary nav-mobile-cta"
               onClick={closeMenu}
             >
-              Mesa de ayuda
+              {t.helpDesk}
             </a>
           </nav>
 
           <div className="nav-cta">
-            <div className="lang-switch" aria-label="Selector de idioma">
-              <span className="active">ES</span>|<span>EN</span>
+            <div className="lang-switch" aria-label={t.langLabel}>
+              <Link href={esHref} className={locale === "es" ? "active" : ""}>
+                ES
+              </Link>
+              |
+              <Link href={enHref} className={locale === "en" ? "active" : ""}>
+                EN
+              </Link>
             </div>
-            <SearchModal />
+            <SearchModal locale={locale} />
             <a
               href="https://soporte.spectrumt.co"
               target="_blank"
               rel="noopener noreferrer"
               className="btn btn-primary"
             >
-              Mesa de ayuda
+              {t.helpDesk}
             </a>
             <button
               className="mobile-toggle"
               type="button"
               aria-expanded={menuOpen}
               aria-controls="menu-principal"
-              aria-label="Abrir menu"
+              aria-label={t.openMenu}
               onClick={() => setMenuOpen((open) => !open)}
             >
               {menuOpen ? <CloseIcon size={20} /> : <MenuIcon size={20} />}

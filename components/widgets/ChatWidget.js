@@ -3,12 +3,38 @@
 import { useEffect, useRef, useState } from "react";
 import { ChatIcon, CloseIcon, SendIcon } from "../icons";
 
-const GREETING = "Hola, soy SpectrIA. ¿En qué puedo ayudarte?";
+const content = {
+  es: {
+    greeting: "Hola, soy SpectrIA. ¿En qué puedo ayudarte?",
+    dialogLabel: "SpectrIA, asistente de Spectrum",
+    close: "Cerrar chat",
+    placeholder: "Escribe tu pregunta...",
+    send: "Enviar",
+    openAssistant: "Preguntar a la IA",
+    noInfo:
+      "No dispongo de información suficiente para responder esa consulta. Te recomiendo contactar directamente con nuestro equipo.",
+    connectionError:
+      "Tuvimos un problema de conexión. Intenta de nuevo o escribe a contacto@spectrumt.co.",
+  },
+  en: {
+    greeting: "Hi, I'm SpectrIA. How can I help you?",
+    dialogLabel: "SpectrIA, Spectrum's assistant",
+    close: "Close chat",
+    placeholder: "Type your question...",
+    send: "Send",
+    openAssistant: "Ask the AI",
+    noInfo:
+      "I don't have enough information to answer that question. I'd recommend contacting our team directly.",
+    connectionError:
+      "We had a connection issue. Please try again or email us at contacto@spectrumt.co.",
+  },
+};
 
-export default function ChatWidget() {
+export default function ChatWidget({ locale = "es" }) {
+  const t = content[locale] || content.es;
   const [open, setOpen] = useState(false);
   const [messages, setMessages] = useState([
-    { role: "assistant", content: GREETING },
+    { role: "assistant", content: t.greeting },
   ]);
   const [input, setInput] = useState("");
   const [sending, setSending] = useState(false);
@@ -40,16 +66,14 @@ export default function ChatWidget() {
       const response = await fetch("/api/chat", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ messages: nextMessages }),
+        body: JSON.stringify({ messages: nextMessages, locale }),
       });
       const data = await response.json();
       setMessages((current) => [
         ...current,
         {
           role: "assistant",
-          content:
-            data.reply ||
-            "No dispongo de información suficiente para responder esa consulta. Te recomiendo contactar directamente con nuestro equipo.",
+          content: data.reply || t.noInfo,
         },
       ]);
     } catch {
@@ -57,8 +81,7 @@ export default function ChatWidget() {
         ...current,
         {
           role: "assistant",
-          content:
-            "Tuvimos un problema de conexión. Intenta de nuevo o escribe a contacto@spectrumt.co.",
+          content: t.connectionError,
         },
       ]);
     } finally {
@@ -69,7 +92,7 @@ export default function ChatWidget() {
   return (
     <div className="chat-widget">
       {open && (
-        <div className="chat-panel" role="dialog" aria-label="SpectrIA, asistente de Spectrum">
+        <div className="chat-panel" role="dialog" aria-label={t.dialogLabel}>
           <div className="chat-panel-header">
             <div>
               <strong>SpectrIA</strong>
@@ -77,7 +100,7 @@ export default function ChatWidget() {
             <button
               type="button"
               className="chat-close"
-              aria-label="Cerrar chat"
+              aria-label={t.close}
               onClick={() => setOpen(false)}
             >
               <CloseIcon size={18} />
@@ -105,14 +128,14 @@ export default function ChatWidget() {
               type="text"
               value={input}
               onChange={(event) => setInput(event.target.value)}
-              placeholder="Escribe tu pregunta..."
+              placeholder={t.placeholder}
               autoComplete="off"
               disabled={sending}
             />
             <button
               type="submit"
               className="chat-send"
-              aria-label="Enviar"
+              aria-label={t.send}
               disabled={sending || !input.trim()}
             >
               <SendIcon size={16} />
@@ -125,11 +148,11 @@ export default function ChatWidget() {
         <button
           type="button"
           className="chat-toggle"
-          aria-label="Abrir asistente"
+          aria-label={t.openAssistant}
           onClick={() => setOpen(true)}
         >
           <ChatIcon size={18} />
-          <span className="chat-toggle-label">Preguntar a la IA</span>
+          <span className="chat-toggle-label">{t.openAssistant}</span>
         </button>
       )}
     </div>

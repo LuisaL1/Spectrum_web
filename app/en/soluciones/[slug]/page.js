@@ -7,15 +7,15 @@ import InfoRequestForm from "@/components/widgets/InfoRequestForm";
 import { CheckIcon } from "@/components/icons";
 import { solutions, getSolutionBySlug } from "@/data/solutions-data";
 
-const locale = "es";
+const locale = "en";
 
 const content = {
-  businessUnit: "Unidad de negocio",
-  helpDesk: "Mesa de ayuda",
-  whatIncludes: "Qué incluye",
-  scope: "Alcance de la solución",
-  whySpectrum: "Por qué Spectrum",
-  valueHeading: "El valor de trabajar con Spectrum",
+  businessUnit: "Business unit",
+  helpDesk: "Help desk",
+  whatIncludes: "What's included",
+  scope: "Scope of the solution",
+  whySpectrum: "Why Spectrum",
+  valueHeading: "The value of working with Spectrum",
 };
 
 export function generateStaticParams() {
@@ -32,7 +32,7 @@ export async function generateMetadata({ params }) {
   };
 }
 
-export default async function SolutionPage({ params }) {
+export default async function SolutionPageEn({ params }) {
   const { slug } = await params;
   const solution = getSolutionBySlug(slug, locale);
   if (!solution) notFound();

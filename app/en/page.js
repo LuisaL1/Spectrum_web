@@ -10,22 +10,28 @@ import Blog from "@/components/sections/Blog";
 import CtaStrip from "@/components/sections/CtaStrip";
 import Footer from "@/components/layout/Footer";
 
-export default function Home() {
+export const metadata = {
+  title: "Spectrum | Future Powered",
+  description:
+    "Spectrum is a technology ecosystem of infrastructure, cybersecurity and connectivity for public and private organizations.",
+};
+
+export default function HomeEn() {
   return (
     <>
-      <Header locale="es" />
+      <Header locale="en" />
       <main id="main-content">
-        <Hero locale="es" />
-        <AISpotlight locale="es" />
-        <Solutions locale="es" />
-        <Suspense fallback={<Cases locale="es" />}>
-          <CasesWithSector locale="es" />
+        <Hero locale="en" />
+        <AISpotlight locale="en" />
+        <Solutions locale="en" />
+        <Suspense fallback={<Cases locale="en" />}>
+          <CasesWithSector locale="en" />
         </Suspense>
-        <Partners locale="es" />
-        <Blog locale="es" />
-        <CtaStrip locale="es" />
+        <Partners locale="en" />
+        <Blog locale="en" />
+        <CtaStrip locale="en" />
       </main>
-      <Footer locale="es" />
+      <Footer locale="en" />
     </>
   );
 }

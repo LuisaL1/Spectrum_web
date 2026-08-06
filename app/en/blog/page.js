@@ -6,18 +6,18 @@ import Footer from "@/components/layout/Footer";
 export const metadata = {
   title: "Blog | Spectrum",
   description:
-    "Artículos técnicos de Spectrum sobre infraestructura, ciberseguridad, conectividad e inteligencia artificial.",
+    "Technical articles from Spectrum on infrastructure, cybersecurity, connectivity and artificial intelligence.",
 };
 
-export default function BlogPage() {
+export default function BlogPageEn() {
   return (
     <>
-      <Header locale="es" />
+      <Header locale="en" />
       <main id="main-content">
-        <BlogArchive locale="es" />
-        <CtaStrip locale="es" />
+        <BlogArchive locale="en" />
+        <CtaStrip locale="en" />
       </main>
-      <Footer locale="es" />
+      <Footer locale="en" />
     </>
   );
 }

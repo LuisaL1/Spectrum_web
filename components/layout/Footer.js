@@ -1,7 +1,8 @@
 import Image from "next/image";
 import { FacebookIcon, InstagramIcon, LinkedInIcon } from "../icons";
+import { localizedHref } from "@/lib/i18n";
 
-const footerColumns = [
+const footerColumnsEs = [
   {
     title: "Empresa",
     links: [
@@ -38,13 +39,70 @@ const footerColumns = [
   },
 ];
 
-export default function Footer() {
+const footerColumnsEn = [
+  {
+    title: "Company",
+    links: [
+      { label: "About us", href: "/nosotros" },
+      { label: "Success stories", href: "#casos" },
+      { label: "Blog", href: "#blog" },
+      { label: "Work with us", href: "#" },
+    ],
+  },
+  {
+    title: "Solutions",
+    links: [
+      { label: "Technology infrastructure", href: "#soluciones" },
+      { label: "Cybersecurity", href: "#soluciones" },
+      { label: "Connectivity", href: "#soluciones" },
+      { label: "IT services", href: "#soluciones" },
+    ],
+  },
+  {
+    title: "Support",
+    links: [
+      { label: "Help desk", href: "#contacto" },
+      { label: "Request a consultation", href: "#contacto" },
+      { label: "WhatsApp", href: "#contacto" },
+    ],
+  },
+  {
+    title: "Contact",
+    links: [
+      { label: "contacto@spectrumt.co", href: "mailto:contacto@spectrumt.co" },
+      { label: "spectrumt.co", href: "#" },
+      { label: "Colombia", href: "#" },
+    ],
+  },
+];
+
+const content = {
+  es: {
+    tagline:
+      "Ecosistema tecnológico de infraestructura, ciberseguridad y conectividad. Future Powered.",
+    rights: "© 2026 Spectrum. Todos los derechos reservados.",
+    privacy: "Politica de privacidad",
+    terms: "Terminos de uso",
+  },
+  en: {
+    tagline:
+      "A technology ecosystem of infrastructure, cybersecurity and connectivity. Future Powered.",
+    rights: "© 2026 Spectrum. All rights reserved.",
+    privacy: "Privacy policy",
+    terms: "Terms of use",
+  },
+};
+
+export default function Footer({ locale = "es" }) {
+  const footerColumns = locale === "en" ? footerColumnsEn : footerColumnsEs;
+  const t = content[locale] || content.es;
+
   return (
     <footer>
       <div className="wrap">
         <div className="footer-top">
           <div className="footer-brand">
-            <a href="#" className="logo">
+            <a href={localizedHref(locale, "/")} className="logo">
               <Image
                 src="/logos/logo-spectrum.png"
                 alt="Spectrum"
@@ -53,10 +111,7 @@ export default function Footer() {
                 className="logo-img"
               />
             </a>
-            <p>
-              Ecosistema tecnológico de infraestructura, ciberseguridad y
-              conectividad. Future Powered.
-            </p>
+            <p>{t.tagline}</p>
             <div className="social">
               <a href="#" aria-label="LinkedIn">
                 <LinkedInIcon size={15} />
@@ -93,10 +148,10 @@ export default function Footer() {
           ))}
         </div>
         <div className="footer-bottom">
-          <p>&copy; 2026 Spectrum. Todos los derechos reservados.</p>
+          <p>{t.rights}</p>
           <div className="footer-legal">
-            <a href="#">Politica de privacidad</a>
-            <a href="#">Terminos de uso</a>
+            <a href={localizedHref(locale, "/politica-de-datos")}>{t.privacy}</a>
+            <a href="#">{t.terms}</a>
           </div>
         </div>
       </div>

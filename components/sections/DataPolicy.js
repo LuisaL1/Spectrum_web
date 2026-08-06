@@ -1,4 +1,4 @@
-export default function DataPolicy() {
+function DataPolicyEs() {
   return (
     <section className="on-light legal-doc" id="politica-de-datos">
       <div className="wrap legal-wrap">
@@ -209,4 +209,212 @@ export default function DataPolicy() {
       </div>
     </section>
   );
+}
+
+function DataPolicyEn() {
+  return (
+    <section className="on-light legal-doc" id="politica-de-datos">
+      <div className="wrap legal-wrap">
+        <p className="eyebrow">Spectrum Technology S.A.S</p>
+        <h1>Personal Data Processing Policy</h1>
+        <p className="legal-meta">Effective date: July 2026</p>
+
+        <p>
+          Spectrum is committed to protecting the personal data of the
+          individuals and legal entities that interact with its website and
+          commercial channels. This Personal Data Processing Policy
+          (hereinafter, the &quot;Policy&quot;) clearly and transparently
+          describes how we collect, use, store and protect the information
+          provided by users, in compliance with Colombian Law 1581 of 2012,
+          Decree 1377 of 2013, and any other rules that amend or supplement
+          them, and observing, to the extent applicable, the principles and
+          standards of the European Union's General Data Protection
+          Regulation (GDPR).
+        </p>
+
+        <h2>1. Purpose and scope</h2>
+        <p>
+          <strong>Data controller:</strong> Spectrum Technology S.A.S.
+          (hereinafter &quot;Spectrum&quot;), identified with Tax ID [Tax
+          Identification Number], is the entity responsible for processing
+          the personal data collected through its website and commercial
+          contact form.
+        </p>
+        <p>
+          This Policy applies to all personal and corporate information that
+          Spectrum collects through its website, specifically through the
+          commercial contact form provided for inquiries about
+          cybersecurity, technology infrastructure, connectivity, IT
+          services and artificial intelligence. By filling out that form,
+          the user accepts the terms described here and authorizes the
+          processing of their data in accordance with the purposes set out
+          below.
+        </p>
+        <p>
+          <strong>Data controller contact details</strong>
+        </p>
+        <ul>
+          <li>Legal name: Spectrum Technology S.A.S.</li>
+          <li>Tax ID: [Tax Identification Number]</li>
+          <li>
+            Privacy contact email: [privacy email, e.g.
+            privacidad@spectrumt.co]
+          </li>
+          <li>Physical address: [To be defined]</li>
+          <li>
+            Main channel for rights requests: email / contact form available
+            on the website
+          </li>
+        </ul>
+
+        <h2>2. Data collected</h2>
+        <p>
+          Through the commercial contact form (Cybersecurity) available on
+          the website, Spectrum exclusively collects the following data:
+        </p>
+        <ul>
+          <li>Full name</li>
+          <li>Corporate email</li>
+          <li>Company</li>
+          <li>Role</li>
+          <li>Phone number</li>
+          <li>Service of interest</li>
+          <li>Message</li>
+        </ul>
+        <p>
+          Spectrum does not collect sensitive data (such as ethnic origin,
+          religious beliefs, health or biometric data) through this form.
+          The information requested corresponds to corporate contact data,
+          necessary only to manage the business relationship initiated by
+          the user.
+        </p>
+
+        <h2>3. Purpose of processing</h2>
+        <p>
+          The data collected will be used exclusively for the following
+          purposes:
+        </p>
+        <p>
+          <strong>Purpose A — Commercial management (mandatory)</strong>
+        </p>
+        <p>
+          To manage requests for information about Spectrum's cybersecurity
+          and technology infrastructure services, prepare and send quotes,
+          respond to inquiries raised, and establish the commercial contact
+          requested by the user. This purpose is essential to handle the
+          request and is therefore a necessary condition for submitting the
+          form.
+        </p>
+        <p>
+          <strong>Purpose B — Value-added communications (optional)</strong>
+        </p>
+        <p>
+          To send newsletters, cybersecurity industry news, and Spectrum
+          promotions and offers. This purpose will only be carried out if
+          the user expressly and voluntarily checked the optional box
+          provided for that purpose in the form. The user may unsubscribe or
+          revoke this authorization at any time, without affecting the
+          handling of their commercial request (Purpose A).
+        </p>
+
+        <h2>4. User rights (Colombian ARCO rights)</h2>
+        <p>
+          As the data subject, any user who has provided their information
+          to Spectrum has the right to:
+        </p>
+        <ul>
+          <li>
+            Know, update and correct their personal data held by Spectrum as
+            the data controller.
+          </li>
+          <li>
+            Request proof of the authorization granted, except where
+            expressly exempted as a requirement for processing.
+          </li>
+          <li>
+            Be informed, upon request, of how their personal data has been
+            used.
+          </li>
+          <li>
+            File complaints with the competent authority (in Colombia, the
+            Superintendence of Industry and Commerce) for violations of
+            applicable regulations.
+          </li>
+          <li>
+            Revoke the authorization and/or request deletion of their data,
+            when there is no legal or contractual duty preventing its
+            removal.
+          </li>
+          <li>
+            Access, free of charge, the personal data that has been
+            processed.
+          </li>
+        </ul>
+        <p>
+          <strong>Procedure for exercising your rights</strong>
+        </p>
+        <p>
+          To know, update, correct or delete your data, or to revoke the
+          consent granted (including opting out of newsletters and
+          commercial communications under Purpose B), the user must send a
+          request to [privacy email, e.g. privacidad@spectrumt.co], stating
+          their full name, the company they represent, and a clear
+          description of their request. Spectrum will respond within the
+          terms established by Colombian Law 1581 of 2012 (a maximum of ten
+          (10) business days for inquiries and fifteen (15) business days
+          for complaints, extendable when the complexity of the case
+          requires it, with due notice to the data subject).
+        </p>
+
+        <h2>5. Data retention and security</h2>
+        <p>
+          Spectrum implements reasonable technical, human and administrative
+          measures to protect personal data against loss, misuse,
+          unauthorized access, alteration or disclosure. These measures
+          include the use of SSL encryption on the website to protect the
+          transmission of information submitted through the contact form.
+        </p>
+        <p>
+          Personal data will be retained only for as long as necessary to
+          fulfill the commercial purpose for which it was collected, or for
+          the period required by applicable legal, contractual or
+          accounting obligations. Once that purpose has been fulfilled and
+          the legal retention periods have expired, the data will be
+          securely deleted or anonymized.
+        </p>
+
+        <h2>6. Data transfer and transmission</h2>
+        <p>
+          Spectrum does not sell, rent or share the corporate data collected
+          with third parties unrelated to its business operations. The
+          information provided by users is used exclusively for the
+          purposes described in this Policy.
+        </p>
+        <p>
+          Data may be accessed by Spectrum's internal staff or by technology
+          vendors that provide website support services (for example,
+          hosting or email tools), who act as data processors under
+          contractual confidentiality and security obligations, and only to
+          the extent necessary to provide those services. Under no
+          circumstances are these third parties authorized to use the
+          information for purposes other than those established here.
+        </p>
+
+        <h2>7. Validity and changes</h2>
+        <p>
+          This Policy is effective as of July 2026. Spectrum reserves the
+          right to modify or update this Policy at any time, in order to
+          reflect regulatory, operational or technological changes. Any
+          changes will be published promptly on Spectrum's website,
+          indicating the date of the last update, so users are advised to
+          review this Policy periodically.
+        </p>
+        <p className="legal-meta">Last updated: July 2026</p>
+      </div>
+    </section>
+  );
+}
+
+export default function DataPolicy({ locale = "es" }) {
+  return locale === "en" ? <DataPolicyEn /> : <DataPolicyEs />;
 }

@@ -7,7 +7,7 @@ import Footer from "@/components/layout/Footer";
 import { ArrowRightIcon } from "@/components/icons";
 import { news, getNewsItemBySlug } from "@/data/news";
 
-const locale = "es";
+const locale = "en";
 
 export function generateStaticParams() {
   return news.map((item) => ({ slug: item.slug }));
@@ -23,7 +23,7 @@ export async function generateMetadata({ params }) {
   };
 }
 
-export default async function NewsItemPage({ params }) {
+export default async function NewsItemPageEn({ params }) {
   const { slug } = await params;
   const item = getNewsItemBySlug(slug, locale);
   if (!item) notFound();
@@ -34,9 +34,9 @@ export default async function NewsItemPage({ params }) {
       <main id="main-content">
         <section className="on-light pattern-bg article-doc">
           <div className="wrap article-wrap">
-            <Link className="article-back" href="/novedades">
+            <Link className="article-back" href="/en/novedades">
               <ArrowRightIcon size={13} className="article-back-icon" />
-              Volver a Novedades
+              Back to News
             </Link>
             <p className="eyebrow">{item.category}</p>
             <h1>{item.title}</h1>

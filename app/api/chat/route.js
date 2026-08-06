@@ -1,4 +1,8 @@
-import { buildSystemPrompt, FALLBACK_MESSAGE } from "@/lib/assistant-prompt";
+import {
+  buildSystemPrompt,
+  FALLBACK_MESSAGE,
+  FALLBACK_MESSAGE_EN,
+} from "@/lib/assistant-prompt";
 
 const GEMINI_MODEL_DEFAULT = "gemini-flash-latest";
 const MAX_HISTORY_MESSAGES = 12;
@@ -14,6 +18,8 @@ export async function POST(request) {
 
   const body = await request.json();
   const messages = Array.isArray(body?.messages) ? body.messages : [];
+  const locale = body?.locale === "en" ? "en" : "es";
+  const fallback = locale === "en" ? FALLBACK_MESSAGE_EN : FALLBACK_MESSAGE;
 
   const sanitized = messages
     .filter(
@@ -38,7 +44,7 @@ export async function POST(request) {
 
   const payload = {
     systemInstruction: {
-      parts: [{ text: buildSystemPrompt() }],
+      parts: [{ text: buildSystemPrompt(locale) }],
     },
     contents: sanitized,
     generationConfig: {
@@ -60,7 +66,7 @@ export async function POST(request) {
     });
   } catch {
     return Response.json(
-      { reply: FALLBACK_MESSAGE, error: "network" },
+      { reply: fallback, error: "network" },
       { status: 200 }
     );
   }
@@ -69,15 +75,14 @@ export async function POST(request) {
     const detail = await response.text();
     console.error("Gemini error:", detail);
     return Response.json(
-      { reply: FALLBACK_MESSAGE, error: "gemini" },
+      { reply: fallback, error: "gemini" },
       { status: 200 }
     );
   }
 
   const data = await response.json();
   const reply =
-    data?.candidates?.[0]?.content?.parts?.[0]?.text?.trim() ||
-    FALLBACK_MESSAGE;
+    data?.candidates?.[0]?.content?.parts?.[0]?.text?.trim() || fallback;
 
   return Response.json({ reply });
 }

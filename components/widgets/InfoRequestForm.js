@@ -3,8 +3,59 @@
 import { useEffect, useState } from "react";
 import Link from "next/link";
 import { CloseIcon } from "../icons";
+import { localizedHref } from "@/lib/i18n";
 
-export default function InfoRequestForm({ serviceName, serviceSlug }) {
+const content = {
+  es: {
+    requestInfo: "Solicitar información",
+    close: "Cerrar",
+    thanks: "¡Gracias por su interés!",
+    received: (serviceName) =>
+      `Recibimos su solicitud sobre ${serviceName}. Nuestro equipo le responderá a la brevedad.`,
+    fullName: "Nombre completo *",
+    corporateEmail: "Correo corporativo *",
+    company: "Empresa *",
+    role: "Cargo",
+    phone: "Teléfono",
+    serviceOfInterest: "Servicio de interés",
+    message: "Mensaje",
+    messagePlaceholder: "Cuéntenos en qué podemos ayudarle",
+    consentPrefix: "Autorizo el tratamiento de mis datos personales conforme a la",
+    privacyPolicy: "política de privacidad",
+    consentSuffix: "de Spectrum. *",
+    promos: "Deseo recibir novedades y promociones de los servicios de Spectrum.",
+    sending: "Enviando...",
+    submit: "Enviar solicitud",
+    genericError:
+      "No pudimos enviar su solicitud. Intente de nuevo o escríbanos a contacto@spectrumt.co.",
+  },
+  en: {
+    requestInfo: "Request information",
+    close: "Close",
+    thanks: "Thanks for your interest!",
+    received: (serviceName) =>
+      `We received your request about ${serviceName}. Our team will get back to you shortly.`,
+    fullName: "Full name *",
+    corporateEmail: "Corporate email *",
+    company: "Company *",
+    role: "Role",
+    phone: "Phone",
+    serviceOfInterest: "Service of interest",
+    message: "Message",
+    messagePlaceholder: "Tell us how we can help you",
+    consentPrefix: "I authorize the processing of my personal data in accordance with the",
+    privacyPolicy: "privacy policy",
+    consentSuffix: "of Spectrum. *",
+    promos: "I'd like to receive news and promotions about Spectrum's services.",
+    sending: "Sending...",
+    submit: "Submit request",
+    genericError:
+      "We couldn't send your request. Please try again or email us at contacto@spectrumt.co.",
+  },
+};
+
+export default function InfoRequestForm({ serviceName, serviceSlug, locale = "es" }) {
+  const t = content[locale] || content.es;
   const [open, setOpen] = useState(false);
   const [submitted, setSubmitted] = useState(false);
   const [sending, setSending] = useState(false);
@@ -61,7 +112,7 @@ export default function InfoRequestForm({ serviceName, serviceSlug }) {
       setError(
         err.message && err.message !== "request-failed"
           ? err.message
-          : "No pudimos enviar su solicitud. Intente de nuevo o escríbanos a contacto@spectrumt.co."
+          : t.genericError
       );
     } finally {
       setSending(false);
@@ -71,7 +122,7 @@ export default function InfoRequestForm({ serviceName, serviceSlug }) {
   return (
     <>
       <button type="button" className="btn btn-outline" onClick={() => setOpen(true)}>
-        Solicitar información
+        {t.requestInfo}
       </button>
 
       {open && (
@@ -86,7 +137,7 @@ export default function InfoRequestForm({ serviceName, serviceSlug }) {
             <button
               type="button"
               className="modal-close"
-              aria-label="Cerrar"
+              aria-label={t.close}
               onClick={close}
             >
               <CloseIcon size={16} />
@@ -94,79 +145,72 @@ export default function InfoRequestForm({ serviceName, serviceSlug }) {
 
             {submitted ? (
               <div className="modal-success">
-                <h3>¡Gracias por su interés!</h3>
-                <p>
-                  Recibimos su solicitud sobre {serviceName}. Nuestro equipo le
-                  responderá a la brevedad.
-                </p>
+                <h3>{t.thanks}</h3>
+                <p>{t.received(serviceName)}</p>
                 <button type="button" className="btn btn-primary" onClick={close}>
-                  Cerrar
+                  {t.close}
                 </button>
               </div>
             ) : (
               <>
-                <p className="eyebrow">Solicitar información</p>
+                <p className="eyebrow">{t.requestInfo}</p>
                 <h3 id="info-form-title">{serviceName}</h3>
                 <form className="info-form" onSubmit={handleSubmit}>
                   <div className="form-row">
                     <label>
-                      Nombre completo *
+                      {t.fullName}
                       <input type="text" name="nombre" required />
                     </label>
                     <label>
-                      Correo corporativo *
+                      {t.corporateEmail}
                       <input type="email" name="correo" required />
                     </label>
                   </div>
                   <div className="form-row">
                     <label>
-                      Empresa *
+                      {t.company}
                       <input type="text" name="empresa" required />
                     </label>
                     <label>
-                      Cargo
+                      {t.role}
                       <input type="text" name="cargo" />
                     </label>
                   </div>
                   <div className="form-row">
                     <label>
-                      Teléfono
+                      {t.phone}
                       <input type="tel" name="telefono" />
                     </label>
                     <label>
-                      Servicio de interés
+                      {t.serviceOfInterest}
                       <input type="text" value={serviceName} disabled />
                     </label>
                   </div>
                   <label className="form-field-full">
-                    Mensaje
+                    {t.message}
                     <textarea
                       name="mensaje"
                       rows={3}
-                      placeholder="Cuéntenos en qué podemos ayudarle"
+                      placeholder={t.messagePlaceholder}
                     />
                   </label>
                   <label className="form-checkbox">
                     <input type="checkbox" name="consentimiento" required />
                     <span>
-                      Autorizo el tratamiento de mis datos personales conforme
-                      a la{" "}
+                      {t.consentPrefix}{" "}
                       <Link
-                        href="/politica-de-datos"
+                        href={localizedHref(locale, "/politica-de-datos")}
                         target="_blank"
                         rel="noopener noreferrer"
                       >
-                        política de privacidad
+                        {t.privacyPolicy}
                       </Link>{" "}
-                      de Spectrum. *
+                      {t.consentSuffix}
                     </span>
                   </label>
                   <label className="form-checkbox">
                     <input type="checkbox" name="promos" />
-                    <span>
-                      Deseo recibir novedades y promociones de los servicios
-                      de Spectrum.
-                    </span>
+                    <span>{t.promos}</span>
                   </label>
                   {error && <p className="form-error">{error}</p>}
                   <button
@@ -174,7 +218,7 @@ export default function InfoRequestForm({ serviceName, serviceSlug }) {
                     className="btn btn-primary form-submit"
                     disabled={sending}
                   >
-                    {sending ? "Enviando..." : "Enviar solicitud"}
+                    {sending ? t.sending : t.submit}
                   </button>
                 </form>
               </>

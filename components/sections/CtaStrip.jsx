@@ -3,11 +3,26 @@ import { WhatsAppIcon } from "@/components/icons";
 // TODO: reemplazar por el numero real de WhatsApp de Spectrum.
 const WHATSAPP_NUMBER = "573000000000";
 
-export default function CtaStrip() {
+const content = {
+  es: {
+    heading: "Hablemos de la evolución de su infraestructura",
+    helpDesk: "Mesa de ayuda",
+    whatsapp: "Escribir por WhatsApp",
+  },
+  en: {
+    heading: "Let's talk about the evolution of your infrastructure",
+    helpDesk: "Help desk",
+    whatsapp: "Message on WhatsApp",
+  },
+};
+
+export default function CtaStrip({ locale = "es" }) {
+  const t = content[locale] || content.es;
+
   return (
     <section className="cta-strip" id="contacto">
       <div className="wrap">
-        <h2>Hablemos de la evolución de su infraestructura</h2>
+        <h2>{t.heading}</h2>
         <div className="cta-strip-actions">
           <a
             href="https://soporte.spectrumt.co"
@@ -15,7 +30,7 @@ export default function CtaStrip() {
             rel="noopener noreferrer"
             className="btn btn-solid"
           >
-            Mesa de ayuda
+            {t.helpDesk}
           </a>
           <a
             href={`https://wa.me/${WHATSAPP_NUMBER}`}
@@ -24,7 +39,7 @@ export default function CtaStrip() {
             className="btn btn-whatsapp"
           >
             <WhatsAppIcon size={16} />
-            Escribir por WhatsApp
+            {t.whatsapp}
           </a>
         </div>
       </div>

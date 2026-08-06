@@ -1,4 +1,29 @@
-export default function Hero() {
+const content = {
+  es: {
+    eyebrow: "Future Powered",
+    titleLine1: "Sistemas conectados",
+    titleLine2Prefix: "para un ",
+    titleEm: "futuro",
+    titleLine2Suffix: " seguro",
+    lead: "Infraestructura tecnológica y ciberseguridad diseñadas como un mismo ecosistema: conectamos, protegemos y potenciamos la operación de su organización.",
+    helpDesk: "Mesa de ayuda",
+    downloadPortfolio: "Descargar portafolio",
+  },
+  en: {
+    eyebrow: "Future Powered",
+    titleLine1: "Connected systems",
+    titleLine2Prefix: "for a ",
+    titleEm: "secure",
+    titleLine2Suffix: " future",
+    lead: "Technology infrastructure and cybersecurity designed as a single ecosystem: we connect, protect and power your organization's operation.",
+    helpDesk: "Help desk",
+    downloadPortfolio: "Download portfolio",
+  },
+};
+
+export default function Hero({ locale = "es" }) {
+  const t = content[locale] || content.es;
+
   return (
     <section className="hero">
       <video
@@ -11,17 +36,15 @@ export default function Hero() {
         aria-hidden="true"
       />
       <div className="hero-content">
-        <p className="eyebrow">Future Powered</p>
+        <p className="eyebrow">{t.eyebrow}</p>
         <h1>
-          Sistemas conectados
+          {t.titleLine1}
           <br />
-          para un <em>futuro</em> seguro
+          {t.titleLine2Prefix}
+          <em>{t.titleEm}</em>
+          {t.titleLine2Suffix}
         </h1>
-        <p className="lead">
-          Infraestructura tecnológica y ciberseguridad diseñadas como un
-          mismo ecosistema: conectamos, protegemos y potenciamos la
-          operación de su organización.
-        </p>
+        <p className="lead">{t.lead}</p>
         <div className="hero-actions">
           <a
             href="https://soporte.spectrumt.co"
@@ -29,14 +52,14 @@ export default function Hero() {
             rel="noopener noreferrer"
             className="btn btn-primary"
           >
-            Mesa de ayuda
+            {t.helpDesk}
           </a>
           <a
             href="/recursos/portafolio/Brochure%20Spectrum_CV.pdf"
             download
             className="btn btn-outline"
           >
-            Descargar portafolio
+            {t.downloadPortfolio}
           </a>
         </div>
       </div>

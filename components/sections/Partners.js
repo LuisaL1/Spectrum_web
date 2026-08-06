@@ -74,13 +74,26 @@ function LogoRow({ items, reverse }) {
   );
 }
 
-export default function Partners() {
+const content = {
+  es: {
+    eyebrow: "Aliados tecnológicos",
+    heading: "Respaldados por los líderes de la industria",
+  },
+  en: {
+    eyebrow: "Technology partners",
+    heading: "Backed by industry leaders",
+  },
+};
+
+export default function Partners({ locale = "es" }) {
+  const t = content[locale] || content.es;
+
   return (
     <section className="on-light" id="aliados">
       <div className="wrap">
         <div className="section-head">
-          <p className="eyebrow">Aliados tecnológicos</p>
-          <h2>Respaldados por los líderes de la industria</h2>
+          <p className="eyebrow">{t.eyebrow}</p>
+          <h2>{t.heading}</h2>
         </div>
       </div>
       <div className="logo-marquee-group">

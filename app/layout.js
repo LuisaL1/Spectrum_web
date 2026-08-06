@@ -1,3 +1,4 @@
+import { headers } from "next/headers";
 import { Montserrat } from "next/font/google";
 import ChatWidget from "@/components/widgets/ChatWidget";
 import { getSiteUrl } from "@/lib/site-url";
@@ -66,15 +67,18 @@ export const metadata = {
   },
 };
 
-export default function RootLayout({ children }) {
+export default async function RootLayout({ children }) {
+  const headersList = await headers();
+  const locale = headersList.get("x-locale") === "en" ? "en" : "es";
+
   return (
-    <html lang="es" className={montserrat.variable}>
+    <html lang={locale} className={montserrat.variable}>
       <body>
         <a className="skip-link" href="#main-content">
-          Saltar al contenido
+          {locale === "en" ? "Skip to content" : "Saltar al contenido"}
         </a>
         {children}
-        <ChatWidget />
+        <ChatWidget locale={locale} />
       </body>
     </html>
   );

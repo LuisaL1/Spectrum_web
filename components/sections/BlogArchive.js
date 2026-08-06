@@ -1,22 +1,38 @@
 import Link from "next/link";
 import Image from "next/image";
-import { articles } from "@/data/articles";
+import { getArticles } from "@/data/articles";
 import { ArrowRightIcon } from "../icons";
+import { localizedHref } from "@/lib/i18n";
 
-export default function BlogArchive() {
+const content = {
+  es: {
+    eyebrow: "Spectrum",
+    heading: "Blog",
+    lead: "Artículos técnicos sobre infraestructura, ciberseguridad, conectividad e inteligencia artificial escritos por nuestro equipo.",
+    featured: "Destacado",
+    readArticle: "Leer artículo",
+  },
+  en: {
+    eyebrow: "Spectrum",
+    heading: "Blog",
+    lead: "Technical articles on infrastructure, cybersecurity, connectivity and artificial intelligence written by our team.",
+    featured: "Featured",
+    readArticle: "Read article",
+  },
+};
+
+export default function BlogArchive({ locale = "es" }) {
+  const articles = getArticles(locale);
+  const t = content[locale] || content.es;
   const [featured, ...rest] = articles;
 
   return (
     <section className="on-light pattern-bg" id="blog-archive">
       <div className="wrap">
         <div className="section-head">
-          <p className="eyebrow">Spectrum</p>
-          <h2>Blog</h2>
-          <p className="gray-500">
-            Artículos técnicos sobre infraestructura, ciberseguridad,
-            conectividad e inteligencia artificial escritos por nuestro
-            equipo.
-          </p>
+          <p className="eyebrow">{t.eyebrow}</p>
+          <h2>{t.heading}</h2>
+          <p className="gray-500">{t.lead}</p>
         </div>
 
         {featured && (
@@ -34,11 +50,16 @@ export default function BlogArchive() {
               <span>{featured.category}</span>
             </div>
             <div className="news-featured-body blog-body">
-              <p className="date">Destacado &middot; {featured.date}</p>
+              <p className="date">
+                {t.featured} &middot; {featured.date}
+              </p>
               <h3>{featured.title}</h3>
               <p className="news-excerpt">{featured.excerpt}</p>
-              <Link className="more" href={`/blog/${featured.slug}`}>
-                Leer artículo <ArrowRightIcon size={13} />
+              <Link
+                className="more"
+                href={localizedHref(locale, `/blog/${featured.slug}`)}
+              >
+                {t.readArticle} <ArrowRightIcon size={13} />
               </Link>
             </div>
           </article>
@@ -63,8 +84,11 @@ export default function BlogArchive() {
                 <div className="news-list-body blog-body">
                   <p className="date">{article.date}</p>
                   <h3>{article.title}</h3>
-                  <Link className="more" href={`/blog/${article.slug}`}>
-                    Leer artículo <ArrowRightIcon size={13} />
+                  <Link
+                    className="more"
+                    href={localizedHref(locale, `/blog/${article.slug}`)}
+                  >
+                    {t.readArticle} <ArrowRightIcon size={13} />
                   </Link>
                 </div>
               </article>

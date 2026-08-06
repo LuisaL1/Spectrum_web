@@ -3,7 +3,7 @@
 import { useEffect, useState } from "react";
 import Image from "next/image";
 
-const cases = [
+const casesEs = [
   {
     name: "Alcaldía de Yumbo",
     meta: "Continuidad de negocio & NOC",
@@ -43,7 +43,63 @@ const cases = [
   },
 ];
 
-export default function Cases({ initialSector = null }) {
+const casesEn = [
+  {
+    name: "Alcaldía de Yumbo",
+    meta: "Business continuity & NOC",
+    tag: "Government sector",
+    sector: "gobierno",
+    title: "Alcaldía de Yumbo strengthens its operational continuity",
+    desc: "Deployment of backup infrastructure and continuous monitoring to guarantee availability of critical services to citizens.",
+    bg: "/assets/images/alcaldiayumbo.webp",
+  },
+  {
+    name: "Universidad Militar Nueva Granada",
+    meta: "Enterprise networks & cybersecurity",
+    tag: "Education sector",
+    sector: "educacion",
+    title: "High-performance enterprise networks for a safer campus",
+    desc: "Redesign of the network architecture and deployment of perimeter cybersecurity controls across all campuses.",
+    bg: "/assets/images/universidad-militar.jpg",
+  },
+  {
+    name: "Redeban",
+    meta: "Critical infrastructure & SOC",
+    tag: "Financial sector",
+    sector: "financiero",
+    title: "Critical infrastructure with guaranteed availability",
+    desc: "24/7 NOC and SOC monitoring over the infrastructure that supports nationwide transactions.",
+    bg: "/assets/images/redeban.webp",
+  },
+  {
+    name: "Colombian Navy",
+    meta: "Perimeter protection",
+    tag: "Defense sector",
+    sector: "defensa",
+    title: "Perimeter protection for strategic infrastructure",
+    desc: "Deployment of intrusion detection and prevention systems to shield the digital perimeter.",
+    bg: "/assets/images/armada-colombia.jpeg",
+  },
+];
+
+const content = {
+  es: {
+    eyebrow: "Nuestros principales clientes",
+    heading: "Organizaciones que confían en Spectrum",
+    lead: "Entidades públicas y privadas que fortalecieron su infraestructura y seguridad con nuestro acompañamiento.",
+    ariaLabel: "Selector de casos de éxito",
+  },
+  en: {
+    eyebrow: "Our leading clients",
+    heading: "Organizations that trust Spectrum",
+    lead: "Public and private entities that strengthened their infrastructure and security with our support.",
+    ariaLabel: "Success story selector",
+  },
+};
+
+export default function Cases({ initialSector = null, locale = "es" }) {
+  const cases = locale === "en" ? casesEn : casesEs;
+  const t = content[locale] || content.es;
   const [activeIndex, setActiveIndex] = useState(() => {
     const index = cases.findIndex((item) => item.sector === initialSector);
     return index === -1 ? 0 : index;
@@ -54,18 +110,15 @@ export default function Cases({ initialSector = null }) {
     if (!initialSector) return;
     const index = cases.findIndex((item) => item.sector === initialSector);
     if (index !== -1) setActiveIndex(index);
-  }, [initialSector]);
+  }, [initialSector, cases]);
 
   return (
     <section className="on-graphite" id="casos">
       <div className="wrap">
         <div className="section-head">
-          <p className="eyebrow">Nuestros principales clientes</p>
-          <h2>Organizaciones que confían en Spectrum</h2>
-          <p>
-            Entidades públicas y privadas que fortalecieron su
-            infraestructura y seguridad con nuestro acompañamiento.
-          </p>
+          <p className="eyebrow">{t.eyebrow}</p>
+          <h2>{t.heading}</h2>
+          <p>{t.lead}</p>
         </div>
         <div className="cases">
           <div className="case-visual">
@@ -102,7 +155,7 @@ export default function Cases({ initialSector = null }) {
           <div
             className="case-side"
             role="group"
-            aria-label="Selector de casos de éxito"
+            aria-label={t.ariaLabel}
           >
             {cases.map((item, index) => (
               <button

@@ -11,11 +11,11 @@ export const metadata = {
 export default function PoliticaDeDatosPage() {
   return (
     <>
-      <Header />
+      <Header locale="es" />
       <main id="main-content">
-        <DataPolicy />
+        <DataPolicy locale="es" />
       </main>
-      <Footer />
+      <Footer locale="es" />
     </>
   );
 }

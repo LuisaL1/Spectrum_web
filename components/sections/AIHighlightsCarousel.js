@@ -3,7 +3,7 @@
 import { useRef, useState } from "react";
 import { ArrowRightIcon } from "@/components/icons";
 
-const highlights = [
+const highlightsEs = [
   {
     num: "01",
     title: "Automatización de tareas",
@@ -26,7 +26,35 @@ const highlights = [
   },
 ];
 
-const total = highlights.length;
+const highlightsEn = [
+  {
+    num: "01",
+    title: "Task automation",
+    desc: "Save time and cut costs.",
+  },
+  {
+    num: "02",
+    title: "Advanced analytics",
+    desc: "Uncover hidden patterns in your data.",
+  },
+  {
+    num: "03",
+    title: "Personalized experiences",
+    desc: "Strengthen the relationship with your customers.",
+  },
+  {
+    num: "04",
+    title: "Intelligent security",
+    desc: "Protect your business with advanced detection systems.",
+  },
+];
+
+const labels = {
+  es: { prev: "Ver highlight anterior", next: "Ver siguiente highlight", goTo: (title) => `Ir al highlight ${title}` },
+  en: { prev: "View previous highlight", next: "View next highlight", goTo: (title) => `Go to ${title} highlight` },
+};
+
+const total = highlightsEs.length;
 
 function positionOf(index, active) {
   const offset = (index - active + total) % total;
@@ -38,7 +66,9 @@ function positionOf(index, active) {
 
 const SWIPE_THRESHOLD = 40;
 
-export default function AIHighlightsCarousel() {
+export default function AIHighlightsCarousel({ locale = "es" }) {
+  const highlights = locale === "en" ? highlightsEn : highlightsEs;
+  const l = labels[locale] || labels.es;
   const [active, setActive] = useState(0);
   const touchStartX = useRef(null);
 
@@ -80,7 +110,7 @@ export default function AIHighlightsCarousel() {
         <button
           type="button"
           className="ai-carousel-btn"
-          aria-label="Ver highlight anterior"
+          aria-label={l.prev}
           onClick={() => go(-1)}
         >
           <ArrowRightIcon size={16} style={{ transform: "rotate(180deg)" }} />
@@ -91,7 +121,7 @@ export default function AIHighlightsCarousel() {
               key={item.num}
               type="button"
               className={`ai-carousel-dot${index === active ? " active" : ""}`}
-              aria-label={`Ir al highlight ${item.title}`}
+              aria-label={l.goTo(item.title)}
               onClick={() => setActive(index)}
             />
           ))}
@@ -99,7 +129,7 @@ export default function AIHighlightsCarousel() {
         <button
           type="button"
           className="ai-carousel-btn"
-          aria-label="Ver siguiente highlight"
+          aria-label={l.next}
           onClick={() => go(1)}
         >
           <ArrowRightIcon size={16} />

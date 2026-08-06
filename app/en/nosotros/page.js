@@ -4,20 +4,19 @@ import CtaStrip from "@/components/sections/CtaStrip";
 import Footer from "@/components/layout/Footer";
 
 export const metadata = {
-  title: "Nosotros | Spectrum",
-  description:
-    "Quiénes somos, nuestra historia, misión y visión como ecosistema tecnológico.",
+  title: "About us | Spectrum",
+  description: "Who we are, our story, mission and vision as a technology ecosystem.",
 };
 
-export default function NosotrosPage() {
+export default function NosotrosPageEn() {
   return (
     <>
-      <Header locale="es" />
+      <Header locale="en" />
       <main id="main-content">
-        <Ecosystem locale="es" />
-        <CtaStrip locale="es" />
+        <Ecosystem locale="en" />
+        <CtaStrip locale="en" />
       </main>
-      <Footer locale="es" />
+      <Footer locale="en" />
     </>
   );
 }

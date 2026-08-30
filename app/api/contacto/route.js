@@ -4,8 +4,11 @@ import {
   buildLeadNotificationEmail,
 } from "@/lib/email-templates";
 import { validateContactPayload } from "@/lib/validation";
+import { rateLimit, getClientIp } from "@/lib/rate-limit";
 
 const BREVO_API_URL = "https://api.brevo.com/v3";
+const RATE_LIMIT = 5;
+const RATE_LIMIT_WINDOW_MS = 10 * 60 * 1000;
 
 async function sendEmail(apiKey, payload) {
   return fetch(`${BREVO_API_URL}/smtp/email`, {
@@ -20,6 +23,18 @@ async function sendEmail(apiKey, payload) {
 }
 
 export async function POST(request) {
+  const { limited, retryAfterSeconds } = rateLimit({
+    key: `contacto:${getClientIp(request)}`,
+    limit: RATE_LIMIT,
+    windowMs: RATE_LIMIT_WINDOW_MS,
+  });
+  if (limited) {
+    return Response.json(
+      { error: "Demasiadas solicitudes. Intenta de nuevo en unos minutos." },
+      { status: 429, headers: { "Retry-After": String(retryAfterSeconds) } }
+    );
+  }
+
   const apiKey = process.env.BREVO_API_KEY;
   if (!apiKey) {
     return Response.json(

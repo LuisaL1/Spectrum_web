@@ -3,11 +3,26 @@ import {
   FALLBACK_MESSAGE,
   FALLBACK_MESSAGE_EN,
 } from "@/lib/assistant-prompt";
+import { rateLimit, getClientIp } from "@/lib/rate-limit";
 
 const GEMINI_MODEL_DEFAULT = "gemini-flash-latest";
 const MAX_HISTORY_MESSAGES = 12;
+const RATE_LIMIT = 20;
+const RATE_LIMIT_WINDOW_MS = 5 * 60 * 1000;
 
 export async function POST(request) {
+  const { limited, retryAfterSeconds } = rateLimit({
+    key: `chat:${getClientIp(request)}`,
+    limit: RATE_LIMIT,
+    windowMs: RATE_LIMIT_WINDOW_MS,
+  });
+  if (limited) {
+    return Response.json(
+      { error: "Demasiadas solicitudes. Intenta de nuevo en unos minutos." },
+      { status: 429, headers: { "Retry-After": String(retryAfterSeconds) } }
+    );
+  }
+
   const apiKey = process.env.GEMINI_API_KEY;
   if (!apiKey) {
     return Response.json(

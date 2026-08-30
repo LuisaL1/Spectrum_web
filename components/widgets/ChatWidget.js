@@ -129,6 +129,7 @@ export default function ChatWidget({ locale = "es" }) {
               value={input}
               onChange={(event) => setInput(event.target.value)}
               placeholder={t.placeholder}
+              aria-label={t.placeholder}
               autoComplete="off"
               disabled={sending}
             />

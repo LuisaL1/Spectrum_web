@@ -67,6 +67,7 @@ export default function SearchModal({ inline = false, locale = "es" }) {
             value={query}
             onChange={(event) => setQuery(event.target.value)}
             placeholder={t.placeholder}
+            aria-label={t.placeholder}
             autoComplete="off"
           />
         </div>
@@ -134,6 +135,7 @@ export default function SearchModal({ inline = false, locale = "es" }) {
                 value={query}
                 onChange={(event) => setQuery(event.target.value)}
                 placeholder={t.placeholder}
+                aria-label={t.placeholder}
                 autoComplete="off"
               />
             </div>

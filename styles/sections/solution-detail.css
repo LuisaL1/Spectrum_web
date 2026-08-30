@@ -91,12 +91,12 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 48px;
-  height: 48px;
+  width: 60px;
+  height: 60px;
   border-radius: 50%;
   background: var(--color-white);
   color: var(--color-red);
-  box-shadow: 0 2px 8px rgba(2, 2, 2, 0.08);
+  box-shadow: 0 4px 12px rgba(2, 2, 2, 0.1);
   margin-bottom: 16px;
 }
 

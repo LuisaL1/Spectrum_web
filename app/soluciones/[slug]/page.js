@@ -94,7 +94,7 @@ export default async function SolutionPage({ params }) {
                   <div className="capability-item" key={item.title}>
                     {Icon && (
                       <div className="capability-icon" aria-hidden="true">
-                        <Icon size={22} />
+                        <Icon size={28} />
                       </div>
                     )}
                     <h3>{item.title}</h3>

@@ -81,7 +81,7 @@
 }
 
 .capability-item {
-  background: var(--color-graphite);
+  background: var(--color-gray-100);
   border-left: 3px solid var(--color-red);
   border-radius: var(--radius-md);
   padding: 26px 28px;
@@ -96,6 +96,7 @@
   border-radius: 50%;
   background: var(--color-white);
   color: var(--color-red);
+  box-shadow: 0 2px 8px rgba(2, 2, 2, 0.08);
   margin-bottom: 16px;
 }
 
@@ -103,13 +104,13 @@
   font-size: 16px;
   text-transform: none;
   letter-spacing: 0;
-  color: var(--color-white);
+  color: var(--color-black);
   margin-bottom: 10px;
 }
 
 .capability-item p {
   font-size: 14px;
-  color: var(--color-gray-300);
+  color: var(--color-gray-700);
   text-transform: none;
   font-weight: var(--fw-regular);
 }

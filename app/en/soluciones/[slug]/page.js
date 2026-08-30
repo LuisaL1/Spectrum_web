@@ -81,7 +81,7 @@ export default async function SolutionPageEn({ params }) {
           </div>
         </section>
 
-        <section>
+        <section className="on-light">
           <div className="wrap">
             <div className="section-head">
               <p className="eyebrow">{content.whatIncludes}</p>

@@ -29,7 +29,7 @@ export async function POST(request) {
   }
 
   const body = await request.json();
-  const { cargo, telefono, servicio, servicioSlug, promos } = body || {};
+  const promos = Boolean(body?.promos);
 
   const { valid, errors, data } = validateContactPayload(body);
   if (!valid) {
@@ -38,7 +38,7 @@ export async function POST(request) {
       { status: 400 }
     );
   }
-  const { nombre, correo, empresa, mensaje } = data;
+  const { nombre, correo, empresa, mensaje, servicio, servicioSlug, cargo, telefono } = data;
 
   const senderEmail = process.env.BREVO_SENDER_EMAIL;
   const senderName = process.env.BREVO_SENDER_NAME || "Spectrum";

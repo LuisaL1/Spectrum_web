@@ -11,18 +11,22 @@ export const solutions = [
     bg: "/fondos/fondo-infra.jpg",
     capabilities: [
       {
+        icon: "stack",
         title: "Hiperconvergencia (HCI)",
         desc: "Consolidación de cómputo, almacenamiento y virtualización en una sola plataforma, reduciendo costos operativos y puntos de falla.",
       },
       {
+        icon: "broadcast",
         title: "Centro de Operaciones de Red (NOC)",
         desc: "Monitoreo 24/7 de la salud de su infraestructura, con respuesta proactiva antes de que el problema impacte al usuario final.",
       },
       {
+        icon: "cloud",
         title: "Nube híbrida y privada",
         desc: "Migración y gestión de cargas de trabajo en el entorno que mejor se ajuste a su negocio, sin comprometer seguridad ni desempeño.",
       },
       {
+        icon: "shield-check",
         title: "Continuidad y respaldo",
         desc: "Esquemas de backup y recuperación ante desastres (DRP) que garantizan que su operación nunca se detenga.",
       },
@@ -45,18 +49,22 @@ export const solutions = [
     bg: "/fondos/fondo-ciber.jpg",
     capabilities: [
       {
+        icon: "shield-clock",
         title: "SOC 24/7",
         desc: "Un equipo dedicado que vigila su entorno todo el día, todos los días, detectando y conteniendo amenazas en tiempo real.",
       },
       {
+        icon: "bug",
         title: "Hacking ético / Pentesting",
         desc: "Pruebas de intrusión controladas para encontrar las brechas antes que un atacante real.",
       },
       {
+        icon: "code-lock",
         title: "Seguridad de aplicaciones y APIs",
         desc: "Revisión y protección de los puntos de entrada más explotados por los ciberdelincuentes hoy.",
       },
       {
+        icon: "audit",
         title: "Gestión de vulnerabilidades",
         desc: "Identificación y remediación continua, alineada a los estándares que su industria exige.",
       },
@@ -79,18 +87,22 @@ export const solutions = [
     bg: "/fondos/fondo-conec.jpg",
     capabilities: [
       {
+        icon: "nodes",
         title: "SD-WAN",
         desc: "Enrutamiento inteligente del tráfico entre sedes, priorizando aplicaciones críticas y reduciendo costos de enlaces tradicionales.",
       },
       {
+        icon: "building",
         title: "Redes LAN/WAN empresariales",
         desc: "Diseño e implementación de redes cableadas e inalámbricas robustas, pensadas para crecer sin fricciones.",
       },
       {
+        icon: "server-rack",
         title: "Switching de Data Center",
         desc: "Arquitecturas de conmutación de alto desempeño para los entornos más exigentes.",
       },
       {
+        icon: "lock",
         title: "Conectividad cifrada de extremo a extremo",
         desc: "Cada conexión entre sedes viaja protegida, sin exponer información sensible.",
       },
@@ -113,18 +125,22 @@ export const solutions = [
     bg: "/fondos/fondo-ti.jpg",
     capabilities: [
       {
+        icon: "renew",
         title: "Leasing tecnológico",
         desc: "Renueve su infraestructura sin comprometer flujo de caja, con equipos siempre actualizados.",
       },
       {
+        icon: "headset",
         title: "Mesa de ayuda",
         desc: "Soporte técnico especializado, disponible cuando su operación lo necesita.",
       },
       {
+        icon: "compass",
         title: "Consultoría estratégica",
         desc: "Acompañamiento experto para tomar mejores decisiones tecnológicas, alineadas a su negocio.",
       },
       {
+        icon: "wrench",
         title: "Mantenimiento preventivo y correctivo",
         desc: "Reducimos el tiempo de inactividad antes de que se convierta en un problema.",
       },
@@ -147,18 +163,22 @@ export const solutions = [
     bg: "/fondos/fondo-ia.jpg",
     capabilities: [
       {
+        icon: "gear",
         title: "Automatización inteligente",
         desc: "Eliminamos tareas repetitivas y propensas a error, liberando tiempo de su equipo para lo que realmente importa.",
       },
       {
+        icon: "trend",
         title: "Analítica predictiva",
         desc: "Modelos que anticipan tendencias, fallas y riesgos antes de que ocurran, no después.",
       },
       {
+        icon: "chip-shield",
         title: "IA aplicada a ciberseguridad",
         desc: "Detección de anomalías y patrones de amenaza que los sistemas tradicionales no ven.",
       },
       {
+        icon: "plug",
         title: "Integración con su operación actual",
         desc: "Implementamos IA sobre la infraestructura que ya tiene, sin reinventar su arquitectura.",
       },
@@ -184,18 +204,22 @@ export const solutionsEn = [
     bg: "/fondos/fondo-infra.jpg",
     capabilities: [
       {
+        icon: "stack",
         title: "Hyperconvergence (HCI)",
         desc: "Consolidation of compute, storage and virtualization on a single platform, reducing operating costs and points of failure.",
       },
       {
+        icon: "broadcast",
         title: "Network Operations Center (NOC)",
         desc: "24/7 monitoring of your infrastructure's health, with proactive response before an issue impacts the end user.",
       },
       {
+        icon: "cloud",
         title: "Hybrid and private cloud",
         desc: "Migration and management of workloads in the environment that best fits your business, without compromising security or performance.",
       },
       {
+        icon: "shield-check",
         title: "Continuity and backup",
         desc: "Backup and disaster recovery (DRP) schemes that ensure your operation never stops.",
       },
@@ -218,18 +242,22 @@ export const solutionsEn = [
     bg: "/fondos/fondo-ciber.jpg",
     capabilities: [
       {
+        icon: "shield-clock",
         title: "SOC 24/7",
         desc: "A dedicated team watching your environment all day, every day, detecting and containing threats in real time.",
       },
       {
+        icon: "bug",
         title: "Ethical hacking / Pentesting",
         desc: "Controlled intrusion tests to find the gaps before a real attacker does.",
       },
       {
+        icon: "code-lock",
         title: "Application and API security",
         desc: "Review and protection of the entry points most exploited by cybercriminals today.",
       },
       {
+        icon: "audit",
         title: "Vulnerability management",
         desc: "Continuous identification and remediation, aligned to the standards your industry requires.",
       },
@@ -252,18 +280,22 @@ export const solutionsEn = [
     bg: "/fondos/fondo-conec.jpg",
     capabilities: [
       {
+        icon: "nodes",
         title: "SD-WAN",
         desc: "Intelligent traffic routing between sites, prioritizing critical applications and reducing traditional link costs.",
       },
       {
+        icon: "building",
         title: "Enterprise LAN/WAN networks",
         desc: "Design and deployment of robust wired and wireless networks, built to grow without friction.",
       },
       {
+        icon: "server-rack",
         title: "Data Center switching",
         desc: "High-performance switching architectures for the most demanding environments.",
       },
       {
+        icon: "lock",
         title: "End-to-end encrypted connectivity",
         desc: "Every connection between sites travels protected, without exposing sensitive information.",
       },
@@ -286,18 +318,22 @@ export const solutionsEn = [
     bg: "/fondos/fondo-ti.jpg",
     capabilities: [
       {
+        icon: "renew",
         title: "Technology leasing",
         desc: "Renew your infrastructure without compromising cash flow, with equipment that's always up to date.",
       },
       {
+        icon: "headset",
         title: "Help desk",
         desc: "Specialized technical support, available whenever your operation needs it.",
       },
       {
+        icon: "compass",
         title: "Strategic consulting",
         desc: "Expert guidance to make better technology decisions, aligned with your business.",
       },
       {
+        icon: "wrench",
         title: "Preventive and corrective maintenance",
         desc: "We reduce downtime before it becomes a problem.",
       },
@@ -320,18 +356,22 @@ export const solutionsEn = [
     bg: "/fondos/fondo-ia.jpg",
     capabilities: [
       {
+        icon: "gear",
         title: "Intelligent automation",
         desc: "We eliminate repetitive, error-prone tasks, freeing up your team's time for what really matters.",
       },
       {
+        icon: "trend",
         title: "Predictive analytics",
         desc: "Models that anticipate trends, failures and risks before they happen, not after.",
       },
       {
+        icon: "chip-shield",
         title: "AI applied to cybersecurity",
         desc: "Detection of anomalies and threat patterns that traditional systems can't see.",
       },
       {
+        icon: "plug",
         title: "Integration with your current operation",
         desc: "We implement AI on top of the infrastructure you already have, without reinventing your architecture.",
       },

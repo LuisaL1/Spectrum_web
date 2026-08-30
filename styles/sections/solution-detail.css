@@ -87,6 +87,18 @@
   padding: 26px 28px;
 }
 
+.capability-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: var(--color-white);
+  color: var(--color-red);
+  margin-bottom: 16px;
+}
+
 .capability-item h3 {
   font-size: 16px;
   text-transform: none;

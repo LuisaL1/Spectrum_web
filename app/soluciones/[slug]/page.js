@@ -5,6 +5,7 @@ import CtaStrip from "@/components/sections/CtaStrip";
 import Footer from "@/components/layout/Footer";
 import InfoRequestForm from "@/components/widgets/InfoRequestForm";
 import { CheckIcon } from "@/components/icons";
+import { capabilityIconMap } from "@/components/icons/capability-icon-map";
 import { solutions, getSolutionBySlug } from "@/data/solutions-data";
 
 const locale = "es";
@@ -87,12 +88,20 @@ export default async function SolutionPage({ params }) {
               <h2>{content.scope}</h2>
             </div>
             <div className="capability-grid">
-              {solution.capabilities.map((item) => (
-                <div className="capability-item" key={item.title}>
-                  <h3>{item.title}</h3>
-                  <p>{item.desc}</p>
-                </div>
-              ))}
+              {solution.capabilities.map((item) => {
+                const Icon = capabilityIconMap[item.icon];
+                return (
+                  <div className="capability-item" key={item.title}>
+                    {Icon && (
+                      <div className="capability-icon" aria-hidden="true">
+                        <Icon size={22} />
+                      </div>
+                    )}
+                    <h3>{item.title}</h3>
+                    <p>{item.desc}</p>
+                  </div>
+                );
+              })}
             </div>
           </div>
         </section>

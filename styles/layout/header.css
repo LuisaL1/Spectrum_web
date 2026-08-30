@@ -134,6 +134,7 @@ nav.primary ul {
 
 .mobile-toggle {
   display: none;
+  flex-shrink: 0;
   background: none;
   border: none;
   color: var(--color-white);

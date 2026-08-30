@@ -207,11 +207,37 @@
   nav.primary.is-open .mega-menu-col a:first-of-type {
     border-top: none;
   }
+
+  .units-track {
+    height: 420px;
+  }
+
+  .soluciones-mark {
+    width: 900px;
+  }
+
+  .unit-card {
+    width: 260px;
+  }
+
+  .unit-card.is-prev {
+    transform: translate(calc(-50% - 190px), -50%) scale(0.85);
+  }
+
+  .unit-card.is-next {
+    transform: translate(calc(-50% + 190px), -50%) scale(0.85);
+  }
 }
 
 @media (max-width: 560px) {
   section {
     padding: 64px 0;
+  }
+
+  /* El logo no se achicaba en mobile: a 190px fijos desbordaba el navbar
+     en telefonos angostos (320-360px) y aplastaba el boton de menu. */
+  .main-nav .logo-img {
+    width: 130px;
   }
 
   .section-head h2 {
@@ -309,33 +335,28 @@
     font-size: 22px;
   }
 
-  .units-track {
-    height: 420px;
-  }
-
-  .soluciones-mark {
-    width: 900px;
-  }
-
-  .unit-card {
-    width: 260px;
-  }
-
-  .unit-card.is-prev {
-    transform: translate(calc(-50% - 190px), -50%) scale(0.85);
-  }
-
-  .unit-card.is-next {
-    transform: translate(calc(-50% + 190px), -50%) scale(0.85);
-  }
-
   .footer-top {
     grid-template-columns: 1fr;
   }
 
   .cta-strip .wrap {
     flex-direction: column;
-    align-items: flex-start;
+    align-items: stretch;
+  }
+
+  .cta-strip h2 {
+    max-width: 100%;
+    font-size: 24px;
+  }
+
+  .cta-strip-actions {
+    width: 100%;
+  }
+
+  .cta-strip-actions .btn {
+    flex: 1 1 auto;
+    justify-content: center;
+    text-align: center;
   }
 
   .news-list-item {

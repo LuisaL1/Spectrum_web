@@ -2,10 +2,16 @@ import Header from "@/components/layout/Header";
 import Ecosystem from "@/components/sections/Ecosystem";
 import CtaStrip from "@/components/sections/CtaStrip";
 import Footer from "@/components/layout/Footer";
+import { buildAlternates, buildOpenGraph } from "@/lib/seo";
+
+const title = "About us | Spectrum";
+const description = "Who we are, our story, mission and vision as a technology ecosystem.";
 
 export const metadata = {
-  title: "About us | Spectrum",
-  description: "Who we are, our story, mission and vision as a technology ecosystem.",
+  title,
+  description,
+  alternates: buildAlternates("en", "/nosotros"),
+  ...buildOpenGraph({ title, description, locale: "en", path: "/nosotros" }),
 };
 
 export default function NosotrosPageEn() {

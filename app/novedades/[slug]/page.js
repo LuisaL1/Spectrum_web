@@ -6,6 +6,8 @@ import CtaStrip from "@/components/sections/CtaStrip";
 import Footer from "@/components/layout/Footer";
 import { ArrowRightIcon } from "@/components/icons";
 import { news, getNewsItemBySlug } from "@/data/news";
+import { buildAlternates, buildOpenGraph } from "@/lib/seo";
+import { buildBreadcrumbSchema } from "@/lib/structured-data";
 
 const locale = "es";
 
@@ -17,9 +19,14 @@ export async function generateMetadata({ params }) {
   const { slug } = await params;
   const item = getNewsItemBySlug(slug, locale);
   if (!item) return {};
+  const title = `${item.title} | Spectrum`;
+  const description = item.excerpt;
+  const path = `/novedades/${slug}`;
   return {
-    title: `${item.title} | Spectrum`,
-    description: item.excerpt,
+    title,
+    description,
+    alternates: buildAlternates(locale, path),
+    ...buildOpenGraph({ title, description, locale, path }),
   };
 }
 
@@ -28,8 +35,18 @@ export default async function NewsItemPage({ params }) {
   const item = getNewsItemBySlug(slug, locale);
   if (!item) notFound();
 
+  const breadcrumbSchema = buildBreadcrumbSchema([
+    { name: "Inicio", path: "/" },
+    { name: "Novedades", path: "/novedades" },
+    { name: item.title, path: `/novedades/${slug}` },
+  ]);
+
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
+      />
       <Header locale={locale} />
       <main id="main-content">
         <section className="on-light pattern-bg article-doc">

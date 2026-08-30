@@ -2,10 +2,16 @@ import Header from "@/components/layout/Header";
 import Team from "@/components/sections/Team";
 import Culture from "@/components/sections/Culture";
 import Footer from "@/components/layout/Footer";
+import { buildAlternates, buildOpenGraph } from "@/lib/seo";
+
+const title = "Team | Spectrum";
+const description = "Meet the leadership and working team that makes Spectrum possible.";
 
 export const metadata = {
-  title: "Team | Spectrum",
-  description: "Meet the leadership and working team that makes Spectrum possible.",
+  title,
+  description,
+  alternates: buildAlternates("en", "/equipo"),
+  ...buildOpenGraph({ title, description, locale: "en", path: "/equipo" }),
 };
 
 export default function EquipoPageEn() {

@@ -9,11 +9,17 @@ import Partners from "@/components/sections/Partners";
 import Blog from "@/components/sections/Blog";
 import CtaStrip from "@/components/sections/CtaStrip";
 import Footer from "@/components/layout/Footer";
+import { buildAlternates, buildOpenGraph } from "@/lib/seo";
+
+const title = "Spectrum | Future Powered";
+const description =
+  "Spectrum is a technology ecosystem of infrastructure, cybersecurity and connectivity for public and private organizations.";
 
 export const metadata = {
-  title: "Spectrum | Future Powered",
-  description:
-    "Spectrum is a technology ecosystem of infrastructure, cybersecurity and connectivity for public and private organizations.",
+  title,
+  description,
+  alternates: buildAlternates("en", "/"),
+  ...buildOpenGraph({ title, description, locale: "en", path: "/" }),
 };
 
 export default function HomeEn() {

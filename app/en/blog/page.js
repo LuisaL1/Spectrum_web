@@ -2,11 +2,17 @@ import Header from "@/components/layout/Header";
 import BlogArchive from "@/components/sections/BlogArchive";
 import CtaStrip from "@/components/sections/CtaStrip";
 import Footer from "@/components/layout/Footer";
+import { buildAlternates, buildOpenGraph } from "@/lib/seo";
+
+const title = "Blog | Spectrum";
+const description =
+  "Technical articles from Spectrum on infrastructure, cybersecurity, connectivity and artificial intelligence.";
 
 export const metadata = {
-  title: "Blog | Spectrum",
-  description:
-    "Technical articles from Spectrum on infrastructure, cybersecurity, connectivity and artificial intelligence.",
+  title,
+  description,
+  alternates: buildAlternates("en", "/blog"),
+  ...buildOpenGraph({ title, description, locale: "en", path: "/blog" }),
 };
 
 export default function BlogPageEn() {

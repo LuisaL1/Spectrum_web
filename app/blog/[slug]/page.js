@@ -6,6 +6,8 @@ import CtaStrip from "@/components/sections/CtaStrip";
 import Footer from "@/components/layout/Footer";
 import { ArrowRightIcon } from "@/components/icons";
 import { articles, getArticleBySlug } from "@/data/articles";
+import { buildAlternates, buildOpenGraph } from "@/lib/seo";
+import { buildBreadcrumbSchema } from "@/lib/structured-data";
 
 const locale = "es";
 
@@ -17,9 +19,14 @@ export async function generateMetadata({ params }) {
   const { slug } = await params;
   const article = getArticleBySlug(slug, locale);
   if (!article) return {};
+  const title = `${article.title} | Spectrum`;
+  const description = article.excerpt;
+  const path = `/blog/${slug}`;
   return {
-    title: `${article.title} | Spectrum`,
-    description: article.excerpt,
+    title,
+    description,
+    alternates: buildAlternates(locale, path),
+    ...buildOpenGraph({ title, description, locale, path }),
   };
 }
 
@@ -28,8 +35,18 @@ export default async function ArticlePage({ params }) {
   const article = getArticleBySlug(slug, locale);
   if (!article) notFound();
 
+  const breadcrumbSchema = buildBreadcrumbSchema([
+    { name: "Inicio", path: "/" },
+    { name: "Blog", path: "/blog" },
+    { name: article.title, path: `/blog/${slug}` },
+  ]);
+
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
+      />
       <Header locale={locale} />
       <main id="main-content">
         <section className="on-light pattern-bg article-doc">

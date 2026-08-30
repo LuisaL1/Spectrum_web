@@ -1,11 +1,17 @@
 import Header from "@/components/layout/Header";
 import DataPolicy from "@/components/sections/DataPolicy";
 import Footer from "@/components/layout/Footer";
+import { buildAlternates, buildOpenGraph } from "@/lib/seo";
+
+const title = "Personal Data Processing Policy | Spectrum";
+const description =
+  "Spectrum Technology S.A.S's Personal Data Processing Policy, in accordance with Colombian Law 1581 of 2012 and Decree 1377 of 2013.";
 
 export const metadata = {
-  title: "Personal Data Processing Policy | Spectrum",
-  description:
-    "Spectrum Technology S.A.S's Personal Data Processing Policy, in accordance with Colombian Law 1581 of 2012 and Decree 1377 of 2013.",
+  title,
+  description,
+  alternates: buildAlternates("en", "/politica-de-datos"),
+  ...buildOpenGraph({ title, description, locale: "en", path: "/politica-de-datos" }),
 };
 
 export default function PoliticaDeDatosPageEn() {

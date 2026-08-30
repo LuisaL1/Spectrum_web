@@ -2,6 +2,7 @@ import { headers } from "next/headers";
 import { Montserrat } from "next/font/google";
 import ChatWidget from "@/components/widgets/ChatWidget";
 import { getSiteUrl } from "@/lib/site-url";
+import { buildOrganizationSchema } from "@/lib/structured-data";
 
 import "@/styles/variables.css";
 import "@/styles/base.css";
@@ -74,6 +75,10 @@ export default async function RootLayout({ children }) {
   return (
     <html lang={locale} className={montserrat.variable}>
       <body>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(buildOrganizationSchema()) }}
+        />
         <a className="skip-link" href="#main-content">
           {locale === "en" ? "Skip to content" : "Saltar al contenido"}
         </a>

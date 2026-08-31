@@ -44,7 +44,6 @@ export async function POST(request) {
   }
 
   const body = await request.json();
-  const promos = Boolean(body?.promos);
 
   const { valid, errors, data } = validateContactPayload(body);
   if (!valid) {
@@ -59,7 +58,6 @@ export async function POST(request) {
   const senderName = process.env.BREVO_SENDER_NAME || "Spectrum";
   const notifyTo = process.env.CONTACT_NOTIFY_EMAIL || "contacto@spectrumt.co";
   const infoListId = process.env.BREVO_LIST_ID_INFO;
-  const boletinListId = process.env.BREVO_LIST_ID_BOLETIN;
 
   if (!senderEmail) {
     return Response.json(
@@ -85,7 +83,6 @@ export async function POST(request) {
       telefono,
       servicio,
       mensaje,
-      promos,
     }),
   });
 
@@ -116,7 +113,6 @@ export async function POST(request) {
   // 3. Alta/actualización del contacto en las listas de Brevo.
   const listIds = [];
   if (infoListId) listIds.push(Number(infoListId));
-  if (promos && boletinListId) listIds.push(Number(boletinListId));
 
   if (listIds.length > 0) {
     const contactPayload = {

@@ -7,12 +7,13 @@ function DataPolicyEs() {
         <p className="legal-meta">Fecha de vigencia: julio de 2026</p>
 
         <p>
-          Spectrum se compromete con la protección de los datos personales de
-          las personas naturales y jurídicas que interactúan con su sitio web
-          y sus canales comerciales. La presente Política de Tratamiento de
+          Spectrum Technology S.A.S. (en adelante, &quot;Spectrum&quot;) se
+          compromete con la protección de los datos personales de las
+          personas naturales y jurídicas que interactúan con su sitio web y
+          sus canales comerciales. La presente Política de Tratamiento de
           Datos Personales (en adelante, la &quot;Política&quot;) describe de
-          forma clara y transparente cómo recolectamos, usamos, almacenamos y
-          protegemos la información suministrada por los usuarios, en
+          forma clara y transparente cómo se recolecta, usa, almacena y
+          protege la información suministrada por los usuarios, en
           cumplimiento de la Ley 1581 de 2012, el Decreto 1377 de 2013 y
           demás normas que la modifiquen o complementen en Colombia, y
           observando, en lo que resulte aplicable, los principios y
@@ -23,10 +24,10 @@ function DataPolicyEs() {
         <h2>1. Objeto y alcance</h2>
         <p>
           <strong>Responsable del tratamiento:</strong> Spectrum Technology
-          S.A.S. (en adelante &quot;Spectrum&quot;), identificada con NIT
-          [Número de Identificación Tributaria], es la entidad responsable
-          del tratamiento de los datos personales recolectados a través de su
-          sitio web y del formulario de contacto comercial.
+          S.A.S. (en adelante &quot;Spectrum&quot;), sociedad legalmente
+          constituida en Colombia, es la entidad responsable del tratamiento
+          de los datos personales recolectados a través de su sitio web y del
+          formulario de contacto comercial.
         </p>
         <p>
           Esta Política aplica a toda la información personal y corporativa
@@ -43,15 +44,9 @@ function DataPolicyEs() {
         </p>
         <ul>
           <li>Razón social: Spectrum Technology S.A.S.</li>
-          <li>NIT: [Número de Identificación Tributaria]</li>
           <li>
-            Correo electrónico de contacto para privacidad: [correo de
-            privacidad, ej. privacidad@spectrumt.co]
-          </li>
-          <li>Dirección física: [Pendiente por definir]</li>
-          <li>
-            Canal principal de atención a derechos: correo electrónico /
-            formulario de contacto disponible en el sitio web
+            Canal principal de atención a derechos y consultas de privacidad:
+            formulario de contacto disponible en el sitio web de Spectrum.
           </li>
         </ul>
 
@@ -149,10 +144,10 @@ function DataPolicyEs() {
           Para conocer, actualizar, rectificar o suprimir sus datos, o para
           revocar el consentimiento otorgado (incluyendo la exclusión del
           envío de boletines y comunicaciones comerciales de la Finalidad B),
-          el usuario debe enviar una solicitud al correo [correo de
-          privacidad, ej. privacidad@spectrumt.co], indicando su nombre
-          completo, la empresa que representa y una descripción clara de su
-          solicitud. Spectrum dará respuesta dentro de los términos
+          el usuario debe enviar su solicitud a través del formulario de
+          contacto disponible en el sitio web de Spectrum, indicando su
+          nombre completo, la empresa que representa y una descripción clara
+          de su solicitud. Spectrum dará respuesta dentro de los términos
           establecidos por la Ley 1581 de 2012 (máximo diez (10) días hábiles
           para consultas y quince (15) días hábiles para reclamos,
           prorrogables cuando así lo exija la complejidad del caso, con la

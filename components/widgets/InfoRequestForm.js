@@ -23,7 +23,6 @@ const content = {
     consentPrefix: "Autorizo el tratamiento de mis datos personales conforme a la",
     privacyPolicy: "política de privacidad",
     consentSuffix: "de Spectrum. *",
-    promos: "Deseo recibir novedades y promociones de los servicios de Spectrum.",
     sending: "Enviando...",
     submit: "Enviar solicitud",
     genericError:
@@ -46,7 +45,6 @@ const content = {
     consentPrefix: "I authorize the processing of my personal data in accordance with the",
     privacyPolicy: "privacy policy",
     consentSuffix: "of Spectrum. *",
-    promos: "I'd like to receive news and promotions about Spectrum's services.",
     sending: "Sending...",
     submit: "Submit request",
     genericError:
@@ -91,7 +89,6 @@ export default function InfoRequestForm({ serviceName, serviceSlug, locale = "es
       mensaje: data.get("mensaje"),
       servicio: serviceName,
       servicioSlug: serviceSlug,
-      promos: Boolean(data.get("promos")),
     };
 
     try {
@@ -207,10 +204,6 @@ export default function InfoRequestForm({ serviceName, serviceSlug, locale = "es
                       </Link>{" "}
                       {t.consentSuffix}
                     </span>
-                  </label>
-                  <label className="form-checkbox">
-                    <input type="checkbox" name="promos" />
-                    <span>{t.promos}</span>
                   </label>
                   {error && <p className="form-error">{error}</p>}
                   <button

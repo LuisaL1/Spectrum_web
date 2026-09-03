@@ -1,7 +1,6 @@
 import { WhatsAppIcon } from "@/components/icons";
 
-// TODO: reemplazar por el numero real de WhatsApp de Spectrum.
-const WHATSAPP_NUMBER = "573000000000";
+const WHATSAPP_NUMBER = "573124650754";
 
 const content = {
   es: {
